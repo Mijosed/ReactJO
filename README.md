@@ -5,6 +5,9 @@ observer les événements sportifs en direct. Elle offre une carte interactive a
 détaillées sur les lieux des événements, les sports programmés, et permet également la recherche
 filtrée et d'autres fonctionnalités bonus.
 
+### Lancer l'application en local avec du PHP :
+- ```php -S localhost:8080```
+
 ### Design Figma
 Maquette figma [ici](https://www.figma.com/files/team/1362064351304315263/ReactJO?fuid=1351862802237289276)
 
