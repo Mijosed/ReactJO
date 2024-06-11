@@ -1,4 +1,4 @@
-import { React } from "./MiniReact.js";
+import { React } from "../core/MiniReact.js";
 export function BrowserLink(path, title) {
   const link = document.createElement("a");
   link.href = path;

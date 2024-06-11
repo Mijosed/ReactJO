@@ -1,5 +1,5 @@
 import { BrowserLink } from "../components/BrowserRouter.js";
-import { React } from "../components/MiniReact.js";
+import { React } from "../core/MiniReact.js";
 
 export default function EventPage() {
   console.log(React.render(test));
