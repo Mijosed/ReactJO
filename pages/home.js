@@ -1,19 +1,12 @@
 import { BrowserLink } from "../components/BrowserRouter.js";
+import { React } from "../components/MiniReact.js";
 
 export default function HomePage() {
-    const div = document.createElement("div");
-
-    const eventLinkDiv = document.createElement("div");
-    eventLinkDiv.appendChild(BrowserLink("/event", "Evenements"));
-    const spotLinkDiv = document.createElement("div");
-    spotLinkDiv.appendChild(BrowserLink("/spot", "Spots"));
-
-    div.appendChild(eventLinkDiv);
-    div.appendChild(spotLinkDiv);
-
-    const textElement = document.createElement("p");
-    textElement.textContent = "Vous etes sur la page d'accueil";
-    div.appendChild(textElement);
-
-    return div;
+  const languages = ["javascript", "php", "haskell"];
+  const virtualDOM = React.createElement(
+    "ul",
+    { id: "brrap" },
+    languages.map((language) => React.createElement("li", {}, [language]))
+  );
+  return virtualDOM;
 }
