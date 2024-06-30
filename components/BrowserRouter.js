@@ -10,11 +10,6 @@ export function BrowserLink(path, title) {
     return link;
 }
 export function BrowserLinkStruct(path, title) {
-    //link.addEventListener("click", (event) => {
-    //  event.preventDefault();
-    //  window.history.pushState({}, undefined, path);
-    //  window.dispatchEvent(new Event("pushstate"));
-    //});
     return {
         type: "a",
         attributes: {
