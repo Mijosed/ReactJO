@@ -1959,9 +1959,17 @@ video {
   vertical-align: super;
 }
 
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+.font-olympic {
+  font-family: "OlympicHeadline", sans-serif;
+}
+
+.font-olympicSans {
+  font-family: "OlympicSans", sans-serif;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold {
@@ -2414,6 +2422,46 @@ video {
 
 .forced-color-adjust-none {
   forced-color-adjust: none;
+}
+
+@font-face {
+  font-family: 'OlympicHeadline';
+
+  src: url('../fonts/OlympicHeadline-Regular.woff2') format('woff2');
+
+  font-weight: normal;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OlympicHeadline';
+
+  src: url('../fonts/OlympicHeadline-RegularItalic.woff2') format('woff2');
+
+  font-weight: normal;
+
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OlympicSans';
+
+  src: url('../fonts/OlympicSans.ttf') format('truetype');
+
+  font-weight: normal;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OlympicSans';
+
+  src: url('../fonts/OlympicSans-Italic.ttf') format('truetype');
+
+  font-weight: normal;
+
+  font-style: italic;
 }
 
 @media (min-width: 640px) {

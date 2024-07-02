@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./**/*.{html,js}", "./views/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        olympic: ['"OlympicHeadline"', 'sans-serif'],
+        olympicSans: ['"OlympicSans"', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

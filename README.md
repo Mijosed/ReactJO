@@ -22,4 +22,4 @@ Lisez la liste des [contributeurs](https://github.com/Mijosed/ReactJO/contributo
 
 ### Compilation du CSS 
 
-npx tailwindcss -i ./assets/style.css -o ./assets/output.css --watch
+npx tailwindcss -i ./assets/style/style.css -o ./assets/style/output.css --watch
