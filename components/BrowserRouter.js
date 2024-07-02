@@ -1,35 +1,43 @@
-export function BrowserLink(path, title) {
-    const link = document.createElement("a");
-    link.href = path;
-    link.appendChild(document.createTextNode(title));
-    link.addEventListener("click", (event) => {
-        event.preventDefault();
-        window.history.pushState({}, undefined, path);
-        window.dispatchEvent(new Event("pushstate"));
-    });
-    return link;
-}
-export function BrowserLinkStruct(path, title) {
-    return {
-        type: "a",
-        attributes: {
-            href: path,
-        },
-        children: [title],
-    };
-}
+import generateStructure from "../core/generateStructure.js";
 
 export default function BrowserRouter(rootElement, routes) {
-    function manageRoute() {
-        const path = window.location.pathname;
-        const pageFunction = routes[path];
+  //const oldPushState = window.history.pushState;
+  //window.history.pushState = function (data, title, url) {
+  //  oldPushState.call(window.history, data, title, url);
+  //  window.dispatchEvent(new Event("popstate"));
+  //};
+  function managePath() {
+    const path = window.location.pathname;
+    const pageGenerator = routes[path] ?? routes["*"];
+    return pageGenerator();
+  }
 
-        if (rootElement.childNodes[0])
-            rootElement.replaceChild(pageFunction(), rootElement.childNodes[0]);
-        else rootElement.appendChild(pageFunction());
-    }
+  window.addEventListener("popstate", function () {
+    rootElement.replaceChild(
+      generateStructure(managePath()),
+      rootElement.childNodes[0]
+    );
+  });
+  window.addEventListener("pushstate", function () {
+    rootElement.replaceChild(
+      generateStructure(managePath()),
+      rootElement.childNodes[0]
+    );
+  });
+  rootElement.appendChild(generateStructure(managePath()));
+}
 
-    window.addEventListener("popstate", manageRoute);
-    window.addEventListener("pushstate", manageRoute);
-    manageRoute();
+export function BrowserLink(props) {
+  return {
+    tag: "a",
+    props: {
+      href: props.path,
+      onClick: (e) => {
+        e.preventDefault();
+        window.history.pushState({}, null, props.path);
+        window.dispatchEvent(new Event("pushstate"));
+      },
+    },
+    children: [props.title],
+  };
 }

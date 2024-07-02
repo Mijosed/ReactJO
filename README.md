@@ -19,3 +19,7 @@ Maquette figma [ici](https://www.figma.com/files/team/1362064351304315263/ReactJ
 * **Joshua GRANDVILLE** _alias_ [@Joshua Grandville](https://github.com/Pinappll)
 
 Lisez la liste des [contributeurs](https://github.com/Mijosed/ReactJO/contributors) pour voir qui à aidé au projet !
+
+### Compilation du CSS 
+
+npx tailwindcss -i ./assets/style.css -o ./assets/output.css --watch
