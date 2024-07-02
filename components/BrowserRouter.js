@@ -9,20 +9,15 @@ export default function BrowserRouter(rootElement, routes) {
   function managePath() {
     const path = window.location.pathname;
     const pageGenerator = routes[path] ?? routes["*"];
-    return pageGenerator();
+    let test = new pageGenerator();
+    return test.render();
   }
 
   window.addEventListener("popstate", function () {
-    rootElement.replaceChild(
-      generateStructure(managePath()),
-      rootElement.childNodes[0]
-    );
+    rootElement.replaceChild(generateStructure(managePath()), rootElement.childNodes[0]);
   });
   window.addEventListener("pushstate", function () {
-    rootElement.replaceChild(
-      generateStructure(managePath()),
-      rootElement.childNodes[0]
-    );
+    rootElement.replaceChild(generateStructure(managePath()), rootElement.childNodes[0]);
   });
   rootElement.appendChild(generateStructure(managePath()));
 }
