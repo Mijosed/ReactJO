@@ -1,7 +1,11 @@
 export default function BrowserRouter(rootElement, routes) {
   function manageRoute() {
     const path = window.location.pathname;
-    const pageFunction = routes[path];
+    let pageFunction = routes[path];
+
+    if (!pageFunction) {
+      pageFunction = routes['/404'];
+    }
 
     if (rootElement.childNodes[0])
       rootElement.replaceChild(pageFunction(), rootElement.childNodes[0]);

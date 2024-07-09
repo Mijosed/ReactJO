@@ -4,7 +4,7 @@ import {
     LinkComponent,
     TextComponent,
     MainComponent,
-    TitleComponent, FooterSection, MapSection
+    TitleComponent, FooterSection, MapSection, SportSection
 } from '../components/Components.js';
 
 export class HomePage extends Component {
@@ -14,6 +14,8 @@ export class HomePage extends Component {
         const TitleElement = new TitleComponent({ text: "Explorer les sites" });
         const mainElement = new MainComponent();
         const mapElement = new MapSection();
+        const Title2Element = new TitleComponent({ text: "Les différents sports présents lors des JO" });
+        const sportElement = new SportSection();
         const footerElement = new FooterSection();
 
         return {
@@ -22,6 +24,8 @@ export class HomePage extends Component {
                 mainElement.render(),
                 TitleElement.render(),
                 mapElement.render(),
+                Title2Element.render(),
+                sportElement.render(),
                 footerElement.render(),
             ]
         };
@@ -32,3 +36,5 @@ export default function renderHomePage() {
     const homePage = new HomePage();
     return Render.createElement(homePage.render());
 }
+
+

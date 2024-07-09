@@ -2,6 +2,7 @@ import { Component } from '../core/Component.js';
 import { HeaderComponent } from './HeaderComponent.js';
 import { MapComponent } from './MapComponent.js';
 import { FooterComponent } from './FooterComponent.js';
+import { SportComponent } from "./SportComponent.js";
 
 
 export class LinkComponent extends Component {
@@ -58,7 +59,7 @@ export class MapSection extends Component {
     render() {
         const mapComponent = new MapComponent();
         return {
-            tag: "div",
+            tag: "section",
             props: { id: "map", class: "map-container" },
             children: [
                 mapComponent.render()
@@ -66,6 +67,20 @@ export class MapSection extends Component {
         };
     }
 }
+
+export class SportSection extends Component {
+    render() {
+        const sportComponent = new SportComponent();
+        return {
+            tag: "section",
+            props: { id: "sports", class: "sports-container" },
+            children: [
+                sportComponent.render()
+            ]
+        };
+    }
+}
+
 
 export class FooterSection extends Component {
     render() {

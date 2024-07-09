@@ -35,10 +35,15 @@ export class Render {
             return elem;
         }
 
+        if (Array.isArray(component)) {
+            return component.map(child => Render.createElement(child));
+        }
+
         if (typeof component === "object" && component.render) {
             return Render.createElement(component.render());
         }
 
         throw new Error(`Invalid component passed to createElement: ${component}`);
     }
+
 }
