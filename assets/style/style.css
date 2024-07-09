@@ -29,3 +29,83 @@
     font-weight: normal;
     font-style: italic;
   }
+
+*{
+  font-family: 'OlympicHeadline', sans-serif;
+}
+
+.header-container {
+  background-image: url('../images/background-image.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.logo-container {
+  max-width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container img {
+  height: auto;
+}
+
+.section-buttons {
+  text-align: center;
+  margin: 100px;
+}
+
+.section-buttons button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.page-title{
+  text-align: center;
+}
+
+.title-value{
+  font-size: 40px;
+}
+
+.align-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.align-footer > * {
+  margin: 0 12px;
+}
+
+.text-center{
+  margin: 7px 0 7px 0;
+}
+
+.simple-text{
+  font-family: 'OlympicSans';
+  margin: 0;
+}
+
+.image-mascotte{
+  height: auto;
+  width: 80px;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+}
+
+

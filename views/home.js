@@ -1,20 +1,34 @@
+import { Component } from '../core/Component.js';
+import { Render } from '../core/Render.js';
+import {
+    LinkComponent,
+    TextComponent,
+    MainComponent,
+    TitleComponent, FooterSection, MapSection
+} from '../components/Components.js';
 
-export default function HomePage() {
-    const div = document.createElement("div");
-    div.appendChild(BrowserLink("/event", "Evenements"));
-    div.appendChild(BrowserLink("/spot", "Spots"));
+export class HomePage extends Component {
+    render() {
+        const eventLink = new LinkComponent({ href: "/event", text: "Evenements" });
+        const spotLink = new LinkComponent({ href: "/spot", text: "Spots" });
+        const TitleElement = new TitleComponent({ text: "Explorer les sites" });
+        const mainElement = new MainComponent();
+        const mapElement = new MapSection();
+        const footerElement = new FooterSection();
 
-    const eventLinkDiv = document.createElement("div");
-    eventLinkDiv.appendChild(BrowserLink("/event", "Evenements"));
-    const spotLinkDiv = document.createElement("div");
-    spotLinkDiv.appendChild(BrowserLink("/spot", "Spots"));
+        return {
+            tag: "div",
+            children: [
+                mainElement.render(),
+                TitleElement.render(),
+                mapElement.render(),
+                footerElement.render(),
+            ]
+        };
+    }
+}
 
-    div.appendChild(eventLinkDiv);
-    div.appendChild(spotLinkDiv);
-
-    const textElement = document.createElement("p");
-    textElement.textContent = "Vous etes sur la page d'accueil";
-    div.appendChild(textElement);
-
-    return div;
+export default function renderHomePage() {
+    const homePage = new HomePage();
+    return Render.createElement(homePage.render());
 }

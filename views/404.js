@@ -7,10 +7,10 @@ import {
 } from '../components/Components.js';
 
 
-export class SpotPage extends Component {
+export class ErrorPage extends Component {
     render() {
 
-        const TitleElement = new TitleComponent({ text: "Spot pages" });
+        const TitleElement = new TitleComponent({ text: "Error pages" });
         const homeLink = new LinkComponent({ href: "/", text: "home" });
         return {
             tag: "div",
@@ -22,7 +22,7 @@ export class SpotPage extends Component {
     }
 }
 
-export default function renderSpotPage() {
-    const spotPage = new SpotPage();
-    return Render.createElement(spotPage.render());
+export default function renderErrorPage() {
+    const errorPage = new ErrorPage();
+    return Render.createElement(errorPage.render());
 }

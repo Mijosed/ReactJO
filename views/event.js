@@ -1,17 +1,28 @@
-import { BrowserLink } from "../components/BrowserRouter.js";
-import "./head.js";
+import { Component } from '../core/Component.js';
+import { Render } from '../core/Render.js';
 
-export default function EventPage() {
-    const div = document.createElement("div");
-    // div.appendChild(BrowserLink("/", "Accueil"));
+import {
+    LinkComponent,
+    TitleComponent, FooterSection, MapSection
+} from '../components/Components.js';
 
-    const linkElement = BrowserLink("/", "Accueil");
-    linkElement.classList.add("link-underline-danger");
-    div.appendChild(linkElement);
 
-    const textElement = document.createElement("p");
-    textElement.textContent = "Vous etes sur la page des evenements ! ";
-    div.appendChild(textElement);
+export class EventPage extends Component {
+    render() {
 
-    return div;
+        const TitleElement = new TitleComponent({ text: "Event pages" });
+        const homeLink = new LinkComponent({ href: "/", text: "home" });
+        return {
+            tag: "div",
+            children: [
+                TitleElement.render(),
+                homeLink.render(),
+            ]
+        };
+    }
+}
+
+export default function renderEventPage() {
+    const eventPage = new EventPage();
+    return Render.createElement(eventPage.render());
 }
