@@ -2,9 +2,9 @@ import { Component } from '../core/Component.js';
 import { CardComponent } from "./CardComponent.js";
 //import { Connexion } from "../database/Connexion.js";
 
-export class SportComponent extends Component {
+export class SpotComponent extends Component {
     render() {
-        const cardComponent = new CardComponent("id", "nom", "description", "sport");
+        const cardComponent = new CardComponent("id", "nom", "description", "spot");
         return {
             tag: "div",
             props: {},

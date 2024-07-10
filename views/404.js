@@ -3,20 +3,17 @@ import { Render } from '../core/Render.js';
 
 import {
     LinkComponent,
-    TitleComponent, FooterSection, MapSection
+    TitleComponent, ErrorComponent
 } from '../components/Components.js';
 
 
 export class ErrorPage extends Component {
     render() {
-
-        const TitleElement = new TitleComponent({ text: "Error pages" });
-        const homeLink = new LinkComponent({ href: "/", text: "home" });
+        const errorComponent = new ErrorComponent();
         return {
             tag: "div",
             children: [
-                TitleElement.render(),
-                homeLink.render(),
+                errorComponent.render(),
             ]
         };
     }

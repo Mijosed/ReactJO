@@ -2,27 +2,42 @@ import { Component } from '../core/Component.js';
 import { Render } from '../core/Render.js';
 
 import {
-    LinkComponent,
-    TitleComponent, FooterSection, MapSection
+    LineComponent,
+    TitleComponent, FooterSection, TextComponent
 } from '../components/Components.js';
+import { LocationBackground, DisciplineIcons, SpotSection } from '../components/LocationComponent.js';
 
 
-export class EventPage extends Component {
+export class LocationPage extends Component {
     render() {
 
-        const TitleElement = new TitleComponent({ text: "Event pages" });
-        const homeLink = new LinkComponent({ href: "/", text: "home" });
+        const locationElement = new LocationBackground();
+        const textElement = new TextComponent({ class: "simple-text", text: "L’Arena Paris Sud fait partie de Paris Expo, centre d’exposition et de convention parmi les plus actifs d’Europe et le plus fréquenté de France. Paris Expo c’est une zone de 35 hectares, 228 000m² de halls d’exposition," });
+        const titleElement = new TitleComponent({ text: "SPORTS" });
+        const lineElement = new LineComponent();
+        const disciplineElement = new DisciplineIcons();
+        const SpotTitle = new TitleComponent({ text: "MEUILLEURS SPOTS" });
+        const spotElement = new SpotSection();
+        const footerElement = new FooterSection();
         return {
             tag: "div",
             children: [
-                TitleElement.render(),
-                homeLink.render(),
+                locationElement.render(),
+                textElement.render(),
+                titleElement.render(),
+                lineElement.render(),
+                disciplineElement.render(),
+                SpotTitle.render(),
+                lineElement.render(),
+                spotElement.render(),
+                footerElement.render(),
+
             ]
         };
     }
 }
 
-export default function renderEventPage() {
-    const eventPage = new EventPage();
-    return Render.createElement(eventPage.render());
+export default function renderLocationPage() {
+    const locationPage = new LocationPage();
+    return Render.createElement(locationPage.render());
 }

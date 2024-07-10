@@ -3,6 +3,7 @@ import { HeaderComponent } from './HeaderComponent.js';
 import { MapComponent } from './MapComponent.js';
 import { FooterComponent } from './FooterComponent.js';
 import { SportComponent } from "./SportComponent.js";
+// import { ModalComponent } from './ModalComponent.js';
 
 
 export class LinkComponent extends Component {
@@ -16,12 +17,22 @@ export class LinkComponent extends Component {
     }
 }
 
+export class LineComponent extends Component {
+    render() {
+        return {
+            tag: "hr",
+            props: { class: "custom-line" },
+            children: []
+        };
+    }
+}
+
 export class TextComponent extends Component {
     render() {
         const { text } = this.props;
         return {
             tag: "p",
-            props: {},
+            props: { class: "simple-text marge-top marge-bloc" },
             children: [text]
         };
     }
@@ -68,6 +79,45 @@ export class MapSection extends Component {
     }
 }
 
+export class SearchComponent extends Component {
+    render() {
+        const mapComponent = new MapComponent();
+        return {
+            tag: "section",
+            props: { class: "search-container p-4 bg-white" },
+            children: [
+                {
+                    tag: "div",
+                    props: { class: "flex items-center space-x-4 search-barre" },
+                    children: [
+                        {
+                            /*tag: "select",
+                            props: { class: "p-2 border border-gray-300 simple-text" },
+                            children: [
+                                { tag: "option", props: { value: "" }, children: ["Filtrer"] },
+                                { tag: "option", props: { value: "option1", class: "simple-text" }, children: ["Option 1"] },
+                                { tag: "option", props: { value: "option2", class: "simple-text" }, children: ["Option 2"] },
+                                { tag: "option", props: { value: "option3", class: "simple-text" }, children: ["Option 3"] }
+                            ]*/
+                            tag: "button",
+                            props: {
+                                type: "button",
+                                class: "bg-white-500 hover:bg-blue-700 text-black font-bold py-2 px-4 simple-text border-button",
+                                onClick: () => { window.location.href = '/#modal'; }
+                            },
+                            children: ["Filtrer"]
+                        },
+                        {
+                            tag: "input",
+                            props: { type: "text", placeholder: "Recherche...", class: "flex-grow p-2 border border-gray-300 simple-text" }
+                        }
+                    ]
+                }
+            ]
+        };
+    }
+}
+
 export class SportSection extends Component {
     render() {
         const sportComponent = new SportComponent();
@@ -75,12 +125,14 @@ export class SportSection extends Component {
             tag: "section",
             props: { id: "sports", class: "sports-container" },
             children: [
+                sportComponent.render(),
+                sportComponent.render(),
+                sportComponent.render(),
                 sportComponent.render()
             ]
         };
     }
 }
-
 
 export class FooterSection extends Component {
     render() {
@@ -90,6 +142,67 @@ export class FooterSection extends Component {
             props: {},
             children: [
                 footerComponent.render()
+            ]
+        };
+    }
+}
+
+export class ModalSection extends Component {
+    render() {
+        const modalComponent = new ModalComponent();
+        return {
+            tag: "section",
+            props: { id: "modal", class: "modal-container" },
+            children: [
+                modalComponent.render()
+            ]
+        };
+    }
+}
+
+export class ErrorComponent extends Component {
+    render() {
+        const TitleElement = new TitleComponent({ text: "404 - PAGE NOT FOUND" });
+        return {
+            tag: "main",
+            props: {class: "error-container" },
+            children: [
+                {
+                    tag: "div",
+                    props: { class: "center-element" },
+                    children: [
+                        { tag: "img", props: { src: "../assets/images/Logo1.svg", alt: "logo", class: "marge-bottom" }}
+                    ]
+                },
+                {
+                    tag: "div",
+                    props: { class: "center-element" },
+                    children: [
+                        TitleElement.render(),
+                    ]
+                },
+                {
+                    tag: "div",
+                    props: { class: "center-element" },
+                    children: [
+                        { tag: "p", props: { class: "simple-text marge-bottom" }, children: ["Désolé! Nous ne trouvons pas la page que vous recherchez."]}
+                    ]
+                },
+                {
+                    tag: "div",
+                    props: { class: "center-element" },
+                    children: [
+                        {
+                            tag: "button",
+                            props: {
+                                type: "button",
+                                class: "bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded",
+                                onClick: () => { window.location.href = '/'; }
+                            },
+                            children: ["Retour à la page d'accueil"]
+                        }
+                    ]
+                },
             ]
         };
     }
