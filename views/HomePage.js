@@ -4,7 +4,12 @@ import {
     LinkComponent,
     TextComponent,
     MainComponent,
-    TitleComponent, FooterSection, MapSection, SportSection, SearchComponent, ModalSection
+    TitleComponent, 
+    FooterSection, 
+    MapSection, 
+    SportComponent, 
+    SearchComponent, 
+    ModalComponent
 } from '../components/Components.js';
 
 export class HomePage extends Component {
@@ -16,10 +21,9 @@ export class HomePage extends Component {
         const mapElement = new MapSection();
         const title2Element = new TitleComponent({ text: "Les différents sports présents lors des JO" });
         const searchElement = new SearchComponent();
-        const sportElement = new SportSection();
+        const sportElement = new SportComponent();
         const footerElement = new FooterSection();
-        //const modalElement = new ModalSection();
-
+        const modalElement = new ModalComponent();
 
         return {
             tag: "div",
@@ -30,8 +34,8 @@ export class HomePage extends Component {
                 title2Element.render(),
                 searchElement.render(),
                 sportElement.render(),
-                footerElement.render(),
-                //modalElement.render(),
+                footerElement.render()
+                
             ]
         };
     }
@@ -41,9 +45,3 @@ export default function renderHomePage() {
     const homePage = new HomePage();
     return Render.createElement(homePage.render());
 }
-
-
-
-
-
-

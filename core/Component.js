@@ -12,12 +12,12 @@ export class Component {
         return null;
     }
 
-    display(newProps) {
+    display(newProps = this.props) {
         if (this.shouldUpdate(newProps)) {
             this.oldProps = this.props;
             this.props = newProps;
             return this.render();
         }
-        return null;
+        return this.render();
     }
 }
