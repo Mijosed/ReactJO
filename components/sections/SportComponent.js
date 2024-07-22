@@ -1,35 +1,15 @@
 import { Component } from '../../core/Component.js';
-import { CardComponent } from '../common/CardComponent.js';
+import { Card } from '../common/Card.js';
 
 export class SportComponent extends Component {
     render() {
-        const cardComponent = new CardComponent("id", "nom", "description", "sport");
+        const cardComponent = new Card({ id: "1", nom: "Athlétisme", description: "Compétitions d'athlétisme", tag: "sport" });
         return {
-            tag: "div",
-            props: {},
+            tag: "section",
+            props: { id: "sports", class: "sports-container" },
             children: [
                 cardComponent.render()
             ]
         };
     }
-
-    /*constructor() {
-        super();
-        this.connexion = new Connexion(); // Correctement défini ici
-    }
-
-    render() {
-        // Exemple d'utilisation de la connexion pour obtenir des données
-        const sportsData = this.connexion.query("SELECT * FROM Sports");
-
-        const cardComponents = sportsData.map(sport =>
-            new CardComponent(sport.id, sport.nom, sport.description)
-        );
-
-        return {
-            tag: "div",
-            props: {},
-            children: cardComponents.map(component => component.render())
-        };
-    }*/
 }

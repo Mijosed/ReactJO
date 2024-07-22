@@ -1,5 +1,7 @@
 export class Render {
     static createElement(component) {
+        console.log('Render.createElement called with:', component);
+
         if (typeof component === "string") {
             return document.createTextNode(component);
         }
@@ -22,9 +24,11 @@ export class Render {
 
             if (children && Array.isArray(children)) {
                 for (const child of children) {
+                    console.log('Processing child:', child);
                     elem.appendChild(Render.createElement(child));
                 }
             } else if (children) {
+                console.log('Appending single child:', children);
                 elem.appendChild(Render.createElement(children));
             }
 
@@ -36,13 +40,20 @@ export class Render {
         }
 
         if (Array.isArray(component)) {
-            return component.map(child => Render.createElement(child));
+            const fragment = document.createDocumentFragment();
+            component.forEach(child => {
+                console.log('Processing child array item:', child);
+                fragment.appendChild(Render.createElement(child));
+            });
+            return fragment;
         }
 
         if (typeof component === "object" && component.render) {
+            console.log('Rendering nested component:', component);
             return Render.createElement(component.render());
         }
 
+        console.error('Invalid component passed to createElement:', component);
         throw new Error(`Invalid component passed to createElement: ${component}`);
     }
 
