@@ -9,32 +9,44 @@ import {
     MapSection, 
     SportComponent, 
     SearchComponent, 
-    ModalComponent
+    
 } from '../components/Components.js';
+import { validateProps } from '../utils/typeCheck.js';
 
 export class HomePage extends Component {
-    render() {
-        const eventLink = new LinkComponent({ href: "/event", text: "Evenements" });
-        const spotLink = new LinkComponent({ href: "/spot", text: "Spots" });
-        const TitleElement = new TitleComponent({ text: "Explorer les sites" });
-        const mainElement = new MainComponent();
-        const mapElement = new MapSection();
-        const title2Element = new TitleComponent({ text: "Les différents sports présents lors des JO" });
-        const searchElement = new SearchComponent();
-        const sportElement = new SportComponent();
-        const footerElement = new FooterSection();
-        const modalElement = new ModalComponent();
+    constructor(props) {
+        super(props);
+        const propSchema = {
+            type: 'object',
+            properties: {
+                title: { type: 'string' }
+            }
+        };
+        validateProps(props, propSchema);
 
+        this.eventLink = new LinkComponent({ href: "/event", text: "Evenements" });
+        this.spotLink = new LinkComponent({ href: "/spot", text: "Spots" });
+        this.titleElement = new TitleComponent({ text: "Explorer les sites" });
+        this.mainElement = new MainComponent();
+        this.mapElement = new MapSection();
+        this.title2Element = new TitleComponent({ text: "Les différents sports présents lors des JO" });
+        this.searchElement = new SearchComponent();
+        this.sportElement = new SportComponent();
+        this.footerElement = new FooterSection();
+        
+    }
+
+    render() {
         return {
             tag: "div",
             children: [
-                mainElement.render(),
-                TitleElement.render(),
-                mapElement.render(),
-                title2Element.render(),
-                searchElement.render(),
-                sportElement.render(),
-                footerElement.render()
+                this.mainElement.render(),
+                this.titleElement.render(),
+                this.mapElement.render(),
+                this.title2Element.render(),
+                this.searchElement.render(),
+                this.sportElement.render(),
+                this.footerElement.render(),
                 
             ]
         };
@@ -42,6 +54,25 @@ export class HomePage extends Component {
 }
 
 export default function renderHomePage() {
-    const homePage = new HomePage();
+    const homePage = new HomePage({ title: "Home Page" });
     return Render.createElement(homePage.render());
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
