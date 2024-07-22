@@ -1,4 +1,4 @@
-import BrowserRouter from "./core/BrowserRouter.js";
-import routes from "./routes.js";
+import { BrowserRouter } from './core/BrowserRouter.js';
+import routes from './routes.js';
 
-BrowserRouter(document.getElementById("root"), routes);
+BrowserRouter(document.getElementById('root'), routes);

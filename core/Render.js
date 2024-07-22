@@ -46,4 +46,8 @@ export class Render {
         throw new Error(`Invalid component passed to createElement: ${component}`);
     }
 
+    static render(component, root) {
+        root.innerHTML = "";
+        root.appendChild(Render.createElement(component));
+    }
 }
