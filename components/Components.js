@@ -2,7 +2,7 @@ export { Header } from './common/Header.js';
 export { Footer } from './common/Footer.js';
 export { Card } from './common/Card.js';
 export { Anchor as LinkComponent } from './elements/Anchor.js';
-export { Line as LineComponent } from './elements/Line.js';
+//export { Line as LineComponent } from './elements/Line.js';
 export { Text as TextComponent } from './elements/Text.js';
 export { Title as TitleComponent } from './elements/Title.js';
 export { Main as MainComponent } from './sections/Main.js';
