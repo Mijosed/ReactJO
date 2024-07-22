@@ -41,7 +41,7 @@ export class HeaderComponent extends Component {
                         },
                         {
                             tag: "div", props: { class: "simple-text" }, children: [
-                                { tag: "p", props: { id: "disciplines" }, children: ["Vivez l'esprit des Jeux Olympiques Profitez d'une période exaltante remplie de sport et de passion."] }
+                                { tag: "p", props: { id: "disciplines", class: "simple-text" }, children: ["Vivez l'esprit des Jeux Olympiques Profitez d'une période exaltante remplie de sport et de passion."] }
                             ],
                         },
 

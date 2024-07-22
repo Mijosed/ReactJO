@@ -45,8 +45,8 @@ export class SportCalendar extends Component {
                         },
                         {
                             tag: "div", props: { class: "title-sport bottom-left " }, children: [
-                                { tag: "img", props: { src: "../assets/images/icon-sport.svg", width: "100", alt: "logo", class: "marge-bottom" }},
-                                { tag: "img", props: { src: "../assets/images/mascot.svg", alt: "logo", class: "marge-bottom" }}
+                                { tag: "img", props: { src: "../assets/images/icon-sport.svg", width: "100", alt: "logo", class: "marge-bottom hide" }},
+                                { tag: "img", props: { src: "../assets/images/mascot.svg", alt: "logo", class: "marge-bottom hide" }}
                             ]
                         }
                     ]

@@ -9,12 +9,10 @@ import {
 
 export class HomePage extends Component {
     render() {
-        const eventLink = new LinkComponent({ href: "/event", text: "Evenements" });
-        const spotLink = new LinkComponent({ href: "/spot", text: "Spots" });
         const TitleElement = new TitleComponent({ text: "Explorer les sites" });
         const mainElement = new MainComponent();
         const mapElement = new MapSection();
-        const title2Element = new TitleComponent({ text: "Les différents sports présents lors des JO" });
+        const title2Element = new TitleComponent({ text: "Les différents sports présents lors des JO", class: "bg-black" });
         const searchElement = new SearchComponent();
         const sportElement = new SportSection();
         const footerElement = new FooterSection();
@@ -41,9 +39,3 @@ export default function renderHomePage() {
     const homePage = new HomePage();
     return Render.createElement(homePage.render());
 }
-
-
-
-
-
-

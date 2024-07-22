@@ -171,7 +171,7 @@ export class ErrorComponent extends Component {
                     tag: "div",
                     props: { class: "center-element" },
                     children: [
-                        { tag: "img", props: { src: "../assets/images/Logo1.svg", alt: "logo", class: "marge-bottom" }}
+                        { tag: "img", props: { src: "../assets/images/logo1.svg", alt: "logo", class: "marge-bottom" }}
                     ]
                 },
                 {
