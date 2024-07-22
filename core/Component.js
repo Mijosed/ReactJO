@@ -1,4 +1,4 @@
-import { Render } from "./Render";
+import { Render } from "./Render.js";
 
 export class Component {
   #container;
@@ -13,9 +13,11 @@ export class Component {
     this.#structure = {};
 
     this.#container.addEventListener(this.#rerenderEvent, (event) => {
-      debugger;
-      this.display(event.detail.newSrc);
+      this.#rerenderEvent(event.detail.newSrc);
     });
+  }
+  setRerenderEvent(event) {
+    this.#rerenderEvent = event;
   }
 
   shouldUpdate(newProps) {

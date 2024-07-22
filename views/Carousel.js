@@ -1,46 +1,39 @@
 import { Component } from "../core/Component.js";
-import { validateProps } from "../utils/typeCheck.js";
-
 export class Carousel extends Component {
   #images;
   #currentIndex;
   #imageState;
 
-  constructor(props) {
-    super(props);
-    const propSchema = {
-      type: "object",
-      properties: {
-        images: { type: "array" },
-        container: { type: "HTMLElement" },
-      },
-    };
-    validateProps(props, propSchema);
+  constructor({ container, images = [] }) {
+    super({ container });
+    this.#images = images;
     this.#currentIndex = 0;
-    this.#images = props.images;
     this.#imageState = this.#images[this.#currentIndex];
-    this.setRerenderEvent("rerender");
   }
-
   showPreviousImage() {
+    console.log("click");
+
     this.#currentIndex = (this.#currentIndex - 1 + this.#images.length) % this.#images.length;
     this.dispatchImageChangedEvent();
   }
 
   showNextImage() {
+    console.log("click");
     this.#currentIndex = (this.#currentIndex + 1) % this.#images.length;
     this.dispatchImageChangedEvent();
   }
-
   dispatchImageChangedEvent() {
     const newSrc = this.#images[this.#currentIndex];
+    this.setRerenderEvent();
     if (newSrc !== this.#imageState) {
       this.#imageState = newSrc;
       const event = new CustomEvent("rerender", { detail: { newSrc: this.#imageState } });
       this.getContainer().dispatchEvent(event);
     }
   }
-
+  setRerenderEvent() {
+    super.setRerenderEvent(this.updateImageSrc);
+  }
   updateImageSrc(newSrc) {
     const imageContainer = this.getContainer().querySelector(".image-container img");
     if (imageContainer && imageContainer.src !== newSrc) {

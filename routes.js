@@ -8,7 +8,11 @@ const routes = {
   "/sports": () => new SportPage({ title: "Sports Page" }).render(),
   "/locations": () => new LocationPage({ title: "Locations Page" }).render(),
   "/404": () => new NotFoundPage({ title: "404 Page" }).render(),
-  "/test": () => new Carousel({container: document.getElementById("root"), images: ["./assets/images/background-lieu.png", "./assets/images/background-lieu.png", "./assets/images/background-sport.png"] }).render(),
+  "/test": () =>
+    new Carousel({
+      container: document.getElementById("root"),
+      images: ["./assets/images/icon-basket.png", "./assets/images/background-lieu.png", "./assets/images/background-sport.png"],
+    }).render(),
 };
 
 export default routes;
