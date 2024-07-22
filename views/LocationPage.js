@@ -1,31 +1,44 @@
-import { ValidatedComponent } from '../core/ValidatedComponent.js';
-import { Header } from '../components/common/Header.js';
-import { Footer } from '../components/common/Footer.js';
-import { getDefaultPropSchema } from '../utils/index.js';
+import { Component } from '../core/Component.js';
+import { Render } from '../core/Render.js';
+import {
+    HeaderHome,
+    Title,
+    MapSection,
+    Footer
+} from '../components/Components.js';
+import { validateProps } from '../utils/utils.js';
 
-export class LocationPage extends ValidatedComponent {
+export class LocationPage extends Component {
     constructor(props) {
-        super(props, getDefaultPropSchema());
+        super(props);
+        const propSchema = {
+            type: 'object',
+            properties: {
+                title: { type: 'string' }
+            }
+        };
+        validateProps(props, propSchema);
+
+        this.headerHome = new HeaderHome();
+        this.titleElement = new Title({ text: props.title });
+        this.mapElement = new MapSection();
+        this.footerElement = new Footer();
     }
 
     render() {
-        const { location } = this.props;
-
         return {
             tag: "div",
-            props: {},
             children: [
-                new Header().render(),
-                {
-                    tag: "div",
-                    props: { class: "content" },
-                    children: [
-                        { tag: "h1", props: {}, children: [location.name] },
-                        { tag: "p", props: {}, children: ["Details about the location..."] }
-                    ]
-                },
-                new Footer().render()
+                this.headerHome.render(),
+                this.titleElement.render(),
+                this.mapElement.render(),
+                this.footerElement.render()
             ]
         };
     }
+}
+
+export default function renderLocationPage() {
+    const locationPage = new LocationPage({ title: "Les Sites Olympiques" });
+    return Render.createElement(locationPage.render());
 }
