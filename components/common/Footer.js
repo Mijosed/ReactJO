@@ -1,6 +1,9 @@
 import { Component } from '../../core/Component.js';
 
 export class Footer extends Component {
+    constructor(props = {}) {
+        super(props);
+    }
     render() {
         return {
             tag: "footer",

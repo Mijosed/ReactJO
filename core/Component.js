@@ -4,17 +4,18 @@ export class Component {
   #container;
   #rerenderEvent;
   #structure;
-  constructor({ container = document.getElementById("root"), rerenderEvent = "rerender" }) {
+  constructor({ container = null, rerenderEvent = "rerender" }) {
     if (new.target === Component) {
       throw new TypeError("Component is an abstract class");
     }
     this.#container = container;
     this.#rerenderEvent = rerenderEvent;
     this.#structure = {};
-
-    this.#container.addEventListener(this.#rerenderEvent, (event) => {
-      this.#rerenderEvent(event.detail.newSrc);
-    });
+    if (this.#container !== null) {
+      this.#container.addEventListener(this.#rerenderEvent, (event) => {
+        this.#rerenderEvent(event.detail.newSrc);
+      });
+    }
   }
   setRerenderEvent(event) {
     this.#rerenderEvent = event;

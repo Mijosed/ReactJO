@@ -13,11 +13,10 @@ export class Text extends Component {
         this.text = props.text;
     }
     render() {
-        const { text } = this.props;
         return {
             tag: "p",
             props: { class: "simple-text marge-top marge-bloc" },
-            children: [text]
+            children: [this.text]
         };
     }
 }
