@@ -1,4 +1,4 @@
-export default function generateStructure(structure, rootElement = null) {
+export default function generateStructure(structure) {
   const elem = document.createElement(structure.tag);
   if (structure.props) {
     for (const propName in structure.props) {
@@ -22,10 +22,5 @@ export default function generateStructure(structure, rootElement = null) {
       elem.appendChild(subChild);
     }
   }
-
-  if (rootElement) {
-    rootElement.replaceChild(elem, rootElement.firstChild);
-  }
-
   return elem;
 }

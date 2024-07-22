@@ -22,11 +22,11 @@ export default class Page1Class extends Component {
       inputValue: "",
       data: JSON.parse(storage.getItem("karl")) || {},
     };
+    this.currentNode = this.render();
 
     // Lier les méthodes pour qu'elles aient accès à l'instance de Page1Class
     this.textIntoInput = this.textIntoInput.bind(this);
     this.inputIntoText = this.inputIntoText.bind(this);
-    this.testInpute = this.testInpute.bind(this);
   }
 
   textIntoInput(i, j) {
@@ -35,22 +35,17 @@ export default class Page1Class extends Component {
       inputValue: this.state.data[`${i}.${j}`] ?? "Default",
     });
   }
-  testInpute(i, j) {
-    debugger;
-    console.log("sallut");
-  }
 
   inputIntoText() {
-    const data = Object.assign(this.state.data, {
-      [`${this.state.cellEdit.i}.${this.state.cellEdit.j}`]: this.state.inputValue,
-    });
-    storage.setItem("karl", JSON.stringify(data));
-
-    this.setState({
-      cellEdit: undefined,
-      inputValue: "",
-      data: data,
-    });
+    // const data = Object.assign(this.state.data, {
+    //   [`${this.state.cellEdit.i}.${this.state.cellEdit.j}`]: this.state.inputValue,
+    // });
+    // storage.setItem("karl", JSON.stringify(data));
+    // this.setState({
+    //   cellEdit: undefined,
+    //   inputValue: "",
+    //   data: data,
+    // });
   }
 
   render() {
@@ -72,7 +67,9 @@ export default class Page1Class extends Component {
                   ? {
                       tag: "input",
                       props: {
-                        value: "hello world",
+                        onfocus: this.inputIntoText,
+                        value: this.state.inputValue ?? "Default",
+                        onBlur: this.inputIntoText,
                       },
                     }
                   : this.state.data[`${i}.${j}`] ?? "Default",

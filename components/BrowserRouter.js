@@ -1,24 +1,33 @@
 import generateStructure from "../core/generateStructure.js";
+import { subscribe } from "../core/dispatcher.js";
 
 export default function BrowserRouter(rootElement, routes) {
-  //const oldPushState = window.history.pushState;
-  //window.history.pushState = function (data, title, url) {
-  //  oldPushState.call(window.history, data, title, url);
-  //  window.dispatchEvent(new Event("popstate"));
-  //};
   function managePath() {
     const path = window.location.pathname;
     const pageGenerator = routes[path] ?? routes["*"];
-    let test = new pageGenerator();
-    return test.render();
+    const pageInstance = new pageGenerator();
+    return pageInstance.render();
   }
 
-  window.addEventListener("popstate", function () {
-    rootElement.replaceChild(generateStructure(managePath()), rootElement.childNodes[0]);
+  function updateDOM(component = null) {
+    rootElement.replaceChild(generateStructure(component !== null ? component.render() : managePath()), rootElement.firstChild);
+  }
+
+  // Abonner la fonction de mise à jour du DOM
+  subscribe(updateDOM);
+
+  // Mettre à jour le DOM lors d'un événement popstate ou pushstate
+  window.addEventListener("popstate", updateDOM);
+  window.addEventListener("pushstate", updateDOM);
+
+  // Écouter l'événement personnalisé stateChange
+  document.addEventListener("stateChange", (event) => {
+    const { component, state } = event.detail;
+    if (component && state) {
+      updateDOM(component);
+    }
   });
-  window.addEventListener("pushstate", function () {
-    rootElement.replaceChild(generateStructure(managePath()), rootElement.childNodes[0]);
-  });
+
   rootElement.appendChild(generateStructure(managePath()));
 }
 
