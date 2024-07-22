@@ -1,10 +1,15 @@
-import BrowserRouter from "./components/BrowserRouter.js";
+
 import HomePage from "./views/home.js";
-import SpotPage from "./views/spot.js";
-import Page1Class from "./views/page1classe.js";
+import LocationPage from "./views/place.js";
+import SportPage from "./views/sport.js";
+import ErrorPage from "./views/404.js";
+import TestPage from "./views/TestPage.js";
 
 export default {
-  "/": HomePage,
-  "/spot": SpotPage,
-  "/test": Page1Class,
+    "/": HomePage,
+    "/places": LocationPage,
+    "/sport": SportPage,
+    "/404": ErrorPage,
+    "/test": TestPage,
+
 };
