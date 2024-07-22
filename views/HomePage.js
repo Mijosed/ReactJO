@@ -47,7 +47,7 @@ export class HomePage extends Component {
                 this.mapElement.render(),
                 {
                     tag: "div",
-                    props: { class: "grid grid-cols-4 gap-4 p-4 mx-20" },
+                    props: { class: "grid grid-cols-4 gap-4 p-4 mx-20", id: "sports" },
                     children: this.sports.map(sport => {
                         const card = new Card(sport);
                         return card.render();
