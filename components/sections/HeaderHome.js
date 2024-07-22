@@ -1,6 +1,9 @@
 import { Component } from '../../core/Component.js';
 
 export class HeaderHome extends Component {
+    constructor(props ={}) {
+        super(props);
+    }
     render() {
         return {
             tag: "header",
