@@ -23,9 +23,17 @@ export class HomePage extends Component {
 
         this.headerHome = new HeaderHome();
         this.titleElement = new Title({ text: "Explorer les sites" });
-        this.mapElement = new MapSection();
+        this.mapElement = new MapSection({ rerenderEvent: "initMap" });
         this.footerElement = new Footer();
-
+        document.addEventListener('DOMContentLoaded', () => {
+            debugger;
+            const event = new CustomEvent('initMap', {  } );
+            document.getElementById('map').addEventListener('initMap', () => {
+                this.componentDidMount();
+            });
+            this.mapElement.setContainer(document.getElementById('map'));
+            this.mapElement.getContainer().dispatchEvent(event);
+        });
         this.sports = [
             { id: "1", nom: "Athlétisme", description: "Compétitions d'athlétisme", image: "../assets/images/sports/athle.jpg" },
             { id: "2", nom: "Natation", description: "Compétitions de natation", image: "../assets/images/sports/natation.jpg" },
@@ -37,7 +45,27 @@ export class HomePage extends Component {
             { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" }
         ];
     }
+    componentDidMount() {
+        // Initialisation de la carte Leaflet
+        console.log("init map dazdsdzds");
+        debugger;
+        const map = L.map('map').setView([48.8566, 2.3522], 12); // Centré sur Paris avec un zoom de 12
 
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const olympicSites = [
+            { coords: [48.8566, 2.3522], name: 'Site 1' },
+            { coords: [48.8570, 2.3490], name: 'Site 2' }
+        ];
+
+        olympicSites.forEach(site => {
+            L.marker(site.coords).addTo(map)
+                .bindPopup(site.name)
+                .openPopup();
+        });
+    }
     render() {
         return {
             tag: "div",
