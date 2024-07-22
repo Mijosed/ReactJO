@@ -1,5 +1,5 @@
 import { Component } from '../core/Component.js';
-import { fetchData } from '../core/api/FetchData.js';
+import { fetchData } from '../api/fetchData.js';
 
 export class FetchTestComponent extends Component {
     constructor(props) {

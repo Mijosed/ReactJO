@@ -1,5 +1,5 @@
 async function testFetch() {
-    const url = "https://data.paris2024.org/api/explore/v2.1/catalog/datasets/paris-2024-sites-de-competition/records?order_by=start_date&limit=2&lang=fr&timezone=Europe%2FParis&refine=category_id%3A%22venue-olympic%22";
+    const url = "./database/data.json";
     try {
         const response = await fetch(url);
         if (!response.ok) {
