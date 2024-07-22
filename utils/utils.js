@@ -56,7 +56,3 @@ export function validateProps(props, schema) {
         throw new InvalidPropsError('Invalid props provided');
     }
 }
-
-export function getDefaultPropSchema() {
-    return { type: 'object', properties: { title: { type: 'string' } } };
-}
