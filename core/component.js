@@ -1,23 +1,29 @@
 export class Component {
-    constructor(props = {}) {
-        this.props = props;
-        this.oldProps = {};
-    }
+  #container;
+  constructor(container, props = {}) {
+    debugger
+    this.#container = container;
+    this.props = props;
+    this.oldProps = {};
+  }
+  getContainer() {
+    return this.#container;
+  }
+  shouldUpdate(newProps) {
+    debugger;
+    return JSON.stringify(this.props) !== JSON.stringify(newProps);
+  }
 
-    shouldUpdate(newProps) {
-        return JSON.stringify(this.props) !== JSON.stringify(newProps);
-    }
+  render() {
+    return null;
+  }
 
-    render() {
-        return null;
+  display(newProps = this.props) {
+    if (this.shouldUpdate(newProps)) {
+      this.oldProps = this.props;
+      this.props = newProps;
+      return this.render();
     }
-
-    display(newProps = this.props) {
-        if (this.shouldUpdate(newProps)) {
-            this.oldProps = this.props;
-            this.props = newProps;
-            return this.render();
-        }
-        return this.render();
-    }
+    return this.render();
+  }
 }

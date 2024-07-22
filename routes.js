@@ -10,6 +10,4 @@ export default {
     "/places": LocationPage,
     "/sport": SportPage,
     "/404": ErrorPage,
-    "/test": TestPage,
-
 };
