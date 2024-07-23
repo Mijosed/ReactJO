@@ -10,3 +10,8 @@ export { FilterButton } from './common/FilterButton.js';
 export { HomeTitle } from './sections/Home/HomeTitle.js';
 export { SportSection } from './sections/Home/SportSection.js';
 export { Pagination } from './common/Pagination.js';
+export { HeaderLocation } from './sections/Location/HeaderLocation.js';
+export { Breadcrumb } from './common/Breadcrumb.js';
+export { Text } from './elements/Text.js';
+export { TitleLine } from './elements/TitleLine.js';
+export { ImageGrid } from './common/ImageGrid.js';
