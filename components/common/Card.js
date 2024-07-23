@@ -8,7 +8,7 @@ export class Card extends Component {
   #image;
 
   constructor(props) {
-    super((props = { ...props, container: document.querySelector(`[data-cardId="${props.id}"]`) }));
+    super(props);
 
     const propSchema = {
       type: "object",
@@ -57,7 +57,7 @@ export class Card extends Component {
             },
             {
               tag: "a",
-              props: { href: `/${this.#id}`, class: "text-blue-500 hover:underline float-right" },
+              props: { href: `/sports?id=${this.#id}`, class: "text-blue-500 hover:underline float-right" },
               children: ["En savoir plus"],
             },
           ],

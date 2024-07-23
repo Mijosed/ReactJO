@@ -4,9 +4,9 @@ import { LocationPage } from "./views/LocationPage.js";
 import { NotFoundPage } from "./views/NotFoundPage.js";
 import { Carousel } from "./views/Carousel.js";
 const routes = {
-  "/": () => new HomePage({ title: "Home Page", container : document.getElementById("root"), rerenderEvent:"initMap" }).render(),
+  "/": () => new HomePage({ title: "Home Page", container : document.getElementById("root") }).render(),
   "/sports": () => new SportPage({ title: "Sports Page" }).render(),
-  "/locations": () => new LocationPage({ title: "Locations Page" }).render(),
+  "/locations": () => new LocationPage({ title: "ARENA PARIS SUD", city: "Paris", subtitle: "Site de compétition" }).render(),
   "/404": () => new NotFoundPage({ title: "404 Page" }).render(),
   "/test": () =>
     new Carousel({

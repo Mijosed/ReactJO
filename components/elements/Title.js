@@ -17,7 +17,7 @@ export class Title extends Component {
     render() {
         return {
             tag: "h1",
-            props: { class: "text-3xl font-bold text-center my-4" },
+            props: { class: "text-3xl font-bold" },
             children: [this.text]
         };
     }
