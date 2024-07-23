@@ -4,8 +4,8 @@ export class Component {
   #container;
   #rerenderEvent;
   #structure;
-  #event;
   constructor({ container = null, rerenderEvent = "rerender" }) {
+    this.state = {};
     if (new.target === Component) {
       throw new TypeError("Component is an abstract class");
     }
@@ -18,12 +18,13 @@ export class Component {
       });
     }
   }
+  setState(newState) {
+    debugger;
+    this.state = { ...this.state, ...newState };
+    this.render();
+  }
   setContainer(container) {
     this.#container = container;
-  }
-
-  setRerenderEvent(event) {
-    this.#event = event;
   }
 
   shouldUpdate(newProps) {
@@ -39,8 +40,7 @@ export class Component {
     Render.render(this.#structure, this.#container);
   }
 
-  display(newProps = this.props) {
-  }
+  display(newProps = this.props) {}
 
   getContainer() {
     return this.#container;

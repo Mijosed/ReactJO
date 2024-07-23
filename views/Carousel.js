@@ -13,6 +13,7 @@ export class Carousel extends Component {
     this.state.imagesUrl = this.#images[this.#currentIndex];
   }
   showPreviousImage() {
+    debugger;
     this.#currentIndex = (this.#currentIndex - 1 + this.#images.length) % this.#images.length;
     this.state.imagesUrl = this.#images[this.#currentIndex];
   }
@@ -24,15 +25,15 @@ export class Carousel extends Component {
     this.#currentIndex = (this.#currentIndex + 1) % this.#images.length;
     this.dispatchImageChangedEvent();
   }
-  dispatchImageChangedEvent() {
-    const newSrc = this.#images[this.#currentIndex];
-    this.setRerenderEvent();
-    if (newSrc !== this.#imageState) {
-      this.#imageState = newSrc;
-      const event = new CustomEvent("rerender", { detail: { newProps: this.#imageState } });
-      this.getContainer().dispatchEvent(event);
-    }
-  }
+  // dispatchImageChangedEvent() {
+  //   const newSrc = this.#images[this.#currentIndex];
+  //   this.setRerenderEvent();
+  //   if (newSrc !== this.#imageState) {
+  //     this.#imageState = newSrc;
+  //     const event = new CustomEvent("rerender", { detail: { newProps: this.#imageState } });
+  //     this.getContainer().dispatchEvent(event);
+  //   }
+  // }
   setRerenderEvent() {
     super.setRerenderEvent(this.updateImageSrc);
   }
