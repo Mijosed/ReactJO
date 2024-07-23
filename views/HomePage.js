@@ -1,11 +1,9 @@
 import { Component } from '../core/Component.js';
-import { Render } from '../core/Render.js';
 import {
     HeaderHome,
     Title,
     MapSection,
     Footer,
-    SearchComponent,
     Card
 } from '../components/Components.js';
 import { validateProps } from '../utils/utils.js';
@@ -26,8 +24,8 @@ export class HomePage extends Component {
         this.titleElement = new Title({ text: "Explorer les sites" });
         this.mapElement = new MapSection({ rerenderEvent: "initMap" });
         this.footerElement = new Footer();
+        
         document.addEventListener('DOMContentLoaded', () => {
-            debugger;
             const event = new CustomEvent('initMap', {  } );
             document.getElementById('map').addEventListener('initMap', () => {
                 this.componentDidMount();
@@ -46,12 +44,11 @@ export class HomePage extends Component {
             { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" }
         ];
     }
+
     async componentDidMount() {
         // Initialisation de la carte Leaflet
         console.log("Initialisation de la carte");
-        const map = L.map('map', {
-  gestureHandling: true
-}).setView([48.8566, 2.3522], 12); // Centré sur Paris avec un zoom de 12
+        const map = L.map('map', {gestureHandling: true}).setView([48.8566, 2.3522], 12); // Centré sur Paris avec un zoom de 12
 
         // Ajout de la couche de tuiles OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -99,6 +96,7 @@ export class HomePage extends Component {
             console.error("Erreur lors de la récupération des données :", error);
         }
     }
+
     render() {
         return {
             tag: "div",
@@ -118,9 +116,4 @@ export class HomePage extends Component {
             ]
         };
     }
-}
-
-export default function renderHomePage() {
-    const homePage = new HomePage({ title: "Home Page" });
-    return Render.createElement(homePage.render());
 }
