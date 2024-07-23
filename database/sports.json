@@ -1,0 +1,170 @@
+[
+    {
+      "sport": "Athlétisme",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/kc5u8avlnahb6hfojw4c",
+      "sport_name": "Athlétisme",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/ATH_small.svg"
+    },
+    {
+      "sport": "Aviron",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/zfhsel9ctqalrte3zlez",
+      "sport_name": "Aviron",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/ROW_small.svg"
+    },
+    {
+      "sport": "Badminton",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/xzavgkfd2bvdqvblxnrh",
+      "sport_name": "Badminton",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/BDM_small.svg"
+    },
+    {
+      "sport": "Basketball",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/jnefp96qvymodu9lflih",
+      "sport_name": "Basketball",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/BKB_small.svg"
+    },
+    {
+      "sport": "Boxe Olympique",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/khchfcomtt7jqfr5nhxn",
+      "sport_name": "Boxe",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/BOX_small.svg"
+    },
+    {
+      "sport": "Canoë Sprint",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/mspaugyijaehjtlbmjnt",
+      "sport_name": "Canoë Sprint",
+      "logo": null
+    },
+    {
+      "sport": "Cyclisme sur route",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/fcwzejsqucgquvycjd0i",
+      "sport_name": "Cyclisme sur route",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/CRD_small.svg"
+    },
+    {
+      "sport": "Escalade Sportive",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/n1w8xenw2vwchizhmu4w",
+      "sport_name": "Escalade Sportive",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/CLB_small.svg"
+    },
+    {
+      "sport": "Escrime",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/dzy6htjx5nizywm5s1ia",
+      "sport_name": "Escrime",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/FEN_small.svg"
+    },
+    {
+      "sport": "Football",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/baa2nr7jo3wx6wv20vww",
+      "sport_name": "Football",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/FBL_small.svg"
+    },
+    {
+      "sport": "Golf",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/lsop8ihvam4zf1ylciq8",
+      "sport_name": "Golf",
+      "logo": null
+    },
+    {
+      "sport": "Gymnastique Artistique",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/kurzlxstqem0gndjsdg6",
+      "sport_name": "Gymnastique Artistique",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/GAR_small.svg"
+    },
+    {
+      "sport": "Haltérophilie",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/b3unpvgdcqorgfdwbvrq",
+      "sport_name": "Haltérophilie",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/WLF_small.svg"
+    },
+    {
+      "sport": "Handball",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/scn9e98twqokxumlwpyx",
+      "sport_name": "Handball",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/HBL_small.svg"
+    },
+    {
+      "sport": "Judo",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/v1538355601/primary/t1aeramel0gscwsqfphp",
+      "sport_name": "Judo",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/JUD_small.svg"
+    },
+    {
+      "sport": "Lutte Olympique",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/zpfcusht6yim4saswr0s",
+      "sport_name": "Lutte",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/WRE_small.svg"
+    },
+    {
+      "sport": "Natation",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/alonzk8iknqfy2ydtzet",
+      "sport_name": "Natation",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/SWM_small.svg"
+    },
+    {
+      "sport": "Rugby à 7",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/sclk95yf832bdod8zczw",
+      "sport_name": "Rugby à 7",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/RU7_small.svg"
+    },
+    {
+      "sport": "404 - PAGE NOT FOUND",
+      "background_image": null,
+      "sport_name": null,
+      "logo": null
+    },
+    {
+      "sport": "Surf",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/gtdtnqtbdquzrivuvyji",
+      "sport_name": "Surf",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/SRF_small.svg"
+    },
+    {
+      "sport": "Taekwondo",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/lo6iwcfrrjtw8kqcff1b",
+      "sport_name": "Taekwondo",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/TKW_small.svg"
+    },
+    {
+      "sport": "Tennis",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/ev6rvbtg733mutjb1bde",
+      "sport_name": "Tennis",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/TEN_small.svg"
+    },
+    {
+      "sport": "Tennis de Table",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/mkqvq9wzsos8owy5zsm7",
+      "sport_name": "Tennis de Table",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/TTE_small.svg"
+    },
+    {
+      "sport": "Tir à l'arc",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/ccf4u7chvnjhamngf2zo",
+      "sport_name": "Tir à L'Arc",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/ARC_small.svg"
+    },
+    {
+      "sport": "Triathlon",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/cisr8zrb5trdyrqk90rp",
+      "sport_name": "Triathlon",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/TRI_small.svg"
+    },
+    {
+      "sport": "Volleyball",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/utpmvcgka3pfvunpdklo",
+      "sport_name": "Volleyball",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/VVO_small.svg"
+    },
+    {
+      "sport": "Volleyball de plage",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/izcbaefoa5s2ilrfuygt",
+      "sport_name": "Volleyball de plage",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/VBV_small.svg"
+    },
+    {
+      "sport": "Water-Polo",
+      "background_image": "https://img.olympicchannel.com/images/image/private/t_9-16_960/f_auto/primary/ceotnldil6umxksgrt20",
+      "sport_name": "Water-Polo",
+      "logo": "https://gstatic.olympics.com/s1/t_original/static/light/pictograms-paris-2024/olympics/WPO_small.svg"
+    }
+  ]
