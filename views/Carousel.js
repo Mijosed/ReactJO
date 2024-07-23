@@ -2,31 +2,38 @@ import { Component } from "../core/Component.js";
 export class Carousel extends Component {
   #images;
   #currentIndex;
-  state = {
-    imagesUrl: "",
-  };
+
 
   constructor({ container, images = [] }) {
     super({ container });
     this.#images = images;
     this.#currentIndex = 0;
     this.initStructure(this.render());
-    this.state.imagesUrl = this.#images[this.#currentIndex];
   }
   showPreviousImage() {
+    console.log("show previous image"); 
     this.#currentIndex = (this.#currentIndex - 1 + this.#images.length) % this.#images.length;
     const newProps = this.render();
-    this.display(newProps);
+    const event = new CustomEvent("rerender", {
+      detail: {
+        newProps,
+      },
+    });
+    this.getContainer().dispatchEvent(event);
   }
 
   showNextImage() {
-    console.log("click");
+    debugger;
+    console.log("show next image");
     this.#currentIndex = (this.#currentIndex + 1) % this.#images.length;
-  }
-
-  display(newProps) {
-    this.newStruture = newProps;
-    super.display();
+    const newProps = this.render();
+    const event = new CustomEvent("rerender", {
+      detail: {
+        newProps,
+      },
+    });
+    
+    this.getContainer().dispatchEvent(event);
   }
 
   render() {

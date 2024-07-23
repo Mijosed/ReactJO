@@ -38,10 +38,19 @@ export class Component {
         return true;
       } else {
         for (let i = 0; i < oldNode.children.length; i++) {
-          this.shouldUpdate(oldNode.children[i], newNode.children[i]);
-          if (this.shouldUpdate(oldNode.children[i], newNode.children[i])) {
-            let objet = this.elementToObject(this.getContainer());
-            let doom = this.findElementByProps(this.getContainer(), objet, oldNode.children[i]);
+          let oldChild = oldNode.children[i];
+          let newChild = newNode.children[i];
+          if (this.shouldUpdate(oldChild,newChild)) {
+            let objet = this.elementToObject(this.#container);
+            let elementTochange = this.findElementByProps(this.#container, objet, oldNode.children[i]);
+            if(elementTochange) {
+              this.#oldStructure = this.updateObjectInStructure(this.#oldStructure, oldNode.children[i], newChild);
+              this.#container = Render.createElement(this.#oldStructure);
+              console.log(Render.createElement(newChild));
+              elementTochange.replaceWith(Render.createElement(newChild));
+              break;
+              
+            }
             
           }
         }
@@ -50,9 +59,7 @@ export class Component {
 
     return false;
   }
-  render(){
-
-  }
+  
   elementToObject(element) {
     if (!element) return null;
 
@@ -107,6 +114,7 @@ export class Component {
     // Si aucun nœud correspondant n'est trouvé, retourne null
     return null;
   }
+  
   deepEqual(obj1, obj2) {
     if (obj1 === obj2) {
       return true; // Same reference
@@ -131,6 +139,26 @@ export class Component {
 
     return true;
   }
+  updateObjectInStructure(structure, targetObject, newObject) {
+    // Vérifie si l'objet actuel correspond à l'objet cible
+    if (this.deepEqual(structure, targetObject)) {
+      return newObject;
+    }
+  
+    // Si l'objet actuel a des enfants, itère récursivement sur eux
+    if (Array.isArray(structure.children)) {
+      structure.children = structure.children.map(child =>
+        this.updateObjectInStructure(child, targetObject, newObject)
+      );
+    }
+  
+    return structure;
+  }
+  render(dom, newNode) {
+    console.log("newNode");
+    debugger;
+    
+  }
   matchesProps(nodeToObject, props) {
     return this.deepEqual(nodeToObject, props);
   }
@@ -141,10 +169,11 @@ export class Component {
   setRerenderEvent(event) {
     this.#rerenderEvent = event;
   }
-  display() {
-    this.shouldUpdate(this.#oldStructure, this.newStruture);
+  display(newStruture) {
+    console.log(newStruture);
+    this.shouldUpdate(this.#oldStructure, newStruture);
   }
-
+  
   getContainer() {
     return this.#container;
   }
