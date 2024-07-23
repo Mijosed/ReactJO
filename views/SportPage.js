@@ -22,7 +22,7 @@ export class SportPage extends Component {
 
         //this.headerHome = new HeaderHome();
         //this.titleElement = new Title({ text: props.title });
-        //this.sportElement = new SportComponent();
+        this.sportElement = new SportComponent();
         this.footerElement = new Footer();
     }
 
@@ -33,7 +33,7 @@ export class SportPage extends Component {
             children: [
                 //this.headerHome.render(),
                 //this.titleElement.render(),
-                //this.sportElement.render(),
+                this.sportElement.render(),
                 this.footerElement.render()
             ]
         };

@@ -33,7 +33,7 @@ export class SportComponent extends Component {
 
 export class SportCalendar extends Component {
   render() {
-    const TitleElement = new TitleComponent({ text: "NATATION" });
+    const TitleElement = new Title({ text: "NATATION" });
     //const calendarElement = new CalendarComponent();
     return {
       tag: "section",
