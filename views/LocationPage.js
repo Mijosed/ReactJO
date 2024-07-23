@@ -37,8 +37,3 @@ export class LocationPage extends Component {
         };
     }
 }
-
-export default function renderLocationPage() {
-    const locationPage = new LocationPage({ title: "Les Sites Olympiques" });
-    return Render.createElement(locationPage.render());
-}

@@ -32,8 +32,3 @@ export class NotFoundPage extends Component {
         };
     }
 }
-
-export default function renderNotFoundPage() {
-    const notFoundPage = new NotFoundPage();
-    return Render.createElement(notFoundPage.render());
-}
