@@ -1,4 +1,5 @@
 import { Component } from '../../core/Component.js';
+import { validateProps } from '../../utils/utils.js';
 
 export class Text extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ export class Text extends Component {
     render() {
         return {
             tag: "p",
-            props: { class: "simple-text marge-top marge-bloc" },
+            props: { class: "font-olympicSans simple-text marge-top marge-bloc mx-40 mb-10" },
             children: [this.text]
         };
     }

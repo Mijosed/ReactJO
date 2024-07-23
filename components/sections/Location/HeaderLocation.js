@@ -36,7 +36,7 @@ export class HeaderLocation extends Component {
                         },
                         {
                             tag: "p",
-                            props: { class: "font-sans text-lg text-gray-400" },
+                            props: { class: "font-olympicSans text-lg text-gray-400" },
                             children: [this.subtitle]
                         },
                         {
@@ -54,7 +54,7 @@ export class HeaderLocation extends Component {
                                 },
                                 {
                                     tag: "span",
-                                    props: {class: "font-sans text-lg"},
+                                    props: {class: "font-olympicSans text-lg"},
                                     children: [this.city]
                                 }
                             ]
