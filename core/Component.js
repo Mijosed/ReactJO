@@ -4,6 +4,7 @@ export class Component {
   #container;
   #rerenderEvent;
   #structure;
+  #event;
   constructor({ container = null, rerenderEvent = "rerender" }) {
     if (new.target === Component) {
       throw new TypeError("Component is an abstract class");
@@ -13,12 +14,19 @@ export class Component {
     this.#structure = {};
     if (this.#container !== null) {
       this.#container.addEventListener(this.#rerenderEvent, (event) => {
-        this.#rerenderEvent(event.detail.newSrc);
+        console.log("salut copain");
+        //this.#rerenderEvent(event.detail.newSrc);
       });
     }
   }
+  setContainer(container) {
+    this.#container = container;
+  }
+  addEventListener(event, callback) {
+    this.#container.addEventListener(event, callback);
+  }
   setRerenderEvent(event) {
-    this.#rerenderEvent = event;
+    this.#event = event;
   }
 
   shouldUpdate(newProps) {

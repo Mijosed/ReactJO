@@ -1,4 +1,4 @@
-import { Component } from '../../core/Component.js';
+import { Component } from '../../../core/Component.js';
 
 export class HeaderHome extends Component {
     constructor(props ={}) {
@@ -7,24 +7,24 @@ export class HeaderHome extends Component {
     render() {
         return {
             tag: "header",
-            props: { class: "bg-cover bg-center h-[800px] flex justify-center items-center text-center text-white", style: "background-image: url('../../assets/images/background-image.png');" },
+            props: { class: "bg-cover bg-center h-screen flex justify-center items-center text-center text-white", style: "background-image: url('../../assets/images/background-image.png');" },
             children: [
                 {
                     tag: "div",
-                    props: { class: "absolute inset-0 flex flex-col h-[800px] items-center justify-center bg-black bg-opacity-50" },
+                    props: { class: "absolute inset-0 flex flex-col h-screen items-center justify-center bg-black bg-opacity-50" },
                     children: [
                         {
                             tag: "img",
-                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[5.5rem]" }
+                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%]" }
                         },
                         {
                             tag: "button",
-                            props: { class: "bg-[#FFB114] text-white font-olympic text-[24px]  py-2 px-4 rounded-full mb-[2.5rem] w-[392px] h-[48px]", onClick: () => window.location.href = '/#map' },
+                            props: { class: "bg-[#FFB114] text-white font-olympic text-[24px]  py-2 px-4 rounded-full mb-[3%] w-[392px] h-[48px]", onClick: () => window.location.href = '/#map' },
                             children: ["Explorer les Sites des JO"]
                         },
                         {
                             tag: "button",
-                            props: { class: "bg-[#00A651] text-white font-olympic text-[16px]  py-2 px-4 rounded-full mb-[8.5rem] w-[344px] h-[48px]", onClick: () => window.location.href = '/#sports' },
+                            props: { class: "bg-[#00A651] text-white font-olympic text-[16px]  py-2 px-4 rounded-full mb-[5%] w-[344px] h-[48px]", onClick: () => window.location.href = '/#sports' },
                             children: ["Ou Découvrir les Disciplines"]
                         },
                         {

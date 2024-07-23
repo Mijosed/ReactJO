@@ -41,7 +41,3 @@ export class SportPage extends Component {
     }
 }
 
-export default function renderSportPage() {
-    const sportPage = new SportPage({ title: "Les Disciplines Olympiques" });
-    return Render.createElement(sportPage.render());
-}

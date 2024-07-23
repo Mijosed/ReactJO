@@ -14,6 +14,10 @@ export class NotFoundPage extends Component {
                     tag: "div",
                     props: { class: "flex flex-col items-center justify-center h-screen" },
                     children: [
+                        {
+                            tag: "img",
+                            props: { src: "../assets/images/logo1.svg", alt: "404", class: "w-1/4" }
+                        },
                         titleElement.render(),
                         {
                             tag: "p",
@@ -31,9 +35,4 @@ export class NotFoundPage extends Component {
             ]
         };
     }
-}
-
-export default function renderNotFoundPage() {
-    const notFoundPage = new NotFoundPage();
-    return Render.createElement(notFoundPage.render());
 }
