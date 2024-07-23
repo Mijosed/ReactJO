@@ -49,7 +49,9 @@ export class HomePage extends Component {
     async componentDidMount() {
         // Initialisation de la carte Leaflet
         console.log("Initialisation de la carte");
-        const map = L.map('map').setView([48.8566, 2.3522], 12); // Centré sur Paris avec un zoom de 12
+        const map = L.map('map', {
+  gestureHandling: true
+}).setView([48.8566, 2.3522], 12); // Centré sur Paris avec un zoom de 12
 
         // Ajout de la couche de tuiles OpenStreetMap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
