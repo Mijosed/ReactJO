@@ -8,7 +8,7 @@ export class MapSection extends Component {
     render() {
         return {
             tag: "div",
-            props: { id: "map",},
+            props: { id: "map", style:"height: 400px; width: 100%;" },
             children: [
                 
             ]
