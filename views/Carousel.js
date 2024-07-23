@@ -10,35 +10,23 @@ export class Carousel extends Component {
     super({ container });
     this.#images = images;
     this.#currentIndex = 0;
+    this.initStructure(this.render());
     this.state.imagesUrl = this.#images[this.#currentIndex];
   }
   showPreviousImage() {
     this.#currentIndex = (this.#currentIndex - 1 + this.#images.length) % this.#images.length;
-    this.setState({ imagesUrl: this.#images[this.#currentIndex] });
+    const newProps = this.render();
+    this.display(newProps);
   }
 
   showNextImage() {
     console.log("click");
     this.#currentIndex = (this.#currentIndex + 1) % this.#images.length;
-    // this.dispatchImageChangedEvent();
   }
-  // dispatchImageChangedEvent() {
-  //   const newSrc = this.#images[this.#currentIndex];
-  //   this.setRerenderEvent();
-  //   if (newSrc !== this.#imageState) {
-  //     this.#imageState = newSrc;
-  //     const event = new CustomEvent("rerender", { detail: { newProps: this.#imageState } });
-  //     this.getContainer().dispatchEvent(event);
-  //   }
-  // }
-  setRerenderEvent() {
-    super.setRerenderEvent(this.updateImageSrc);
-  }
-  updateImageSrc(newSrc) {
-    const imageContainer = this.getContainer().querySelector(".image-container img");
-    if (imageContainer && imageContainer.src !== newSrc) {
-      imageContainer.src = newSrc;
-    }
+
+  display(newProps) {
+    this.newStruture = newProps;
+    super.shouldUpdate();
   }
 
   render() {
