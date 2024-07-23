@@ -9,3 +9,4 @@ export { SearchBar } from './common/SearchBar.js';
 export { FilterButton } from './common/FilterButton.js';
 export { HomeTitle } from './sections/HomeTitle.js';
 export { SportSection } from './sections/SportSection.js';
+export { Pagination } from './common/Pagination.js';
