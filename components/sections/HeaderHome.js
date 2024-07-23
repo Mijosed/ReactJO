@@ -11,7 +11,7 @@ export class HeaderHome extends Component {
             children: [
                 {
                     tag: "div",
-                    props: { class: "absolute inset-0 flex flex-col h-[800px] items-center justify-center bg-black bg-opacity-50" },
+                    props: { class: "absolute inset-0 flex flex-col h-screen items-center justify-center bg-opacity-50" },
                     children: [
                         {
                             tag: "img",
