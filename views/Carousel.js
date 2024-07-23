@@ -13,17 +13,14 @@ export class Carousel extends Component {
     this.state.imagesUrl = this.#images[this.#currentIndex];
   }
   showPreviousImage() {
-    debugger;
     this.#currentIndex = (this.#currentIndex - 1 + this.#images.length) % this.#images.length;
-    this.state.imagesUrl = this.#images[this.#currentIndex];
+    this.setState({ imagesUrl: this.#images[this.#currentIndex] });
   }
-  display(newProps) {
-    super.shouldUpdate();
-  }
+
   showNextImage() {
     console.log("click");
     this.#currentIndex = (this.#currentIndex + 1) % this.#images.length;
-    this.dispatchImageChangedEvent();
+    // this.dispatchImageChangedEvent();
   }
   // dispatchImageChangedEvent() {
   //   const newSrc = this.#images[this.#currentIndex];

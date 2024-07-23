@@ -14,13 +14,13 @@ export class Component {
     this.#structure = {};
     if (this.#container !== null) {
       this.#container.addEventListener(this.#rerenderEvent, (event) => {
-        this.display(event.detail.newProps);
+        this.render();
       });
     }
   }
   setState(newState) {
-    debugger;
     this.state = { ...this.state, ...newState };
+
     this.render();
   }
   setContainer(container) {
