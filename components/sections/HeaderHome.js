@@ -7,11 +7,11 @@ export class HeaderHome extends Component {
     render() {
         return {
             tag: "header",
-            props: { class: "bg-cover bg-center h-[800px] flex justify-center items-center text-center text-white", style: "background-image: url('../../assets/images/background-image.png');" },
+            props: { class: "bg-cover bg-center h-screen flex justify-center items-center text-center text-white", style: "background-image: url('../../assets/images/background-image.png');" },
             children: [
                 {
                     tag: "div",
-                    props: { class: "absolute inset-0 flex flex-col h-screen items-center justify-center bg-opacity-50" },
+                    props: { class: "absolute inset-0 flex flex-col h-[800px] items-center justify-center bg-opacity-50" },
                     children: [
                         {
                             tag: "img",
