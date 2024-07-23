@@ -11,6 +11,7 @@ export { HomeTitle } from './sections/Home/HomeTitle.js';
 export { SportSection } from './sections/Home/SportSection.js';
 export { Pagination } from './common/Pagination.js';
 export { HeaderLocation } from './sections/Location/HeaderLocation.js';
+export { HeaderSport } from './sections/Sport/HeaderSport.js';
 export { Breadcrumb } from './common/Breadcrumb.js';
 export { Text } from './elements/Text.js';
 export { TitleLine } from './elements/TitleLine.js';
