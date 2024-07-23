@@ -14,17 +14,14 @@ export class Component {
     this.#structure = {};
     if (this.#container !== null) {
       this.#container.addEventListener(this.#rerenderEvent, (event) => {
-        console.log("salut copain");
-        //this.#rerenderEvent(event.detail.newSrc);
+        this.display(event.detail.newProps);
       });
     }
   }
   setContainer(container) {
     this.#container = container;
   }
-  addEventListener(event, callback) {
-    this.#container.addEventListener(event, callback);
-  }
+
   setRerenderEvent(event) {
     this.#event = event;
   }
@@ -43,12 +40,6 @@ export class Component {
   }
 
   display(newProps = this.props) {
-    if (this.shouldUpdate(newProps)) {
-      this.oldProps = this.props;
-      this.props = newProps;
-      return this.render();
-    }
-    return this.render();
   }
 
   getContainer() {
