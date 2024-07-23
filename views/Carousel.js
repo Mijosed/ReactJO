@@ -23,7 +23,6 @@ export class Carousel extends Component {
   }
 
   showNextImage() {
-    debugger;
     console.log("show next image");
     this.#currentIndex = (this.#currentIndex + 1) % this.#images.length;
     const newProps = this.render();

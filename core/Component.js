@@ -42,16 +42,7 @@ export class Component {
           let newChild = newNode.children[i];
           if (this.shouldUpdate(oldChild,newChild)) {
             let objet = this.elementToObject(this.#container);
-            let elementTochange = this.findElementByProps(this.#container, objet, oldNode.children[i]);
-            if(elementTochange) {
-              this.#oldStructure = this.updateObjectInStructure(this.#oldStructure, oldNode.children[i], newChild);
-              this.#container = Render.createElement(this.#oldStructure);
-              console.log(Render.createElement(newChild));
-              elementTochange.replaceWith(Render.createElement(newChild));
-              break;
-              
-            }
-            
+            return this.findElementByPropsAndReplace(this.#container, objet, oldNode.children[i],newChild);
           }
         }
       }
@@ -86,7 +77,8 @@ export class Component {
 
     return obj;
   }
-  findElementByProps(node, nodeToObject, propsToMatch) {
+  
+  findElementByPropsAndReplace(node, nodeToObject, propsToMatch, newProps) {
     // Vérifie si le nœud actuel correspond aux propriétés données
     if (this.matchesProps(nodeToObject, propsToMatch)) {
       return node;
@@ -99,13 +91,15 @@ export class Component {
 
       // Vérifie si l'enfant actuel correspond aux propriétés données
       if (this.matchesProps(nodeToObjectChild, propsToMatch)) {
+        child.replaceWith(Render.createElement(newProps));
         return child;
       }
 
       // Si l'enfant a des nœuds enfants, effectue une recherche récursive
       if (child.childNodes.length > 0) {
-        let foundNode = this.findElementByProps(child, nodeToObjectChild, propsToMatch);
+        let foundNode = this.findElementByPropsAndReplace(child, nodeToObjectChild, propsToMatch,newProps);
         if (foundNode) {
+          this.#container = node;
           return foundNode;
         }
       }
@@ -139,26 +133,7 @@ export class Component {
 
     return true;
   }
-  updateObjectInStructure(structure, targetObject, newObject) {
-    // Vérifie si l'objet actuel correspond à l'objet cible
-    if (this.deepEqual(structure, targetObject)) {
-      return newObject;
-    }
-  
-    // Si l'objet actuel a des enfants, itère récursivement sur eux
-    if (Array.isArray(structure.children)) {
-      structure.children = structure.children.map(child =>
-        this.updateObjectInStructure(child, targetObject, newObject)
-      );
-    }
-  
-    return structure;
-  }
-  render(dom, newNode) {
-    console.log("newNode");
-    debugger;
-    
-  }
+
   matchesProps(nodeToObject, props) {
     return this.deepEqual(nodeToObject, props);
   }
@@ -166,14 +141,13 @@ export class Component {
   setNewStructure(structure) {
     this.newStruture = structure;
   }
-  setRerenderEvent(event) {
-    this.#rerenderEvent = event;
-  }
   display(newStruture) {
-    console.log(newStruture);
-    this.shouldUpdate(this.#oldStructure, newStruture);
+    if(this.shouldUpdate(this.#oldStructure, newStruture)){
+      debugger;
+      this.#oldStructure = newStruture;
+    }
+
   }
-  
   getContainer() {
     return this.#container;
   }
