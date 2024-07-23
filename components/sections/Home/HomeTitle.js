@@ -1,8 +1,8 @@
-import { Component } from '../../core/Component.js';
-import { validateProps } from '../../utils/utils.js';
+import { Component } from '../../../core/Component.js';
+import { validateProps } from '../../../utils/utils.js';
 import {
     Title,
- } from '../Components.js';
+ } from '../../Components.js';
 export class HomeTitle extends Component {
     
     constructor(props ={}) {

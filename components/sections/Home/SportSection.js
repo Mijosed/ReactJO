@@ -1,11 +1,12 @@
-import { Component } from '../../core/Component.js';
-import { validateProps } from '../../utils/utils.js';
+import { Component } from '../../../core/Component.js';
+import { validateProps } from '../../../utils/utils.js';
 import {
     Card,
     HomeTitle,
     SearchBar,
-    FilterButton
- } from '../Components.js';
+    FilterButton,
+    Pagination
+ } from '../../Components.js';
 export class SportSection extends Component {
     
     constructor(props ={}) {
@@ -23,6 +24,7 @@ export class SportSection extends Component {
             { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
             { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" }
         ];
+        this.pagination = new Pagination();
         
     }
 
@@ -47,7 +49,8 @@ export class SportSection extends Component {
                         const card = new Card(sport);
                         return card.render();
                     })
-                }
+                },
+                this.pagination.render()
                     
             ]
         }

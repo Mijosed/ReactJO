@@ -1,8 +1,8 @@
-import { Component } from '../../core/Component.js';
+import { Component } from '../../../core/Component.js';
 import {
    SearchBar,
    FilterButton
-} from '../Components.js';
+} from '../../Components.js';
 export class MapSection extends Component {
     constructor(props ={}) {
         super(props);
