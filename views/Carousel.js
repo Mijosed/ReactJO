@@ -26,7 +26,7 @@ export class Carousel extends Component {
 
   display(newProps) {
     this.newStruture = newProps;
-    super.shouldUpdate();
+    super.display();
   }
 
   render() {
@@ -50,9 +50,10 @@ export class Carousel extends Component {
             src: this.#images[this.#currentIndex],
             alt: "carousel image",
           },
+          children: [],
         },
         {
-          tag: "button",
+          tag: "h1",
           props: {
             class: "carousel-button",
             onClick: () => this.showNextImage(),
