@@ -19,8 +19,8 @@ export class SportPage extends Component {
         };
         validateProps(props, propSchema);
 
-        this.headerHome = new HeaderHome();
-        this.titleElement = new Title({ text: props.title });
+        //this.headerHome = new HeaderHome();
+        //this.titleElement = new Title({ text: props.title });
         this.sportElement = new SportComponent();
         this.footerElement = new Footer();
     }
@@ -28,9 +28,12 @@ export class SportPage extends Component {
     render() {
         return {
             tag: "div",
+            props:{
+
+            },
             children: [
-                this.headerHome.render(),
-                this.titleElement.render(),
+                //this.headerHome.render(),
+                //this.titleElement.render(),
                 this.sportElement.render(),
                 this.footerElement.render()
             ]
