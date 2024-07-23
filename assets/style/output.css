@@ -948,12 +948,36 @@ video {
   height: 48px;
 }
 
+.h-\[90vh\] {
+  height: 90vh;
+}
+
 .h-full {
   height: 100%;
 }
 
 .h-screen {
   height: 100vh;
+}
+
+.h-\[10vh\] {
+  height: 10vh;
+}
+
+.h-\[20vh\] {
+  height: 20vh;
+}
+
+.h-\[15vh\] {
+  height: 15vh;
+}
+
+.h-\[50vh\] {
+  height: 50vh;
+}
+
+.h-\[85vh\] {
+  height: 85vh;
 }
 
 .w-1\/2 {

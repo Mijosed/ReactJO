@@ -26,7 +26,7 @@ export class MapSection extends Component {
                 
                 {
                     tag: "div",
-                    props: { id: "map", style:"height: 400px; width: 100%; z-40 position:absolute; z-index:40;" },
+                    props: { id: "map",class:"h-[85vh]", style:" width: 100%; z-40 position:absolute; z-index:40;" },
                     children: []
                 }
             ]

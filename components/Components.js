@@ -7,3 +7,5 @@ export { Footer } from './common/Footer.js';
 export { Card } from './common/Card.js';
 export { SearchBar } from './common/SearchBar.js';
 export { FilterButton } from './common/FilterButton.js';
+export { HomeTitle } from './sections/HomeTitle.js';
+export { SportSection } from './sections/SportSection.js';
