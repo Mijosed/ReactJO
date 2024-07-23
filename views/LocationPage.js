@@ -6,6 +6,7 @@ import {
     Text,
     TitleLine,
     ImageGrid,
+    Card
  } from '../components/Components.js';
 import { validateProps } from '../utils/utils.js';
 
@@ -47,6 +48,21 @@ export class LocationPage extends Component {
             ]
         });
         this.titleLineSpot = new TitleLine({ title: "SPOTS" });
+        this.cardSpot = [
+            {
+                id: "1",
+                nom: "GRADIN A",
+                description: "La naissance de la natation remonte à la préhistoire, mais il faut attendre le 19e siècle pour que sa pratique devienne compétitive.....",
+                image: "../assets/images/gradin.jpg"
+            },
+            {
+                id: "2",
+                nom: "BAR NORD",
+                description: "La naissance de la natation remonte à la préhistoire, mais il faut attendre le 19e siècle pour que sa pratique devienne compétitive.....",
+                image: "../assets/images/bar.jpg"
+            }
+            
+        ]
     }
 
     render() {
@@ -59,6 +75,14 @@ export class LocationPage extends Component {
                 this.titleLineSport.render(),
                 this.imageGrid.render(),
                 this.titleLineSpot.render(),
+                {
+                    tag: "div",
+                    props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4 mx-40", id: "sports" },
+                    children: this.cardSpot.map(spot => {
+                        const card = new Card(spot);
+                        return card.render();
+                    })
+                },
                 this.footer.render(),
             ]
         };
