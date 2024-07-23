@@ -5,7 +5,7 @@ export class Component {
   #rerenderEvent;
   #structure;
   #event;
-  constructor({ container = null, rerenderEvent = "rerender" }) {
+  constructor(container) {
     if (new.target === Component) {
       throw new TypeError("Component is an abstract class");
     }
