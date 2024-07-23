@@ -1,12 +1,12 @@
-import { Component } from '../../core/Component.js';
-import { validateProps } from '../../utils/utils.js';
+import { Component } from '../../../core/Component.js';
+import { validateProps } from '../../../utils/utils.js';
 import {
     Card,
     HomeTitle,
     SearchBar,
     FilterButton,
     Pagination
- } from '../Components.js';
+ } from '../../Components.js';
 export class SportSection extends Component {
     
     constructor(props ={}) {
