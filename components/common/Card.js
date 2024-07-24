@@ -55,7 +55,7 @@ export class Card extends Component {
                         {
                             tag: "a",
                             props: {
-                                href: `#${this.props.id}`,
+                                href: `/sports?id=${this.props.id}`,
                                 class: "text-blue-500 hover:text-blue-700 text-sm"
                             },
                             children: ["En savoir plus"]

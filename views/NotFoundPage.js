@@ -29,7 +29,7 @@ export class NotFoundPage extends Component {
                         },
                         {
                             tag: "a",
-                            props: { href: "/", class: "text-white font-olympicSans font-bold bg-black rounded-full text-[24px] w-[240px] h-[64px] shadow-xl flex items-center justify-center mt-20" },
+                            props: { href: "/", class: "text-white font-olympicSans font-bold bg-black rounded-full text-[24px] w-[240px] h-[64px] shadow-xl flex items-center justify-center mt-20", style:"padding: 10px" },
                             children: ["GO HOME"]
                         }
                     ]
