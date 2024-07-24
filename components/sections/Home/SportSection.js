@@ -21,37 +21,34 @@ export class SportSection extends Component {
                 { id: "5", nom: "Gymnastique", description: "Compétitions de gymnastique", image: "../assets/images/sports/gym.jpg" },
                 { id: "6", nom: "Tennis", description: "Compétitions de tennis", image: "../assets/images/sports/tennis.jpg" },
                 { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
-                { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" }
+                { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
+                { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
+
             ],
-            loading: true,
+            loading: false,
             error: null,
+            currentPage: 1,
+            itemsPerPage: 8
         };
 
         this.titleElementSports = new HomeTitle({ text: "Les différents sports présents lors des JO", couleur: "black", id: "sports", textColor: "white" });
         this.SearchBar = new SearchBar();
         this.FilterButton = new FilterButton();
-        this.pagination = new Pagination();
-
-        this.getData();
+        this.pagination = new Pagination({
+            id: "sports-pagination",
+            totalItems: this.state.sports.length,
+            itemsPerPage: this.state.itemsPerPage,
+            currentPage: this.state.currentPage,
+            onPageChange: this.handlePageChange.bind(this)
+        });
     }
-
-    async getData() {
-        try {
-            const data = await fetchData();
-            const sports = data.results.map((sport) => ({
-                id: sport.id,
-                nom: sport.nom,
-                description: sport.description,
-                image: sport.image
-            }));
-            this.setState({ sports, loading: false });
-        } catch (error) {
-            this.setState({ error: error.message, loading: false });
-        }
+    handlePageChange(pageNumber) {
+        this.setState({ currentPage: pageNumber });
     }
 
     render() {
-        const { sports, loading, error } = this.state;
+        const { sports, loading, error, currentPage, itemsPerPage } = this.state;
+
         if (loading) {
             return {
                 tag: "div",
@@ -67,6 +64,11 @@ export class SportSection extends Component {
                 children: [{ tag: "p", props: {}, children: [error] }]
             };
         }
+
+        // Calculate the items to display on the current page
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const sportsToDisplay = sports.slice(startIndex, endIndex);
 
         return {
             tag: "div",
@@ -84,20 +86,18 @@ export class SportSection extends Component {
                 {
                     tag: "div",
                     props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "sports" },
-                    children: sports.map(sport => {
-                        
-                        // const propSchema = {
-                        //     type: 'object',
-                        //     properties: {
-                        //         id: { type: 'string' },
-                        //         nom: { type: 'string' },
-                        //         description: { type: 'string' },
-                        //         image: { type: 'string' }
-                        //     }
-                        // };
-                        // debugger;
-                        // validateProps(sport, propSchema);
-                        const card = new Card({ id: "1", nom: "sport.nom", description: "sport.description", image: "sport.image" });
+                    children: sportsToDisplay.map(sport => {
+                        const propSchema = {
+                            type: 'object',
+                            properties: {
+                                id: { type: 'string' },
+                                nom: { type: 'string' },
+                                description: { type: 'string' },
+                                image: { type: 'string' }
+                            }
+                        };
+                        validateProps(sport, propSchema);
+                        const card = new Card(sport);
                         return card.render();
                     })
                 },
