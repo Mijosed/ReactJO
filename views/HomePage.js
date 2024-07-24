@@ -3,7 +3,6 @@ import {
     HeaderHome,
     MapSection,
     Footer,
-    Card,
     HomeTitle,
     SportSection
 } from '../components/Components.js';
