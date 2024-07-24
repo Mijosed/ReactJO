@@ -3,7 +3,6 @@ import { Render } from '../core/Render.js';
 import {
     HeaderHome,
     Title,
-    SportComponent,
     Footer, HeaderSport, Breadcrumb, Text, TitleLine, Calendar
 } from '../components/Components.js';
 import { validateProps } from '../utils/utils.js';
