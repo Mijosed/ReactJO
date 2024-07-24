@@ -1,42 +1,73 @@
+import { fetchData } from '../../../api/fetchData.js';
 import { Component } from '../../../core/Component.js';
-import { validateProps } from '../../../utils/utils.js';
 import {
     Card,
     HomeTitle,
     SearchBar,
     FilterButton,
     Pagination
- } from '../../Components.js';
+} from '../../Components.js';
+import { validateProps } from '../../../utils/utils.js';
+
 export class SportSection extends Component {
-    
-    constructor(props ={}) {
+    constructor(props = {}) {
         super(props);
+        this.state = {
+            sports: [],
+            loading: true,
+            error: null,
+        };
+
         this.titleElementSports = new HomeTitle({ text: "Les différents sports présents lors des JO", couleur: "black", id: "sports", textColor: "white" });
         this.SearchBar = new SearchBar();
         this.FilterButton = new FilterButton();
-        this.sports = [
-            { id: "1", nom: "Athlétisme", description: "Compétitions d'athlétisme", image: "../assets/images/sports/athle.jpg" },
-            { id: "2", nom: "Natation", description: "Compétitions de natation", image: "../assets/images/sports/natation.jpg" },
-            { id: "3", nom: "Basketball", description: "Compétitions de basketball", image: "../assets/images/sports/basket.jpg" },
-            { id: "4", nom: "Football", description: "Compétitions de football", image: "../assets/images/sports/foot.jpg" },
-            { id: "5", nom: "Gymnastique", description: "Compétitions de gymnastique", image: "../assets/images/sports/gym.jpg" },
-            { id: "6", nom: "Tennis", description: "Compétitions de tennis", image: "../assets/images/sports/tennis.jpg" },
-            { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
-            { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" }
-        ];
         this.pagination = new Pagination();
-        
+
+        this.getData();
+    }
+
+    async getData() {
+        try {
+            const data = await fetchData();
+            const sports = data.results.map((sport) => ({
+                id: sport.id,
+                nom: sport.nom,
+                description: sport.description,
+                image: sport.image
+            }));
+            this.setState({ sports, loading: false });
+        } catch (error) {
+            this.setState({ error: error.message, loading: false });
+        }
     }
 
     render() {
+        const { sports, loading, error } = this.state;
+
+        if (loading) {
+            return {
+                tag: "div",
+                props: { id: "sports-section" },
+                children: [{ tag: "p", props: {}, children: ["Loading..."] }]
+            };
+        }
+
+        if (error) {
+            return {
+                tag: "div",
+                props: { id: "sports-section" },
+                children: [{ tag: "p", props: {}, children: [error] }]
+            };
+        }
+
         return {
-            tag:"div",
-            props:{id: "sports-section"},
-            children:[
+            tag: "div",
+            props: { id: "sports-section" },
+            children: [
                 this.titleElementSports.render(),
                 {
                     tag: "div",
-                    props: { id: "search", class: " flex justify-center z-50 w-full" },
+                    props: { id: "search", class: "flex justify-center z-50 w-full" },
                     children: [
                         this.FilterButton.render(),
                         this.SearchBar.render(),
@@ -45,14 +76,23 @@ export class SportSection extends Component {
                 {
                     tag: "div",
                     props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "sports" },
-                    children: this.sports.map(sport => {
+                    children: sports.map(sport => {
+                        const propSchema = {
+                            type: 'object',
+                            properties: {
+                                id: { type: 'string' },
+                                nom: { type: 'string' },
+                                description: { type: 'string' },
+                                image: { type: 'string' }
+                            }
+                        };
+                        validateProps(sport, propSchema);
                         const card = new Card(sport);
                         return card.render();
                     })
                 },
                 this.pagination.render()
-                    
             ]
-        }
+        };
     }
 }

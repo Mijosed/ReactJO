@@ -53,6 +53,10 @@ export class Render {
     }
 
     static render(component, root) {
+        if (!root) {
+            console.error('Root element not found');
+            throw new Error('Root element not found');
+        }
         root.innerHTML = "";
         root.appendChild(Render.createElement(component));
     }

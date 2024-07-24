@@ -1,57 +1,65 @@
 import { Render } from "./Render.js";
 
 export class Component {
-  #container;
-  #rerenderEvent;
-  #structure;
-  #event;
-  constructor({ container = null, rerenderEvent = "rerender" }) {
-    if (new.target === Component) {
-      throw new TypeError("Component is an abstract class");
-    }
-    this.#container = container;
-    this.#rerenderEvent = rerenderEvent;
-    this.#structure = {};
-    if (this.#container !== null) {
-      this.#container.addEventListener(this.#rerenderEvent, (event) => {
-        console.log("salut copain");
-        //this.#rerenderEvent(event.detail.newSrc);
-      });
-    }
-  }
-  setContainer(container) {
-    this.#container = container;
-  }
-  addEventListener(event, callback) {
-    this.#container.addEventListener(event, callback);
-  }
-  setRerenderEvent(event) {
-    this.#event = event;
+  constructor(props = {}) {
+      this.props = props;
+      this.state = {};
   }
 
-  shouldUpdate(newProps) {
-    return JSON.stringify(this.props) !== JSON.stringify(newProps);
+  setState(newState) {
+      this.state = { ...this.state, ...newState };
+      this.update();
   }
 
-  setRerenderEvent(event) {
-    this.#rerenderEvent = event;
+  update() {
+      const root = document.getElementById(this.props.id || 'root');
+      if (root) {
+          root.innerHTML = '';
+          root.appendChild(this.renderDOM());
+      }
+  }
+
+  renderDOM() {
+      const element = this.render();
+      return this.createElement(element);
+  }
+
+  createElement(element) {
+      if (typeof element === "string") {
+          return document.createTextNode(element);
+      }
+
+      if (typeof element === "object" && element.tag) {
+          const { tag, props, children } = element;
+          const domElement = document.createElement(tag);
+
+          if (props) {
+              for (const [key, value] of Object.entries(props)) {
+                  if (key.startsWith('on') && typeof value === 'function') {
+                      domElement.addEventListener(key.substring(2).toLowerCase(), value);
+                  } else if (key === 'style' && typeof value === 'object') {
+                      Object.assign(domElement.style, value);
+                  } else {
+                      domElement.setAttribute(key, value);
+                  }
+              }
+          }
+
+          if (children) {
+              children.forEach(child => domElement.appendChild(this.createElement(child)));
+          }
+
+          return domElement;
+      }
+
+      if (typeof element === "object" && element.render) {
+          return this.createElement(element.render());
+      }
+
+      throw new Error(`Invalid element passed to createElement: ${element}`);
   }
 
   render() {
-    Render.createElement(this.#structure);
-    Render.render(this.#structure, this.#container);
-  }
-
-  display(newProps = this.props) {
-    if (this.shouldUpdate(newProps)) {
-      this.oldProps = this.props;
-      this.props = newProps;
-      return this.render();
-    }
-    return this.render();
-  }
-
-  getContainer() {
-    return this.#container;
+      throw new Error('Render method should be implemented by subclass');
   }
 }

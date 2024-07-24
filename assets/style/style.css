@@ -48,6 +48,9 @@ footer {
   flex-direction: row;
   justify-content: center;
 }
+#menu-toggle-button {
+    transition: left 0.3s ease-in-out;
+}
 
 .align-footer > * {
   margin: 0 12px;
@@ -55,6 +58,12 @@ footer {
 
 .text-center{
   margin: 7px 0 7px 0;
+}
+#menu-toggle-button {
+  transition: transform 0.3s ease-in-out;
+}
+#map-search-menu {
+  transition: transform 0.3s ease-in-out;
 }
 
 .image-mascotte{
