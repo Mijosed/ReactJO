@@ -22,9 +22,8 @@ export class SportSection extends Component {
                 { id: "6", nom: "Tennis", description: "Compétitions de tennis", image: "../assets/images/sports/tennis.jpg" },
                 { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
                 { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
-                { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
-                { id: "9", nom: "Cyclismetest", description: "Compétitions de cyclismedsdzs", image: "../assets/images/sports/cyclisme.jpg" },
-
+                { id: "9", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
+                { id: "10", nom: "Cyclismetest", description: "Compétitions de cyclismedsdzs", image: "../assets/images/sports/cyclisme.jpg" },
             ],
             loading: false,
             error: null,
@@ -37,12 +36,15 @@ export class SportSection extends Component {
         this.FilterButton = new FilterButton();
         this.pagination = new Pagination({
             id: "sports-pagination",
-            totalItems: this.state.sports.length,
-            itemsPerPage: this.state.itemsPerPage,
-            currentPage: this.state.currentPage,
+            state : {
+                totalItems: this.state.sports.length,
+                itemsPerPage: this.state.itemsPerPage,
+                currentPage: this.state.currentPage,
+            },
             onPageChange: this.handlePageChange.bind(this)
         });
     }
+
     handlePageChange(pageNumber) {
         this.setState({ currentPage: pageNumber });
     }
