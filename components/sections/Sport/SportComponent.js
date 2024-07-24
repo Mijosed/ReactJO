@@ -1,4 +1,4 @@
-import { Component } from "../../../core/Component_old.js";
+import { Component } from "../../../core/Component.js";
 import { Title } from "../../elements/Title.js";
 
 export class SportComponent extends Component {

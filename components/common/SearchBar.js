@@ -1,4 +1,4 @@
-import { Component } from '../../core/Component_old.js';
+import { Component } from '../../core/Component.js';
 
 export class SearchBar extends Component {
     constructor(props = {}) {
