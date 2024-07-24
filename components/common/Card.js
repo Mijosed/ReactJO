@@ -13,6 +13,7 @@ export class Card extends Component {
                 image: { type: 'string' }
             }
         };
+        
         validateProps(props, propSchema);
         this.props = props;
     }

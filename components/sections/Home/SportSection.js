@@ -13,7 +13,16 @@ export class SportSection extends Component {
     constructor(props = {}) {
         super(props);
         this.state = {
-            sports: [],
+            sports: [
+                { id: "1", nom: "Athlétisme", description: "Compétitions d'athlétisme", image: "../assets/images/sports/athle.jpg" },
+                { id: "2", nom: "Natation", description: "Compétitions de natation", image: "../assets/images/sports/natation.jpg" },
+                { id: "3", nom: "Basketball", description: "Compétitions de basketball", image: "../assets/images/sports/basket.jpg" },
+                { id: "4", nom: "Football", description: "Compétitions de football", image: "../assets/images/sports/foot.jpg" },
+                { id: "5", nom: "Gymnastique", description: "Compétitions de gymnastique", image: "../assets/images/sports/gym.jpg" },
+                { id: "6", nom: "Tennis", description: "Compétitions de tennis", image: "../assets/images/sports/tennis.jpg" },
+                { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
+                { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" }
+            ],
             loading: true,
             error: null,
         };
@@ -43,7 +52,6 @@ export class SportSection extends Component {
 
     render() {
         const { sports, loading, error } = this.state;
-
         if (loading) {
             return {
                 tag: "div",
@@ -77,17 +85,18 @@ export class SportSection extends Component {
                     tag: "div",
                     props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "sports" },
                     children: sports.map(sport => {
-                        const propSchema = {
-                            type: 'object',
-                            properties: {
-                                id: { type: 'string' },
-                                nom: { type: 'string' },
-                                description: { type: 'string' },
-                                image: { type: 'string' }
-                            }
-                        };
-                        validateProps(sport, propSchema);
-                        const card = new Card(sport);
+                        // const propSchema = {
+                        //     type: 'object',
+                        //     properties: {
+                        //         id: { type: 'string' },
+                        //         nom: { type: 'string' },
+                        //         description: { type: 'string' },
+                        //         image: { type: 'string' }
+                        //     }
+                        // };
+                        // debugger;
+                        // validateProps(sport, propSchema);
+                        const card = new Card({ id: "1", nom: "sport.nom", description: "sport.description", image: "sport.image" });
                         return card.render();
                     })
                 },
