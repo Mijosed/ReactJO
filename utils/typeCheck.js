@@ -54,6 +54,7 @@ export function type_check(variable, conf) {
 
 export function validateProps(props, schema) {
   if (!type_check(props, schema)) {
+    
     throw new InvalidPropsError("Invalid props provided");
   }
 }

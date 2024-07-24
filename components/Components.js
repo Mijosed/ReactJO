@@ -17,3 +17,4 @@ export { Breadcrumb } from './common/Breadcrumb.js';
 export { Text } from './elements/Text.js';
 export { TitleLine } from './elements/TitleLine.js';
 export { ImageGrid } from './common/ImageGrid.js';
+export { MapSearchMenu } from './common/MapSearchMenu.js';  
