@@ -1,4 +1,4 @@
-import { Component } from '../../../core/Component_old.js';
+import { Component } from '../../../core/Component.js';
 import { validateProps } from '../../../utils/utils.js';
 import {
     Title,

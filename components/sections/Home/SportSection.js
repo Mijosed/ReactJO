@@ -23,6 +23,7 @@ export class SportSection extends Component {
                 { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
                 { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
                 { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
+                { id: "9", nom: "Cyclismetest", description: "Compétitions de cyclismedsdzs", image: "../assets/images/sports/cyclisme.jpg" },
 
             ],
             loading: false,
