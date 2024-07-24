@@ -3,7 +3,7 @@ import { Component } from '../../core/Component.js';
 export class Pagination extends Component {
     constructor(props = {}) {
         super(props);
-        this.totalItems = props.statetotalItems;
+        this.totalItems = props.state.totalItems;
         this.itemsPerPage = props.state.itemsPerPage;
         this.currentPage = props.state.currentPage;
         this.onPageChange = props.onPageChange;
