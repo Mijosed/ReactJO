@@ -1263,7 +1263,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  img {
+  .image-mascotte, .hidden-img {
     display: none;
   }
 
@@ -1273,6 +1273,10 @@ footer {
 
   .calendar{
     width: 100%;
+  }
+
+  .red-on-mobil{
+    background-color: #F0282D;
   }
 }
 

@@ -36,7 +36,7 @@ export class Calendar extends Component {
             children: [
                 {
                     tag: "div",
-                    props: { class: "object-cover bg-[#0078D0] h-full p-2.5 text-[#FFB114] rounded-l-[10px]",
+                    props: { class: "object-cover bg-[#0078D0] h-full p-2.5 text-[#FFB114] rounded-l-[10px] red-on-mobil",
                         style: "text-align: center;" },
                     children: [
                         { tag: "div", props: {}, children: ["Vendredi"] },
