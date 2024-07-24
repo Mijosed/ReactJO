@@ -56,3 +56,5 @@ export class SportSection extends Component {
         }
     }
 }
+
+// url : ../../../database/sports.json
