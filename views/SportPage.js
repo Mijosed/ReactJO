@@ -3,7 +3,6 @@ import { Render } from '../core/Render.js';
 import {
     HeaderHome,
     Title,
-    SportComponent,
     Footer, HeaderSport, Breadcrumb, Text, TitleLine, Calendar
 } from '../components/Components.js';
 import { validateProps } from '../utils/utils.js';
@@ -72,7 +71,7 @@ export class SportPage extends Component {
                         },
                         {
                             tag: "div",
-                            props: { class: "flex-1 p-4 bg-white-200 flex flex-row items-center", style: "flex: 1;" },
+                            props: { class: "flex-1 p-4 bg-white-200 flex flex-row items-center hidden-img", style: "flex: 1;" },
                             children: [
                                 { tag: "img", props: { src: "../../assets/images/icon-natation.png", alt: "Image 1", class: "mb-4 object-cover mr-4", width: "200" } },
                                 { tag: "img", props: { src: "../../assets/images/mascot.svg", alt: "Image 2", class: "object-cover", width: "200" } }
