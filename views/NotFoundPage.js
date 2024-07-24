@@ -1,10 +1,9 @@
 import { Component } from '../core/Component.js';
 import { Render } from '../core/Render.js';
-import { Title, Footer } from '../components/Components.js';
+import { Footer } from '../components/Components.js';
 
 export class NotFoundPage extends Component {
     render() {
-        const titleElement = new Title({ text: "404 - Page Not Found" });
         const footerElement = new Footer();
 
         return {
@@ -16,18 +15,22 @@ export class NotFoundPage extends Component {
                     children: [
                         {
                             tag: "img",
-                            props: { src: "../assets/images/logo1.svg", alt: "404", class: "w-1/4" }
+                            props: { src: "../assets/images/logo1.svg", alt: "404", class: "w-[190px] h-[88px] mb-12" }
                         },
-                        titleElement.render(),
+                        {
+                            tag: "h1",
+                            props: { class: "text-center font-olympic text-[64px] mb-12" },
+                            children: ["404 - PAGE NOT FOUND"]
+                        },
                         {
                             tag: "p",
-                            props: { class: "text-center mt-4" },
+                            props: { class: "text-center font-olympicSans text-[32px]" },
                             children: ["Désolé, la page que vous recherchez n'existe pas."]
                         },
                         {
                             tag: "a",
-                            props: { href: "/", class: "mt-4 text-blue-500 hover:underline" },
-                            children: ["Retour à l'accueil"]
+                            props: { href: "/", class: "text-white font-olympicSans font-bold bg-black rounded-full text-[24px] w-[240px] h-[64px] shadow-xl flex items-center justify-center mt-20" },
+                            children: ["GO HOME"]
                         }
                     ]
                 },

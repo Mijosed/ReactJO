@@ -79,7 +79,11 @@ export class LocationPage extends Component {
                     tag: "div",
                     props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4 mx-40", id: "sports" },
                     children: this.cardSpot.map(spot => {
-                        const card = new Card(spot);
+                        const enrichedSpot = {
+                            ...spot,
+                            gradientColor: "red" 
+                        };
+                        const card = new Card(enrichedSpot);
                         return card.render();
                     })
                 },
