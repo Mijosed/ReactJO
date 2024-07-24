@@ -21,44 +21,31 @@ export class HomePage extends Component {
         validateProps(props, propSchema);
 
         this.state = {
-            sports: [
-                { id: "1", nom: "Athlétisme", description: "Compétitions d'athlétisme", image: "../assets/images/sports/athle.jpg" },
-                { id: "2", nom: "Natation", description: "Compétitions de natation", image: "../assets/images/sports/natation.jpg" },
-                { id: "3", nom: "Basketball", description: "Compétitions de basketball", image: "../assets/images/sports/basket.jpg" },
-                { id: "4", nom: "Football", description: "Compétitions de football", image: "../assets/images/sports/foot.jpg" },
-                { id: "5", nom: "Gymnastique", description: "Compétitions de gymnastique", image: "../assets/images/sports/gym.jpg" },
-                { id: "6", nom: "Tennis", description: "Compétitions de tennis", image: "../assets/images/sports/tennis.jpg" },
-                { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
-                { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" }
-            ]
+            sports: [],
+            mapInitialized: false,
+            error: null
         };
 
         this.headerHome = new HeaderHome();
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
-        this.mapElement = new MapSection({ rerenderEvent: "initMap" });
+        this.mapElement = new MapSection({ id: "map-section" });
         this.footerElement = new Footer();
-        this.sportsSection = new SportSection({ id: "sports-section",sports: this.state.sports });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const event = new CustomEvent('initMap', {});
-            document.getElementById('map').addEventListener('initMap', () => {
-                this.componentDidMount();
-            });
-            this.mapElement.setContainer(document.getElementById('map'));
-            this.mapElement.getContainer().dispatchEvent(event);
-        });
+        this.sportsSection = new SportSection({ id: "sports-section", sports: this.state.sports });
+        this.componentDidMount();
     }
 
     async componentDidMount() {
-        console.log("Initialisation de la carte");
-        const map = L.map('map', { gestureHandling: true }).setView([48.8566, 2.3522], 12);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
         try {
             const data = await fetchData();
+            const sports = data.sports || [];
+            this.setState({ sports });
+
+            const map = L.map('map', { gestureHandling: true }).setView([48.8566, 2.3522], 12);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
             const olympicSites = data.results.map(site => ({
                 coords: [site.point_geo.lat, site.point_geo.lon],
                 name: site.nom_site
@@ -89,12 +76,25 @@ export class HomePage extends Component {
                         .openPopup();
                 });
             }
+
+            this.setState({ mapInitialized: true });
         } catch (error) {
+            this.setState({ error: "Erreur lors de la récupération des données : " + error.message });
             console.error("Erreur lors de la récupération des données :", error);
         }
     }
 
     render() {
+        const { sports, mapInitialized, error } = this.state;
+
+        if (error) {
+            return {
+                tag: "div",
+                props: { class: "error-message" },
+                children: [error]
+            };
+        }
+
         return {
             tag: "div",
             children: [
