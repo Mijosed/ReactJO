@@ -3,7 +3,6 @@ import {
     HeaderHome,
     MapSection,
     Footer,
-    Card,
     HomeTitle,
     SportSection
 } from '../components/Components.js';
@@ -38,15 +37,20 @@ export class HomePage extends Component {
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
         this.mapElement = new MapSection({ rerenderEvent: "initMap" });
         this.footerElement = new Footer();
-        this.sportsSection = new SportSection({ id: "sports-section",sports: this.state.sports });
+        this.sportsSection = new SportSection({ id: "sports-section", sports: this.state.sports });
 
         document.addEventListener('DOMContentLoaded', () => {
-            const event = new CustomEvent('initMap', {});
-            document.getElementById('map').addEventListener('initMap', () => {
-                this.componentDidMount();
-            });
-            this.mapElement.setContainer(document.getElementById('map'));
-            this.mapElement.getContainer().dispatchEvent(event);
+            const mapContainer = document.getElementById('map');
+            if (mapContainer) {
+                const event = new CustomEvent('initMap', {});
+                mapContainer.addEventListener('initMap', () => {
+                    this.componentDidMount();
+                });
+                this.mapElement.setContainer(mapContainer);
+                this.mapElement.getContainer().dispatchEvent(event);
+            } else {
+                console.error('Map container not found');
+            }
         });
     }
 

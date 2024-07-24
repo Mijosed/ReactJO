@@ -1,64 +1,63 @@
 import { Render } from "./Render.js";
+import { ErrorHandler } from '../errors/ErrorHandler.js';
 
 export class Component {
-  constructor(props = {}) {
-      this.props = props;
-      this.state = {};
-  }
+    constructor(props = {}) {
+        this.props = props;
+        this.state = {};
+        this.container = null;
+        this.rerenderEvent = "rerender";
+    }
 
-  setState(newState) {
-      this.state = { ...this.state, ...newState };
-      this.update();
-  }
+    setState(newState) {
+        this.state = { ...this.state, ...newState };
+        this.update();
+    }
 
-  update() {
-      const root = document.getElementById(this.props.id || 'root');
-      if (root) {
-          root.replaceWith(this.renderDOM());
-      }
-  }
+    update() {
+        try {
+            const root = document.getElementById(this.props.id || 'root');
+            if (root) {
+                root.replaceWith(this.renderDOM());
+            }
+        } catch (error) {
+            ErrorHandler.handle(error);
+        }
+    }
 
-  renderDOM() {
-      const element = this.render();
-      return this.createElement(element);
-  }
+    setContainer(container) {
+        this.container = container;
+    }
 
-  createElement(element) {
-      if (typeof element === "string") {
-          return document.createTextNode(element);
-      }
+    getContainer() {
+        return this.container;
+    }
 
-      if (typeof element === "object" && element.tag) {
-          const { tag, props, children } = element;
-          const domElement = document.createElement(tag);
+    addEventListener(event, callback) {
+        if (this.container) {
+            this.container.addEventListener(event, callback);
+        }
+    }
 
-          if (props) {
-              for (const [key, value] of Object.entries(props)) {
-                  if (key.startsWith('on') && typeof value === 'function') {
-                      domElement.addEventListener(key.substring(2).toLowerCase(), value);
-                  } else if (key === 'style' && typeof value === 'object') {
-                      Object.assign(domElement.style, value);
-                  } else {
-                      domElement.setAttribute(key, value);
-                  }
-              }
-          }
+    shouldUpdate(newProps) {
+        return JSON.stringify(this.props) !== JSON.stringify(newProps);
+    }
 
-          if (children) {
-              children.forEach(child => domElement.appendChild(this.createElement(child)));
-          }
+    renderDOM() {
+        const element = this.render();
+        return Render.createElement(element);
+    }
 
-          return domElement;
-      }
+    display(newProps = this.props) {
+        if (this.shouldUpdate(newProps)) {
+            this.oldProps = this.props;
+            this.props = newProps;
+            return this.renderDOM();
+        }
+        return this.renderDOM();
+    }
 
-      if (typeof element === "object" && element.render) {
-          return this.createElement(element.render());
-      }
-
-      throw new Error(`Invalid element passed to createElement: ${element}`);
-  }
-
-  render() {
-      throw new Error('Render method should be implemented by subclass');
-  }
+    render() {
+        throw new Error('Render method should be implemented by subclass');
+    }
 }

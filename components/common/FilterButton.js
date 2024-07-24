@@ -1,4 +1,4 @@
-import { Component } from '../../core/Component_old.js';
+import { Component } from '../../core/Component.js';
 
 export class FilterButton extends Component {
     constructor(props = {}) {
