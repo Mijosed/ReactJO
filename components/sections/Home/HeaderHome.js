@@ -1,4 +1,4 @@
-import { Component } from '../../../core/Component.js';
+import { Component } from '../../../core/Component_old.js';
 
 export class HeaderHome extends Component {
     constructor(props ={}) {

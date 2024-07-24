@@ -1,4 +1,4 @@
-import { Component } from '../../core/Component.js';
+import { Component } from '../../core/Component_old.js';
 import { validateProps } from '../../utils/utils.js';
 
 export class Title extends Component {
@@ -17,7 +17,7 @@ export class Title extends Component {
     render() {
         return {
             tag: "h1",
-            props: { class: "text-3xl font-bold" },
+            props: { class: "text-2xl sm:text-3xl font-bold" },
             children: [this.text]
         };
     }
