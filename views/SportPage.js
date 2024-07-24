@@ -6,7 +6,7 @@ import {
     SportComponent,
     Footer, HeaderSport, Breadcrumb, Text, TitleLine, Calendar
 } from '../components/Components.js';
-import { validateProps } from '../utils/utils.js';
+import { validateProps } from '../utils/typeCheck.js';
 
 export class SportPage extends Component {
     constructor(props) {

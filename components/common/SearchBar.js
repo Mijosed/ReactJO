@@ -1,4 +1,5 @@
 import { Component } from '../../core/Component.js';
+import { SearchBarResult } from './SearchBarResult.js';
 
 export class SearchBar extends Component {
     constructor(props = {}) {
@@ -14,20 +15,31 @@ export class SearchBar extends Component {
                 { id: 6, name: 'Grape' }
             ],
             filteredItems: [],
-            loading: false,
-            message:"",
+            loading: false
         };
+
+        this.searchBarResult = new SearchBarResult({
+            items: this.state.items,
+            query: this.state.query
+        });
     }
-    
+
     handleInputChange(event) {
-        debugger;
         const query = event.target.value;
+        const filteredItems = query ? this.state.items.filter(item =>
+            item.name.toLowerCase().includes(query.toLowerCase())
+        ) : [];
+
         this.setState({
             query: query,
-            filteredItems: query ? this.state.items.filter(item =>
-                item.name.toLowerCase().includes(query.toLowerCase())
-            ) : [],
-            message : query,
+            filteredItems: filteredItems,
+            loading: false
+        });
+
+        this.searchBarResult.setState({
+            query: query,
+            filteredItems: filteredItems,
+            loading: false
         });
     }
 
@@ -48,33 +60,6 @@ export class SearchBar extends Component {
     }
 
     render() {
-        const { query, filteredItems } = this.state;
-
-        let resultsContent;
-        if (!query) {
-            resultsContent = [
-                {
-                    tag: "div",
-                    props: { class: "p-2 text-gray-500" },
-                    children: [{ tag: "span", props: { class: "font-olympicSans" }, children: [this.state.message === "" ? "Rechercher un emplacment" : this.state.message] }]
-                }
-            ];
-        } else if (filteredItems.length > 0) {
-            resultsContent = filteredItems.map(item => ({
-                tag: "div",
-                props: { class: "p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer" },
-                children: [{ tag: "span", props: {}, children: [item.name] }]
-            }));
-        } else {
-            resultsContent = [
-                {
-                    tag: "div",
-                    props: { class: "p-2 text-gray-500" },
-                    children: [{ tag: "span", props: { class: "font-olympicSans" }, children: ['Aucun résultat trouvé'] }]
-                }
-            ];
-        }
-
         return {
             tag: "div",
             props: { class: "relative w-1/2 mx-auto my-8" },
@@ -89,10 +74,10 @@ export class SearchBar extends Component {
                                 type: "text",
                                 placeholder: "Saisissez votre recherche...",
                                 class: "flex-grow p-2 bg-transparent outline-none rounded-full font-olympicSans",
-                                value: query,
+                                value: this.state.query,
                                 onInput: (event) => this.handleInputChange(event),
                                 onFocus: () => this.toggleSearchBar(true),
-                                onBlur: () => setTimeout(() => this.toggleSearchBar(false), 200) // Délai pour fermer après le clic à l'extérieur
+                                onBlur: () => setTimeout(() => this.toggleSearchBar(false), 200)
                             },
                             children: []
                         },
@@ -113,13 +98,7 @@ export class SearchBar extends Component {
                         }
                     ]
                 },
-                {
-                    tag: "div",
-                    props: {
-                        class: "absolute left-0 w-full mt-1 max-h-60 overflow-y-auto bg-white border border-gray-200 rounded-b-lg shadow-lg hidden results-container"
-                    },
-                    children: resultsContent
-                }
+                this.searchBarResult.render()
             ]
         };
     }

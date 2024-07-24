@@ -6,7 +6,7 @@ import {
     HomeTitle,
     SportSection
 } from '../components/Components.js';
-import { validateProps } from '../utils/utils.js';
+import { validateProps } from '../utils/typeCheck.js';
 import { fetchData } from '../api/fetchData.js';
 
 export class HomePage extends Component {

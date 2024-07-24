@@ -5,20 +5,24 @@ export class SearchBarResult extends Component {
         super(props);
         this.state = {
             query: props.query || '',
-            items: props.items || [],
-            loading: false
+            filteredItems: props.filteredItems || [],
+            loading: props.loading || false
         };
     }
 
-    update(newProps) {
-        this.setState(newProps);
-    }
-
     render() {
-        const { query, items } = this.state;
+        const { query, filteredItems, loading } = this.state;
 
         let resultsContent;
-        if (!query) {
+        if (loading) {
+            resultsContent = [
+                {
+                    tag: "div",
+                    props: { class: "p-2 text-gray-500" },
+                    children: [{ tag: "span", props: { class: "font-olympicSans" }, children: ['Chargement...'] }]
+                }
+            ];
+        } else if (!query) {
             resultsContent = [
                 {
                     tag: "div",
@@ -26,8 +30,8 @@ export class SearchBarResult extends Component {
                     children: [{ tag: "span", props: { class: "font-olympicSans" }, children: ['Rechercher un emplacement ou un sport'] }]
                 }
             ];
-        } else if (items.length > 0) {
-            resultsContent = items.map(item => ({
+        } else if (filteredItems.length > 0) {
+            resultsContent = filteredItems.map(item => ({
                 tag: "div",
                 props: { class: "p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer" },
                 children: [{ tag: "span", props: {}, children: [item.name] }]

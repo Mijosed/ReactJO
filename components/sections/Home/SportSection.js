@@ -7,7 +7,7 @@ import {
     FilterButton,
     Pagination
 } from '../../Components.js';
-import { validateProps } from '../../../utils/utils.js';
+import { validateProps } from '../../../utils/typeCheck.js';
 
 export class SportSection extends Component {
     constructor(props = {}) {
@@ -33,8 +33,8 @@ export class SportSection extends Component {
         };
 
         this.titleElementSports = new HomeTitle({ text: "Les différents sports présents lors des JO", couleur: "black", id: "sports", textColor: "white" });
-        this.SearchBar = new SearchBar();
-        this.FilterButton = new FilterButton();
+        //this.SearchBar = new SearchBar();
+        //this.FilterButton = new FilterButton();
         this.pagination = new Pagination({
             id: "sports-pagination",
             totalItems: this.state.sports.length,
@@ -80,8 +80,8 @@ export class SportSection extends Component {
                     tag: "div",
                     props: { id: "search", class: "flex justify-center z-50 w-full" },
                     children: [
-                        this.FilterButton.render(),
-                        this.SearchBar.render(),
+                        //this.FilterButton.render(),
+                        //this.SearchBar.render(),
                     ]
                 },
                 {
