@@ -32,7 +32,7 @@ export class Calendar extends Component {
         return {
             tag: "div",
             props: { class: "flex bg-white shadow border", id: "calendar",
-                style: "border-radius: 10px; display: flex; flex-direction: row; height: 150px" },
+                style: "border-radius: 10px; display: flex; flex-direction: row;" },
             children: [
                 {
                     tag: "div",
@@ -46,7 +46,7 @@ export class Calendar extends Component {
                 },
                 {
                     tag: "div",
-                    props: { style: "text-align: left; padding: 10px; width: 400px" },
+                    props: { style: "text-align: left; padding: 10px;" },
                     children: [
                         { tag: "div", props: { class: "simple-text" }, children: ["A 20km de Paris"] },
                         { tag: "div", props: {}, children: [this.#time] },

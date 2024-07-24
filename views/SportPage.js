@@ -32,24 +32,22 @@ export class SportPage extends Component {
             ]
         });
 
-        // Instances de Calendar avec des propriétés différentes
         this.calendar1 = new Calendar({
             day: "26",
             month: "Juillet",
             time: "10:00",
-            category: "Homme",
+            category: "Masculin",
             location: "Trocadero",
         });
         this.calendar2 = new Calendar({
             day: "27",
             month: "Août",
             time: "14:00",
-            category: "Femme",
+            category: "Feminin",
             location: "Complexe sportif Paris La Défense Arena",
         });
 
         this.textHistory = new Text({ text: "La naissance de la natation remonte à la préhistoire, mais il faut attendre le 19e siècle pour que sa pratique devienne compétitive. La Société nationale britannique de natation est créée au début du siècle, et s’occupe d’organiser les premières compétitions. Celles-ci se pratiquent à l’époque en brasse, ou en une nage approchante; elles se sont ensuite enrichies d’une grande variété de disciplines, aujourd’hui pratiquées aux Jeux Olympiques. La natation est une discipline historique des Jeux Olympiques de l’ère moderne. Si les premières courses olympiques se déroulaient en environnement naturel, dès les Jeux de Londres en 1908, les épreuves ont pris place dans une piscine, ce qui a donné lieu à la création de la Fédération Internationale de Natation (FINA). La nage libre et la brasse sont les seules épreuves présentes aux Jeux d’Athènes en 1896, le dos est ensuite ajouté en 1904, puis le papillon apparaît en 1956 aux Jeux de Melbourne." });
-
         this.titleLineSportCalender = new TitleLine({ title: "CALENDRIER OLYMPIQUE" });
         this.titleLineSport = new TitleLine({ title: "HISTOIRE" });
     }
