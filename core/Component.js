@@ -14,8 +14,7 @@ export class Component {
   update() {
       const root = document.getElementById(this.props.id || 'root');
       if (root) {
-          root.innerHTML = '';
-          root.appendChild(this.renderDOM());
+          root.replaceWith(this.renderDOM());
       }
   }
 

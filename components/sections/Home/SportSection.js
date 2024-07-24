@@ -85,6 +85,7 @@ export class SportSection extends Component {
                     tag: "div",
                     props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "sports" },
                     children: sports.map(sport => {
+                        
                         // const propSchema = {
                         //     type: 'object',
                         //     properties: {

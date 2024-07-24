@@ -38,7 +38,7 @@ export class HomePage extends Component {
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
         this.mapElement = new MapSection({ rerenderEvent: "initMap" });
         this.footerElement = new Footer();
-        this.sportsSection = new SportSection({ sports: this.state.sports });
+        this.sportsSection = new SportSection({ id: "sports-section",sports: this.state.sports });
 
         document.addEventListener('DOMContentLoaded', () => {
             const event = new CustomEvent('initMap', {});
