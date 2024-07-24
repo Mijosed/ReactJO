@@ -31,7 +31,7 @@ export class Calendar extends Component {
     createCalendarDiv() {
         return {
             tag: "div",
-            props: { class: "flex bg-white shadow border", id: "calendar",
+            props: { class: "flex bg-white shadow border calendar", id: "calendar",
                 style: "border-radius: 10px; display: flex; flex-direction: row;" },
             children: [
                 {
