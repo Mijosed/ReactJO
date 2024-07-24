@@ -3,7 +3,7 @@ import { Render } from "./Render.js";
 export class Component {
   constructor(props = {}) {
       this.props = props;
-      this.state = {};
+      this.state = props.state || {};
   }
 
   setState(newState) {

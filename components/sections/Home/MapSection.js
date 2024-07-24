@@ -4,10 +4,7 @@ import { SearchBar, FilterButton, MapSearchMenu } from '../../Components.js';
 export class MapSection extends Component {
     constructor(props = {}) {
         super(props);
-        this.state = {
-            isMenuOpen: false,
-            olympicSites: []
-        };
+        this.isMenuOpen = false;
         this.SearchBar = new SearchBar();
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
@@ -15,13 +12,13 @@ export class MapSection extends Component {
 
     toggleMenu(event) {
         event.stopPropagation();
-        this.setState({ isMenuOpen: !this.state.isMenuOpen });
+        this.isMenuOpen = !this.isMenuOpen;
         const menuElement = document.getElementById('map-search-menu');
         const searchElement = document.getElementById('search');
         const toggleButton = document.getElementById('menu-toggle-button');
         const toggleIcon = document.getElementById('toggle-icon');
 
-        if (this.state.isMenuOpen) {
+        if (this.isMenuOpen) {
             menuElement.style.display = 'block';
             setTimeout(() => {
                 const menuWidth = menuElement.offsetWidth;
@@ -47,65 +44,17 @@ export class MapSection extends Component {
     handleOutsideClick(event) {
         const menuElement = document.getElementById('map-search-menu');
         const toggleButton = document.getElementById('menu-toggle-button');
-        if (this.state.isMenuOpen && !menuElement.contains(event.target) && event.target !== toggleButton) {
+        if (this.isMenuOpen && !menuElement.contains(event.target) && event.target !== toggleButton) {
             this.toggleMenu(event);
         }
     }
 
     componentDidMount() {
         document.addEventListener('click', this.handleOutsideClick.bind(this));
-        this.initializeMap();
     }
 
     componentWillUnmount() {
         document.removeEventListener('click', this.handleOutsideClick.bind(this));
-    }
-
-    async initializeMap() {
-        console.log("Initialisation de la carte");
-        const map = L.map('map', { gestureHandling: true }).setView([48.8566, 2.3522], 12);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        try {
-            const data = await fetchData();
-            const olympicSites = data.results.map(site => ({
-                coords: [site.point_geo.lat, site.point_geo.lon],
-                name: site.nom_site
-            }));
-
-            olympicSites.forEach(site => {
-                L.marker(site.coords).addTo(map)
-                    .bindPopup(site.name)
-                    .openPopup();
-            });
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    const { latitude, longitude } = position.coords;
-                    map.setView([latitude, longitude], 12);
-
-                    let customIcon = L.icon({
-                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                    });
-
-                    L.marker([latitude, longitude], { icon: customIcon })
-                        .addTo(map)
-                        .bindPopup('Je suis géolocalisé(e) !')
-                        .openPopup();
-                });
-            }
-
-            this.setState({ olympicSites });
-        } catch (error) {
-            console.error("Erreur lors de la récupération des données :", error);
-        }
     }
 
     render() {
@@ -115,9 +64,9 @@ export class MapSection extends Component {
             children: [
                 {
                     tag: "div",
-                    props: {
-                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out",
-                        style: "left: 0;"
+                    props: { 
+                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out", 
+                        style: "left: 0;" 
                     },
                     children: [
                         {
