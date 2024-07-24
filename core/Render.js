@@ -27,11 +27,6 @@ export class Render {
       } else if (children) {
         elem.appendChild(Render.createElement(children));
       }
-
-      if (typeof component.afterRender === "function") {
-        setTimeout(() => component.afterRender(), 0);
-      }
-
       return elem;
     }
 
