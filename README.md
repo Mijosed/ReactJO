@@ -13,10 +13,10 @@ Maquette figma [ici](https://www.figma.com/files/team/1362064351304315263/ReactJ
 
 ### Auteurs
 
-* **Ludovic MAK** _alias_ [@Ludovic MAK](https://github.com/ludovicMAK/)
-* **Mijosé DIFUIDI** _alias_ [@Mijosé Difuidi](https://github.com/Mijosed)
+* **Ludovic MAK** _alias_ [@ludovicMAK](https://github.com/ludovicMAK/)
+* **Mijosé DIFUIDI** _alias_ [@Mijosed](https://github.com/Mijosed)
 * **Soumaya GAMBO MAGAGI** _alias_ [@Soumy-lang](https://github.com/Soumy-lang) et [@Soumaya-kheopsys](https://github.com/Soumaya-kheopsys)
-* **Joshua GRANDVILLE** _alias_ [@Joshua Grandville](https://github.com/Pinappll)
+* **Joshua GRANDVILLE** _alias_ [@Pinappll](https://github.com/Pinappll)
 
 Lisez la liste des [contributeurs](https://github.com/Mijosed/ReactJO/contributors) pour voir qui à aidé au projet !
 
