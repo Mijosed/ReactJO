@@ -1029,6 +1029,14 @@ video {
   height: 100vh;
 }
 
+.h-\[\] {
+  height: ;
+}
+
+.h-\[496px\] {
+  height: 496px;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1084,6 +1092,14 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-\[\] {
+  width: ;
+}
+
+.w-\[288px\] {
+  width: 288px;
 }
 
 .max-w-\[753px\] {
@@ -2148,14 +2164,6 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.to-\[\$\{this\.\#gradientColor\}\] {
-  --tw-gradient-to: ${this.#gradientColor} var(--tw-gradient-to-position);
-}
-
-.to-\[\#0081C8\] {
-  --tw-gradient-to: #0081C8 var(--tw-gradient-to-position);
-}
-
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2592,10 +2600,6 @@ video {
   opacity: 0.6;
 }
 
-.opacity-\[0\.55\] {
-  opacity: 0.55;
-}
-
 .bg-blend-normal {
   background-blend-mode: normal;
 }
@@ -2978,8 +2982,6 @@ video {
   font-family: 'OlympicHeadline', sans-serif;
 }
 
-/* footer section */
-
 footer {
   bottom: 0;
   left: 0;
@@ -3007,7 +3009,13 @@ footer {
   width: 80px;
 }
 
-/* sport details */
+.bg-gradient-to-b-custom-blue {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 129, 200, 0.6) 100%);
+}
+
+.bg-gradient-to-b-custom-red {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(240, 40, 45, 0.6) 100%);
+}
 
 @media (min-width: 640px) {
   .sm\:container {
@@ -3115,3 +3123,8 @@ footer {
     }
   }
 }
+
+
+
+
+

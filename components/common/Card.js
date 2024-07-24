@@ -6,6 +6,7 @@ export class Card extends Component {
   #nom;
   #description;
   #image;
+  #gradientColor;
 
   constructor(props) {
     super(props);
@@ -17,19 +18,21 @@ export class Card extends Component {
         nom: { type: "string" },
         description: { type: "string" },
         image: { type: "string" },
+        gradientColor: { type: "string"}
       },
     };
     this.#id = props.id;
     this.#nom = props.nom;
     this.#description = props.description;
     this.#image = props.image;
+    this.#gradientColor = props.gradientColor;
     validateProps(props, propSchema);
   }
 
   render() {
     return {
         tag: "div",
-      props: { class: "rounded-lg overflow-hidden shadow-lg ", dataCardId: "id" },
+      props: { class: "rounded-lg overflow-hidden shadow-lg", dataCardId: "id" },
         children: [
             {
                 tag: "div",
@@ -42,7 +45,7 @@ export class Card extends Component {
                     {
                         tag: "div",
                         props: {
-                            class: "absolute inset-0 bg-gradient-to-b from-transparent to-[#0081C8] opacity-60",
+                            class: "absolute inset-0 " + (this.#gradientColor === "blue" ? "bg-gradient-to-b-custom-blue" : "bg-gradient-to-b-custom-red"),
                         },
                     },
                     {
@@ -63,7 +66,7 @@ export class Card extends Component {
                     },
                     {
                         tag: "a",
-                        props: { href: `/sports?id=${this.#id}`, class: "text-blue-500 hover:underline float-right" },
+                        props: { href: `/sports?id=${this.#id}`, class: "text-blue-500 hover:underline float-right p-4" },
                         children: ["En savoir plus"],
                     },
                 ],
