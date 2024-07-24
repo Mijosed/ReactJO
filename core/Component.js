@@ -37,9 +37,9 @@ export class Component {
         return true;
     }
     if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
-      if (oldNode.children.lenght !== newNode.children.lenght) {
+      if (oldNode.children.length !== newNode.children.length) {
         return true;
-      } else {
+    } else {
         for (let i = 0; i < oldNode.children.length; i++) {
           let oldChild = oldNode.children[i];
           let newChild = newNode.children[i];
