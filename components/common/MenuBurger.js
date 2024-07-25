@@ -1,5 +1,4 @@
 import { Component } from "../../core/Component.js";
-import { validateProps } from "../../utils/utils.js";
 
 export class MenuBurger extends Component {
     constructor(props) {
@@ -22,12 +21,10 @@ export class MenuBurger extends Component {
             tag: "div",
             props: { class: "menu-content", style: "position: absolute; left: 0; top: 100%; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" },
             children: [
-                { tag: "a", props: { href: "#", class: "menu-item" }, children: ["Home"] },
-                { tag: "a", props: { href: "#", class: "menu-item" }, children: ["About"] },
-                { tag: "a", props: { href: "#", class: "menu-item" }, children: ["Services"] },
-                { tag: "a", props: { href: "#", class: "menu-item" }, children: ["Contact"] },
+                { tag: "a", props: { href: "/#map", class: "menu-item" }, children: ["Explorer les sites"] },
+                { tag: "a", props: { href: "/#sports", class: "menu-item" }, children: ["Decouvrir les disciplines"] },
             ]
-        } : { tag: "div", children: [] }; // Ensure it's never null
+        } : { tag: "div", children: [] };
 
         return {
             tag: "div",
@@ -39,11 +36,7 @@ export class MenuBurger extends Component {
                     events: {
                         click: this.toggleMenu
                     },
-                    children: [
-                        { tag: "div", props: { class: "line" } },
-                        { tag: "div", props: { class: "line" } },
-                        { tag: "div", props: { class: "line" } },
-                    ]
+                    children: []
                 },
                 menuContent
             ]
