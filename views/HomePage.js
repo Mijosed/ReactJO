@@ -85,7 +85,7 @@ export class HomePage extends Component {
                     popupAnchor: [1, -34],
                 });
 
-            }
+            
             
 
 
