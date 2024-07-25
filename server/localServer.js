@@ -58,15 +58,24 @@ app.get('/scrape', async (req, res) => {
             console.log(`Page loaded: ${url}`);
 
             const data = await page.evaluate(() => {
-                const backgroundImage = document.querySelector('img[data-cy="discipline-hero-image"]');
-                const sportName = document.querySelector('h1.title');
-                const logo = document.querySelector('img.lazyload');
+                const backgroundImageElement = document.querySelector('img[data-cy="discipline-hero-image"]');
+                const sportNameElement = document.querySelector('h1.title');
+                const logoElement = document.querySelector('img.lazyload');
+                
+                // Sélecteurs pour les sites et les images
+                const sites = Array.from(document.querySelectorAll('article.CardItem-styles__Wrapper-sc-216dce93-20 h3')).map(h3 => h3.textContent.trim());
+
+                // Sélecteurs pour les sections d'histoire
+                const history1 = Array.from(document.querySelectorAll('section[data-cy="story-parts-wrapper"]:nth-of-type(2) p')).map(p => p.textContent.trim()).join('\n');
 
                 return {
+                    
                     sport: document.title.split(" | ")[0], // Extract sport name from the title or customize as needed
-                    background_image: backgroundImage ? backgroundImage.src : null,
-                    sport_name: sportName ? sportName.textContent.trim() : null,
-                    logo: logo ? logo.getAttribute('data-src') : null
+                    background_image: backgroundImageElement ? backgroundImageElement.src : null,
+                    sport_name: sportNameElement ? sportNameElement.textContent.trim() : null,
+                    logo: logoElement ? logoElement.getAttribute('data-src') : null,
+                    sites: sites.length > 0 ? sites : null,
+                    history1: history1 || null,
                 };
             });
 
