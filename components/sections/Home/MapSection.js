@@ -8,11 +8,42 @@ export class MapSection extends Component {
     this.FilterButton = new FilterButton();
     this.MapSearchMenu = new MapSearchMenu({ id: "map-search-menu", state: { displayMenu: this.state.displayMenu } });
   }
+  toggleMenu(event) {
+    event.stopPropagation();
+    this.isMenuOpen = !this.isMenuOpen;
+    const menuElement = document.getElementById("map-search-menu");
+    const searchElement = document.getElementById("search");
+    const toggleButton = document.getElementById("menu-toggle-button");
+    const toggleIcon = document.getElementById("toggle-icon");
+
+    if (this.isMenuOpen) {
+      menuElement.style.display = "block";
+      setTimeout(() => {
+        debugger;
+        const menuWidth = menuElement.offsetWidth;
+        menuElement.classList.remove("-translate-x-full");
+        menuElement.classList.add("translate-x-0");
+        menuElement.style.transition = "transform 0.4s ease-in-out";
+        toggleButton.style.transform = `translateX(${menuWidth}px)`;
+        toggleIcon.style.transform = "rotate(180deg)";
+      }, 2);
+      searchElement.style.display = "none";
+    } else {
+      setTimeout(() => {
+        menuElement.classList.remove("translate-x-0");
+        menuElement.classList.add("-translate-x-full");
+        menuElement.style.transition = "transform 0.4s ease-in-out";
+        toggleButton.style.transform = "translateX(0)";
+        toggleIcon.style.transform = "rotate(0deg)";
+        searchElement.style.display = "flex";
+      }, 2);
+    }
+  }
 
   toggleMenu() {}
   openMenu() {
-    debugger;
     this.MapSearchMenu.setState({ displayMenu: true });
+    setTimeout(() => {});
   }
 
   handleOutsideClick(event) {
