@@ -1,5 +1,5 @@
 import { Component } from '../../../core/Component.js';
-import { validateProps } from '../../../utils/utils.js';
+import { validateProps } from '../../../utils/typeCheck.js';
 
 export class HeaderSport extends Component {
     constructor(props = {}) {

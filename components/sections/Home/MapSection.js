@@ -1,11 +1,11 @@
-import { Component } from '../../../core/Component_old.js';
+import { Component } from '../../../core/Component.js';
 import { SearchBar, FilterButton, MapSearchMenu } from '../../Components.js';
 
 export class MapSection extends Component {
     constructor(props = {}) {
         super(props);
         this.isMenuOpen = false;
-        this.SearchBar = new SearchBar();
+        this.SearchBar = new SearchBar( { id: "search-bar-map" } );
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
     }
@@ -24,24 +24,22 @@ export class MapSection extends Component {
                 const menuWidth = menuElement.offsetWidth;
                 menuElement.classList.remove('-translate-x-full');
                 menuElement.classList.add('translate-x-0');
-                menuElement.style.transition = 'transform 0.4s ease-in-out';  // Add transition for the menu
-                toggleButton.style.transform = `translateX(${menuWidth}px)`;  // Position the button to the right of the menu
+                menuElement.style.transition = 'transform 0.4s ease-in-out';
+                toggleButton.style.transform = `translateX(${menuWidth}px)`;
                 toggleIcon.style.transform = 'rotate(180deg)';
-            },2);
+            }, 2);
             searchElement.style.display = 'none';
         } else {
-            
             setTimeout(() => {
                 menuElement.classList.remove('translate-x-0');
                 menuElement.classList.add('-translate-x-full');
-                menuElement.style.transition = 'transform 0.4s ease-in-out';  // Add transition for the menu
-                toggleButton.style.transform = 'translateX(0)';  // Return the button to its original position
+                menuElement.style.transition = 'transform 0.4s ease-in-out';
+                toggleButton.style.transform = 'translateX(0)';
                 toggleIcon.style.transform = 'rotate(0deg)';
                 searchElement.style.display = 'flex';
             }, 2);
         }
     }
-    
 
     handleOutsideClick(event) {
         const menuElement = document.getElementById('map-search-menu');
@@ -77,7 +75,7 @@ export class MapSection extends Component {
                                 id: "menu-toggle-button",
                                 class: "bg-white text-black rounded-r-xl py-6 shadow-lg",
                                 onClick: this.toggleMenu.bind(this),
-                                style: "transition: transform 0.4s ease-in-out;",  // Add transition for the button
+                                style: "transition: transform 0.4s ease-in-out;",
                             },
                             children: [
                                 {
