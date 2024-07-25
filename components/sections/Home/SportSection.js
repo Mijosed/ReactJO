@@ -101,7 +101,7 @@ export class SportSection extends Component {
                         validateProps(sport, propSchema);
                         const card = new Card({
                             ...sport,
-                            onClick: () => this.navigateToSport(sport)
+                            lien:`/sports/${sport.nom.toLowerCase()}`
                         });
                         return card.render();
                     })
