@@ -7,21 +7,33 @@ const port = 3000;
 // Liste des sports à scraper
 const sports = [
     "athletisme", 
+    "aviron", 
     "badminton", 
     "basketball", 
     "boxe", 
+    "canoe-sprint",
+    "cyclisme-sur-route", 
+    "escalade-sportive", 
     "escrime", 
     "football", 
+    "golf", 
+    "gymnastique-artistique", 
+    "halterophilie", 
     "handball", 
     "judo", 
+    "lutte", 
     "natation", 
     "rugby-a-7", 
+    "skateboard", 
+    "surf", 
     "taekwondo", 
     "tennis", 
     "tennis-de-table",
     "tir-a-l-arc", 
     "triathlon", 
     "volleyball", 
+    "beach-volley", 
+    "water-polo"
 ];
 
 const MAX_CONCURRENT_PAGES = 5; // Limite le nombre de pages ouvertes simultanément
