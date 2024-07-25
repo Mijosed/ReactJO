@@ -1,5 +1,5 @@
 import { Component } from '../../core/Component.js';
-import { validateProps } from '../../utils/utils.js';
+import { validateProps } from '../../utils/typeCheck.js';
 
 export class ImageGrid extends Component {
     constructor(props = {}) {
@@ -29,7 +29,7 @@ export class ImageGrid extends Component {
     render() {
         return {
             tag: "div",
-            props: { class: "grid grid-cols-6 gap-4 p-4 mx-40" },
+            props: { class: "grid grid-cols-6 gap-4 p-4 mx-40 mobil-margin mobil-align" },
             children: this.images.map(image => ({
                 tag: "div",
                 props: { class: "overflow-hidden rounded-lg" },

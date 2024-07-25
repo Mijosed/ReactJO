@@ -60,21 +60,53 @@ footer {
   height: auto;
   width: 80px;
 }
+.logo-mobil-height{
+  display: none;
+}
+
+#menu{
+  display: none;
+}
 
 @media (max-width: 768px) {
   .image-mascotte, .hidden-img {
     display: none;
   }
   .background-image{
+    position: relative;
     height: 100vh;
   }
   .calendar{
     width: 100%;
+
   }
   .red-on-mobil{
     background-color: #F0282D;
   }
+  .logo-mobil-height{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px !important;
+    z-index: 1000;
+  }
+  .desktop-only{
+    display: none;
+  }
+  .mobil-margin{
+    margin: 25px;
+  }
+  .calendar-on-mobil{
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  #menu{
+    display: block;
+  }
 }
+
 
 #menu-toggle-button {
   transition: left 0.3s ease-in-out;
@@ -93,8 +125,5 @@ footer {
 .bg-gradient-to-b-custom-red {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(240, 40, 45, 0.6) 100%);
 }
-
-
-
 
 

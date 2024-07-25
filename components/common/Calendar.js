@@ -1,5 +1,5 @@
 import { Component } from "../../core/Component.js";
-import { validateProps } from "../../utils/utils.js";
+import { validateProps } from "../../utils/typeCheck.js";
 
 export class Calendar extends Component {
     #day;
@@ -31,7 +31,7 @@ export class Calendar extends Component {
     createCalendarDiv() {
         return {
             tag: "div",
-            props: { class: "flex bg-white shadow border calendar", id: "calendar",
+            props: { class: "flex bg-white shadow border calendar mobil-margin", id: "calendar",
                 style: "border-radius: 10px; display: flex; flex-direction: row;" },
             children: [
                 {
@@ -76,7 +76,7 @@ export class Calendar extends Component {
     render() {
         return {
             tag: "div",
-            props: { class: "overflow-hidden mx-40 my-5 flex", style: "display: flex;" },
+            props: { class: "overflow-hidden mx-40 my-5 flex mobil-margin calendar-on-mobil", style: "display: flex;" },
             children: [
                 {
                     tag: "div",

@@ -2,67 +2,64 @@ import { Render } from "./Render.js";
 
 export class Component {
   constructor(props = {}) {
-      this.props = props;
-      this.state = props.state || {};
+    this.props = props;
+    this.state = props.state || {};
   }
 
   setState(newState) {
-      this.state = { ...this.state, ...newState };
-      this.update();
+    this.state = { ...this.state, ...newState };
+    this.update();
   }
 
   update() {
-      const root = document.getElementById(this.props.id || 'root');
-      let rootToObjet = this.elementToObject(root);
-      
-      this.shouldUpdate(rootToObjet, this.render(), root);
+    const root = document.getElementById(this.props.id || "root");
+    let rootToObjet = this.elementToObject(root);
 
+    this.shouldUpdate(rootToObjet, this.render(), root);
   }
 
   renderDOM() {
-      const element = this.render();
-      return this.createElement(element);
+    const element = this.render();
+    return this.createElement(element);
   }
   shouldUpdate(oldNode, newNode, root) {
-    if(typeof oldNode === 'string' || oldNode instanceof String){ 
+    let isTrue = false;
+    if (typeof oldNode === "string" || oldNode instanceof String) {
       return oldNode !== newNode;
-    }else{
-      if(newNode instanceof Component){
+    } else {
+      if (newNode instanceof Component) {
         newNode = newNode.render();
       }
-      if(newNode === null){
-        debugger;
-      }
-      try {
-        if (oldNode?.tag !== newNode?.tag) {
-          return true;
-      }
-      } catch (error) {
-        debugger;
-      }
+
       if (oldNode.tag !== newNode?.tag) {
-          return true;
+        isTrue = true;
       }
       if (JSON.stringify(oldNode.props) !== JSON.stringify(newNode.props)) {
-          return true;
+        isTrue = true;
       }
+    }
+    if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
+      if (oldNode.children.length !== newNode.children.length) {
+        isTrue = true;
+      }
+    } 
+    if (isTrue) {
+      let objet = this.elementToObject(root);
+      this.findElementByPropsAndReplace(root, objet, oldNode, newNode);
+    } else {
       if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
         if (oldNode.children.length !== newNode.children.length) {
-          return true;
-      } else {
+          isTrue = true;
+        } else {
           for (let i = 0; i < oldNode.children.length; i++) {
             let oldChild = oldNode.children[i];
             let newChild = newNode.children[i];
-            if (this.shouldUpdate(oldChild,newChild,root)) {
-              let objet = this.elementToObject(root);
-              this.findElementByPropsAndReplace(root, objet, oldNode.children[i],newChild);
-            }
+            return this.shouldUpdate(oldChild, newChild, root);
           }
         }
       }
     }
-    
-    return false;
+    return isTrue;
   }
   elementToObject(element) {
     if (!element) return null;
@@ -90,11 +87,11 @@ export class Component {
 
     return obj;
   }
-  
+
   findElementByPropsAndReplace(node, nodeToObject, propsToMatch, newProps) {
     // Vérifie si le nœud actuel correspond aux propriétés données
     if (this.matchesProps(nodeToObject, propsToMatch)) {
-      return node;
+      node.replaceWith(Render.createElement(newProps));
     }
 
     // Itère sur les enfants du nœud actuel
@@ -110,7 +107,7 @@ export class Component {
 
       // Si l'enfant a des nœuds enfants, effectue une recherche récursive
       if (child.childNodes.length > 0) {
-        let foundNode = this.findElementByPropsAndReplace(child, nodeToObjectChild, propsToMatch,newProps);
+        let foundNode = this.findElementByPropsAndReplace(child, nodeToObjectChild, propsToMatch, newProps);
         if (foundNode) {
           return foundNode;
         }
@@ -120,7 +117,7 @@ export class Component {
     // Si aucun nœud correspondant n'est trouvé, retourne null
     return null;
   }
-  
+
   deepEqual(obj1, obj2) {
     if (obj1 === obj2) {
       return true; // Same reference
@@ -151,41 +148,41 @@ export class Component {
   }
 
   createElement(element) {
-      if (typeof element === "string") {
-          return document.createTextNode(element);
-      }
+    if (typeof element === "string") {
+      return document.createTextNode(element);
+    }
 
-      if (typeof element === "object" && element.tag) {
-          const { tag, props, children } = element;
-          const domElement = document.createElement(tag);
+    if (typeof element === "object" && element.tag) {
+      const { tag, props, children } = element;
+      const domElement = document.createElement(tag);
 
-          if (props) {
-              for (const [key, value] of Object.entries(props)) {
-                  if (key.startsWith('on') && typeof value === 'function') {
-                      domElement.addEventListener(key.substring(2).toLowerCase(), value);
-                  } else if (key === 'style' && typeof value === 'object') {
-                      Object.assign(domElement.style, value);
-                  } else {
-                      domElement.setAttribute(key, value);
-                  }
-              }
+      if (props) {
+        for (const [key, value] of Object.entries(props)) {
+          if (key.startsWith("on") && typeof value === "function") {
+            domElement.addEventListener(key.substring(2).toLowerCase(), value);
+          } else if (key === "style" && typeof value === "object") {
+            Object.assign(domElement.style, value);
+          } else {
+            domElement.setAttribute(key, value);
           }
-
-          if (children) {
-              children.forEach(child => domElement.appendChild(this.createElement(child)));
-          }
-
-          return domElement;
+        }
       }
 
-      if (typeof element === "object" && element.render) {
-          return this.createElement(element.render());
+      if (children) {
+        children.forEach((child) => domElement.appendChild(this.createElement(child)));
       }
 
-      throw new Error(`Invalid element passed to createElement: ${element}`);
+      return domElement;
+    }
+
+    if (typeof element === "object" && element.render) {
+      return this.createElement(element.render());
+    }
+
+    throw new Error(`Invalid element passed to createElement: ${element}`);
   }
 
   render() {
-      throw new Error('Render method should be implemented by subclass');
+    throw new Error("Render method should be implemented by subclass");
   }
 }

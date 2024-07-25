@@ -3,15 +3,17 @@ import { Component } from '../../../core/Component.js';
 export class MapSearchMenu extends Component {
     constructor(props = {}) {
         super(props);
+        
     }
+
 
     render() {
         return {
             tag: "div",
             props: {
                 id: "map-search-menu",
-                class: "absolute left-0 top-1/2 transform -translate-y-1/2 h-5/6 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out transform -translate-x-full rounded-tr-lg rounded-br-lg",
-                style: "display: none; width: 30%;", // Ajustez la largeur ici
+                class: "absolute left-0 top-1/2 transform -translate-y-1/2 h-5/6 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out transform -translate-x-full rounded-tr-lg rounded-br-lg bottom-mobil",
+                style: "display: none; width: 30%;",
             },
             children: [
                 {

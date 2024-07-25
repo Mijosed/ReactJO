@@ -15,7 +15,11 @@ export class HeaderHome extends Component {
                     children: [
                         {
                             tag: "img",
-                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%]" }
+                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] logo-mobil-height" }
+                        },
+                        {
+                            tag: "img",
+                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] desktop-only" }
                         },
                         {
                             tag: "button",

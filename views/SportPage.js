@@ -5,7 +5,7 @@ import {
     Title,
     Footer, HeaderSport, Breadcrumb, Text, TitleLine, Calendar
 } from '../components/Components.js';
-import { validateProps } from '../utils/utils.js';
+import { validateProps } from '../utils/typeCheck.js';
 
 export class SportPage extends Component {
     constructor(props) {
@@ -55,7 +55,13 @@ export class SportPage extends Component {
         return {
             tag: "div",
             children: [
-                this.headerSport.render(),
+                {
+                    tag: "div",
+                    props: { class: "header-container", style: "position: relative; display: flex; align-items: center;" },
+                    children: [
+                        this.headerSport.render(),
+                    ],
+                },
                 this.titleLineSportCalender.render(),
                 {
                     tag: "div",

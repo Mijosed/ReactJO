@@ -8,7 +8,7 @@ import {
     ImageGrid,
     Card
  } from '../components/Components.js';
-import { validateProps } from '../utils/utils.js';
+import { validateProps } from '../utils/typeCheck.js';
 
 export class LocationPage extends Component {
     constructor(props) {
@@ -77,7 +77,7 @@ export class LocationPage extends Component {
                 this.titleLineSpot.render(),
                 {
                     tag: "div",
-                    props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4 mx-40", id: "sports" },
+                    props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4 mx-40 mobil-margin", id: "sports" },
                     children: this.cardSpot.map(spot => {
                         const enrichedSpot = {
                             ...spot,
