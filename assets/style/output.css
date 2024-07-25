@@ -1,7 +1,5 @@
 /*
-
 ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
-
 */
 
 /*
@@ -733,10 +731,6 @@ video {
   z-index: 50;
 }
 
-
-.m-4 {
-  margin: 1rem;
-
 .float-start {
   float: inline-start;
 }
@@ -783,7 +777,10 @@ video {
 
 .m-1 {
   margin: 0.25rem;
+}
 
+.m-4 {
+  margin: 1rem;
 }
 
 .m-8 {
@@ -1213,17 +1210,8 @@ video {
   cursor: pointer;
 }
 
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.items-start {
-  align-items: flex-start;
-
 .touch-auto {
   touch-action: auto;
-
 }
 
 .touch-none {

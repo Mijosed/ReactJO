@@ -1,5 +1,4 @@
 import { Component } from "../../core/Component.js";
-import { validateProps } from "../../utils/utils.js";
 
 export class MenuBurger extends Component {
     constructor(props) {
