@@ -31,12 +31,6 @@ export class SearchBar extends Component {
     const query = event.target.value;
     const filteredItems = query ? this.state.items.filter((item) => item.name.toLowerCase().includes(query.toLowerCase())) : [];
 
-    this.setState({
-      query: query,
-      filteredItems: filteredItems,
-      loading: false,
-    });
-
     this.searchBarResult.setState({
       query: query,
       filteredItems: filteredItems,
@@ -45,6 +39,7 @@ export class SearchBar extends Component {
   }
 
   toggleSearchBar(show) {
+    console.log("show", show);
     if (show) {
       this.searchBarResult.setState({ display: true });
     } else {

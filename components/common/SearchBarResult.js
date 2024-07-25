@@ -40,7 +40,6 @@ export class SearchBarResult extends Component {
         },
       ];
     }
-
     return {
       tag: "div",
       props: {
