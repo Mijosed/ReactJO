@@ -28,7 +28,7 @@ export class HomePage extends Component {
 
         this.headerHome = new HeaderHome();
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
-        this.mapElement = new MapSection();
+        this.mapElement = new MapSection( {id : "map-section"});
         this.footerElement = new Footer();
         this.sportsSection = new SportSection({ id: "sports-section", sports: this.state.sports });
         this.componentDidMount();
@@ -85,6 +85,7 @@ export class HomePage extends Component {
                     this.checkProximity([latitude, longitude], olympicSites);
                 });
             }
+            this.mapElement.setState({ sprot: sports });
 
         } catch (error) {
             this.setState({ error: "Erreur lors de la récupération des données : " + error.message });

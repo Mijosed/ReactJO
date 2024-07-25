@@ -6,7 +6,20 @@ export class MapSection extends Component {
         super(props);
         this.isMenuOpen = false;
         this.actualTarget = null;
-        this.SearchBar = new SearchBar( { id: "search-bar-map" } );
+        this.SearchBar = new SearchBar( { id: "search-bar-map", 
+            state: {
+            query: "",
+            items: [
+              { id: 1, name: "Apple" },
+              { id: 2, name: "Banana" },
+              { id: 3, name: "Cherry" },
+              { id: 4, name: "Date" },
+              { id: 5, name: "Fig" },
+              { id: 6, name: "Grape" },
+            ],
+            filteredItems: [],
+            loading: false,
+          }, } );
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
     }
@@ -66,7 +79,7 @@ export class MapSection extends Component {
     render() {
         return {
             tag: "div",
-            props: { id: "map-section", class: "relative" },
+            props: { id: this.props.id, class: "relative" },
             children: [
                 {
                     tag: "div",
