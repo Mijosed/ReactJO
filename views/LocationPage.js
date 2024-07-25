@@ -8,7 +8,7 @@ import {
     ImageGrid,
     Card
  } from '../components/Components.js';
-import { validateProps } from '../utils/utils.js';
+import { validateProps } from '../utils/typeCheck.js';
 
 export class LocationPage extends Component {
     constructor(props) {

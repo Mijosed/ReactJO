@@ -1,5 +1,5 @@
 import { Component } from '../../core/Component.js';
-import { validateProps } from '../../utils/utils.js';
+import { validateProps } from '../../utils/typeCheck.js';
 import { Title } from '../Components.js';
 export class TitleLine extends Component {
     constructor(props) {
