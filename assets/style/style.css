@@ -60,12 +60,16 @@ footer {
   height: auto;
   width: 80px;
 }
+.logo-mobil-height{
+  display: none;
+}
 
 @media (max-width: 768px) {
   .image-mascotte, .hidden-img {
     display: none;
   }
   .background-image{
+    position: relative;
     height: 100vh;
   }
   .calendar{
@@ -74,6 +78,19 @@ footer {
   .red-on-mobil{
     background-color: #F0282D;
   }
+  .logo-mobil-height{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px !important;
+    z-index: 1000;
+  }
+  .desktop-only{
+    display: none;
+  }
+
 }
 
 #menu-toggle-button {
