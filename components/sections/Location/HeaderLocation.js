@@ -26,6 +26,16 @@ export class HeaderLocation extends Component {
             props: { class: "relative w-full h-96 bg-cover bg-center background-image", style: "background-image: url('../../../assets/images/background-lieu.png');" },
             children: [
                 {
+                    tag: "button",
+                    props: { type: "button", id: "menu", style: "pointer-events: auto; position: relative; z-index: 1000;", onClick: this.toggleMenu },
+                    children: [
+                        {
+                            tag: "img",
+                            props: { src: "../../assets/images/icon-menu.svg", alt: "menu", class: "h-10 w-10 menu-mobil-height m-4", style: "margin: 10px;" }
+                        }
+                    ]
+                },
+                {
                     tag: "div",
                     props: { style:"padding-left:50px; padding-bottom: 25px;",class: "absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-50" },
                     children: [

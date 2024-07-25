@@ -55,7 +55,13 @@ export class SportPage extends Component {
         return {
             tag: "div",
             children: [
-                this.headerSport.render(),
+                {
+                    tag: "div",
+                    props: { class: "header-container", style: "position: relative; display: flex; align-items: center;" },
+                    children: [
+                        this.headerSport.render(),
+                    ],
+                },
                 this.titleLineSportCalender.render(),
                 {
                     tag: "div",

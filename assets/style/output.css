@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.7 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -628,6 +628,10 @@ video {
   z-index: 50;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .m-8 {
   margin: 2rem;
 }
@@ -868,6 +872,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-start {
@@ -1266,6 +1274,10 @@ footer {
   display: none;
 }
 
+#menu{
+  display: none;
+}
+
 @media (max-width: 768px) {
   .image-mascotte, .hidden-img {
     display: none;
@@ -1296,6 +1308,19 @@ footer {
 
   .desktop-only{
     display: none;
+  }
+
+  .mobil-margin{
+    margin: 25px;
+  }
+
+  .calendar-on-mobil{
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  #menu{
+    display: block;
   }
 }
 
@@ -1347,8 +1372,5 @@ footer {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
-
-
-
 
 
