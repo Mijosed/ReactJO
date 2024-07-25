@@ -1,10 +1,8 @@
-import { fetchData } from '../../../api/fetchData.js';
+import { fetchSportsData } from '../../../api/fetchSportsData.js';
 import { Component } from '../../../core/Component.js';
 import {
     Card,
     HomeTitle,
-    SearchBar,
-    FilterButton,
     Pagination
 } from '../../Components.js';
 import { validateProps } from '../../../utils/typeCheck.js';
@@ -13,40 +11,47 @@ export class SportSection extends Component {
     constructor(props = {}) {
         super(props);
         this.state = {
-            sports: [
-                { id: "1", nom: "Athlétisme", description: "Compétitions d'athlétisme", image: "../assets/images/sports/athle.jpg" },
-                { id: "2", nom: "Natation", description: "Compétitions de natation", image: "../assets/images/sports/natation.jpg" },
-                { id: "3", nom: "Basketball", description: "Compétitions de basketball", image: "../assets/images/sports/basket.jpg" },
-                { id: "4", nom: "Football", description: "Compétitions de football", image: "../assets/images/sports/foot.jpg" },
-                { id: "5", nom: "Gymnastique", description: "Compétitions de gymnastique", image: "../assets/images/sports/gym.jpg" },
-                { id: "6", nom: "Tennis", description: "Compétitions de tennis", image: "../assets/images/sports/tennis.jpg" },
-                { id: "7", nom: "Boxe", description: "Compétitions de boxe", image: "../assets/images/sports/boxe.jpg" },
-                { id: "8", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
-                { id: "9", nom: "Cyclisme", description: "Compétitions de cyclisme", image: "../assets/images/sports/cyclisme.jpg" },
-                { id: "10", nom: "Cyclismetest", description: "Compétitions de cyclismedsdzs", image: "../assets/images/sports/cyclisme.jpg" },
-            ],
-            loading: false,
+            sports: props.sports || [],
+            loading: !props.sports,
             error: null,
             currentPage: 1,
-            itemsPerPage: 8
+            itemsPerPage: 8,
         };
-
+        this.id = props.id || "sports-section";
         this.titleElementSports = new HomeTitle({ text: "Les différents sports présents lors des JO", couleur: "black", id: "sports", textColor: "white" });
-        //this.SearchBar = new SearchBar();
-        //this.FilterButton = new FilterButton();
         this.pagination = new Pagination({
             id: "sports-pagination",
-            state : {
+            state: {
                 totalItems: this.state.sports.length,
                 itemsPerPage: this.state.itemsPerPage,
                 currentPage: this.state.currentPage,
             },
             onPageChange: this.handlePageChange.bind(this)
         });
+
+        if (!props.sports) {
+            this.loadSportsData();
+        }
+    }
+
+    async loadSportsData() {
+        try {
+            const data = await fetchSportsData();
+            this.setState({ sports: data.sports, loading: false });
+        } catch (error) {
+            this.setState({ error: error.message, loading: false });
+        }
     }
 
     handlePageChange(pageNumber) {
         this.setState({ currentPage: pageNumber });
+    }
+
+    navigateToSport(sport) {
+        debugger;
+        window.history.pushState({}, '', `/sports/${sport.nom.toLowerCase()}`);
+        const event = new PopStateEvent('popstate');
+        window.dispatchEvent(event);
     }
 
     render() {
@@ -55,7 +60,7 @@ export class SportSection extends Component {
         if (loading) {
             return {
                 tag: "div",
-                props: { id: "sports-section" },
+                props: { id: this.id },
                 children: [{ tag: "p", props: {}, children: ["Loading..."] }]
             };
         }
@@ -63,29 +68,20 @@ export class SportSection extends Component {
         if (error) {
             return {
                 tag: "div",
-                props: { id: "sports-section" },
+                props: { id: this.id },
                 children: [{ tag: "p", props: {}, children: [error] }]
             };
         }
 
-        // Calculate the items to display on the current page
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const sportsToDisplay = sports.slice(startIndex, endIndex);
 
         return {
             tag: "div",
-            props: { id: "sports-section" },
+            props: { id: this.id },
             children: [
                 this.titleElementSports.render(),
-                {
-                    tag: "div",
-                    props: { id: "search", class: "flex justify-center z-50 w-full" },
-                    children: [
-                        //this.FilterButton.render(),
-                        //this.SearchBar.render(),
-                    ]
-                },
                 {
                     tag: "div",
                     props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "sports" },
@@ -96,11 +92,17 @@ export class SportSection extends Component {
                                 id: { type: 'string' },
                                 nom: { type: 'string' },
                                 description: { type: 'string' },
-                                image: { type: 'string' }
+                                image: { type: 'string' },
+                                calendars: { type: 'array' },
+                                historyText: { type: 'string' },
+                                images: { type: 'array' }
                             }
                         };
                         validateProps(sport, propSchema);
-                        const card = new Card(sport);
+                        const card = new Card({
+                            ...sport,
+                            lien:`/sports/${sport.nom.toLowerCase()}`
+                        });
                         return card.render();
                     })
                 },

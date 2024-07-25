@@ -11,7 +11,8 @@ export class HeaderSport extends Component {
             properties: {
                 title: { type: 'string' },
                 subtitle: { type: 'string' },
-                city: { type: 'string' }
+                city: { type: 'string' },
+                backgroundImage: { type: 'string' }
             }
         };
         validateProps(props, propSchema);
@@ -19,6 +20,9 @@ export class HeaderSport extends Component {
         this.title = props.title;
         this.subtitle = props.subtitle;
         this.city = props.city;
+
+        this.backgroundImage = props.backgroundImage;
+
         this.menuBurger = new MenuBurger();
 
         // Bind the toggleMenu method
@@ -31,10 +35,11 @@ export class HeaderSport extends Component {
         this.update(); // Ensure this method triggers a re-render
     }
 
+
     render() {
         return {
             tag: "header",
-            props: { class: "relative w-full h-96 bg-cover bg-center background-image", style: "background-image: url('../../../assets/images/background-sport.png');" },
+            props: { class: "relative w-full h-96 bg-cover bg-center background-image", style: `background-image: url('${this.backgroundImage}');` },
             children: [
                 {
                     tag: "button",
@@ -48,7 +53,11 @@ export class HeaderSport extends Component {
                 },
                 {
                     tag: "img",
-                    props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] logo-mobil-height" }
+                    props: { src: "/assets/images/Logo-colore.png", alt: "Logo", class: "h-22 w-22  absolute left-[80%] top-[5%]" }
+                },
+                {
+                    tag: "img",
+                    props: { src: "/assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] logo-mobil-height" }
                 },
                 {
                     tag: "div",
@@ -67,7 +76,15 @@ export class HeaderSport extends Component {
                         {
                             tag: "div",
                             props: { class: "flex items-center text-white" },
-                            children: []
+
+                            children: [
+                                {
+                                    tag: "p",
+                                    props: { class: "text-lg text-gray-400" },
+                                    children: [this.city]
+                                }
+                            ]
+
                         }
                     ]
                 },

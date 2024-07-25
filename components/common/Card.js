@@ -1,5 +1,5 @@
-import { Component } from '../../core/Component.js';
-import { validateProps } from '../../utils/typeCheck.js';
+import { Component } from '../../../core/Component.js';
+import { validateProps } from '../../../utils/typeCheck.js';
 
 export class Card extends Component {
     constructor(props = {}) {
@@ -10,8 +10,10 @@ export class Card extends Component {
                 id: { type: 'string' },
                 nom: { type: 'string' },
                 description: { type: 'string' },
-                image: { type: 'string' }
-            }
+                image: { type: 'string' },
+                lien: { type: 'string' },
+            },
+            required: ['id', 'nom', 'description', 'image', 'onClick']
         };
         
         validateProps(props, propSchema);
@@ -21,7 +23,7 @@ export class Card extends Component {
     render() {
         return {
             tag: "div",
-            props: { class: "rounded-lg shadow-lg overflow-hidden" },
+            props: { class: "rounded-lg shadow-lg overflow-hidden", onclick: this.props.onClick },
             children: [
                 {
                     tag: "div",
@@ -55,8 +57,8 @@ export class Card extends Component {
                         {
                             tag: "a",
                             props: {
-                                href: `/sports?id=${this.props.id}`,
-                                class: "text-blue-500 hover:text-blue-700 text-sm"
+                                class: "text-blue-500 hover:text-blue-700 text-sm",
+                                href: this.props.lien
                             },
                             children: ["En savoir plus"]
                         }
