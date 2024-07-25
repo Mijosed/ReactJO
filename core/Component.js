@@ -38,6 +38,11 @@ export class Component {
         isTrue = true;
       }
     }
+    if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
+      if (oldNode.children.length !== newNode.children.length) {
+        isTrue = true;
+      }
+    } 
     if (isTrue) {
       let objet = this.elementToObject(root);
       this.findElementByPropsAndReplace(root, objet, oldNode, newNode);

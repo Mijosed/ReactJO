@@ -22,6 +22,9 @@ export class Render {
 
       if (children && Array.isArray(children)) {
         for (const child of children) {
+          if (child === null || child === undefined) {
+            debugger;
+          }
           elem.appendChild(Render.createElement(child));
         }
       } else if (children) {
@@ -40,6 +43,9 @@ export class Render {
 
     if (typeof component === "object" && component.render) {
       return Render.createElement(component.render());
+    }
+    if(component === null || component === undefined) {
+      debugger;
     }
 
     console.error("Invalid component passed to createElement:", component);
