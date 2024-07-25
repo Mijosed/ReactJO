@@ -2,28 +2,35 @@
     "sports": [
         {
             "id": "1",
-            "nom": "Athlétisme",
+            "nom": "athletisme",
             "description": "Compétitions d'athlétisme",
-            "image": "../assets/images/sports/athle.jpg",
+            "image": "/assets/images/sports/athle.jpg",
             "calendars": [
                 {
-                    "day": "26",
+                    "day": "30",
                     "month": "Juillet",
                     "time": "10:00",
-                    "category": "Masculin",
+                    "category": "100m Masculin",
+                    "location": "Stade Olympique"
+                },
+                {
+                    "day": "31",
+                    "month": "Juillet",
+                    "time": "15:00",
+                    "category": "Saut en longueur Féminin",
                     "location": "Stade Olympique"
                 }
             ],
-            "historyText": "L'athlétisme est une discipline historique des Jeux Olympiques...",
+            "historyText": "L'athlétisme est une discipline historique des Jeux Olympiques modernes et antiques. Depuis les premières compétitions en Grèce antique jusqu'aux événements modernes, l'athlétisme a évolué pour inclure une variété d'épreuves de course, de saut et de lancer. Les premières courses olympiques se déroulaient dans des stades, et aujourd'hui, des athlètes du monde entier s'affrontent dans des disciplines variées allant des sprints aux marathons, en passant par le saut à la perche et le lancer de poids.",
             "images": [
-                { "src": "../assets/images/icon-athle.png", "alt": "Athlétisme" }
+                { "src": "/assets/images/icone-sports/athle.svg", "alt": "Athlétisme" }
             ]
         },
         {
             "id": "2",
-            "nom": "Natation",
+            "nom": "natation",
             "description": "Compétitions de natation",
-            "image": "../assets/images/sports/natation.jpg",
+            "image": "/assets/images/sports/natation.jpg",
             "calendars": [
                 {
                     "day": "26",
@@ -40,12 +47,166 @@
                     "location": "Complexe sportif Paris La Défense Arena"
                 }
             ],
-            "historyText": "La naissance de la natation remonte à la préhistoire...",
+            "historyText": "La naissance de la natation remonte à la préhistoire, mais il faut attendre le 19e siècle pour que sa pratique devienne compétitive. La Société nationale britannique de natation est créée au début du siècle, et s’occupe d’organiser les premières compétitions. Celles-ci se pratiquent à l’époque en brasse, ou en une nage approchante; elles se sont ensuite enrichies d’une grande variété de disciplines, aujourd’hui pratiquées aux Jeux Olympiques. La natation est une discipline historique des Jeux Olympiques de l’ère moderne. Si les premières courses olympiques se déroulaient en environnement naturel, dès les Jeux de Londres en 1908, les épreuves ont pris place dans une piscine, ce qui a donné lieu à la création de la Fédération Internationale de Natation (FINA). La nage libre et la brasse sont les seules épreuves présentes aux Jeux d’Athènes en 1896, le dos est ensuite ajouté en 1904, puis le papillon apparaît en 1956 aux Jeux de Melbourne.",
             "images": [
-                { "src": "../../assets/images/icon-natation.png", "alt": "Natation" },
-                { "src": "../../assets/images/mascot.svg", "alt": "Mascot" }
+                { "src": "/assets/images/icone-sports/natation.svg", "alt": "Natation" }
+            ]
+        },
+        {
+            "id": "3",
+            "nom": "basket",
+            "description": "Compétitions de basketball",
+            "image": "/assets/images/sports/basket.jpg",
+            "calendars": [
+                {
+                    "day": "5",
+                    "month": "Août",
+                    "time": "20:00",
+                    "category": "Finale Masculin",
+                    "location": "Arena Stade"
+                },
+                {
+                    "day": "7",
+                    "month": "Août",
+                    "time": "18:00",
+                    "category": "Finale Féminin",
+                    "location": "Arena Stade"
+                }
+            ],
+            "historyText": "Le basketball a été inventé en 1891 par James Naismith à Springfield, Massachusetts, USA. Il a été introduit aux Jeux Olympiques en 1936 à Berlin. Le basketball est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/basket.svg", "alt": "Basketball" }
+            ]
+        },
+        {
+            "id": "4",
+            "nom": "boxe",
+            "description": "Compétitions de boxe",
+            "image": "/assets/images/sports/boxe.jpg",
+            "calendars": [
+                {
+                    "day": "10",
+                    "month": "Août",
+                    "time": "19:00",
+                    "category": "Poids légers",
+                    "location": "Palais des Sports"
+                },
+                {
+                    "day": "12",
+                    "month": "Août",
+                    "time": "21:00",
+                    "category": "Poids lourds",
+                    "location": "Palais des Sports"
+                }
+            ],
+            "historyText": "La boxe est un sport de combat avec une longue histoire remontant à l'Antiquité. Les compétitions de boxe ont été introduites aux Jeux Olympiques modernes en 1904 à Saint-Louis. Depuis lors, la boxe a été une discipline régulière aux Jeux, mettant en vedette des boxeurs de classe mondiale de diverses catégories de poids.",
+            "images": [
+                { "src": "/assets/images/icone-sports/boxe.svg", "alt": "Boxe" }
+            ]
+        },
+        {
+            "id": "5",
+            "nom": "foot",
+            "description": "Compétitions de football",
+            "image": "/assets/images/sports/foot.jpg",
+            "calendars": [
+                {
+                    "day": "21",
+                    "month": "Août",
+                    "time": "16:00",
+                    "category": "Finale Masculin",
+                    "location": "Stade National"
+                },
+                {
+                    "day": "22",
+                    "month": "Août",
+                    "time": "20:00",
+                    "category": "Finale Féminin",
+                    "location": "Stade National"
+                }
+            ],
+            "historyText": "Le football est le sport le plus populaire au monde, avec une riche histoire remontant au 19e siècle en Angleterre. Il a été introduit aux Jeux Olympiques en 1900. Le football olympique présente des équipes nationales de jeunes joueurs et joueuses, souvent moins de 23 ans, avec quelques joueurs plus âgés autorisés.",
+            "images": [
+                { "src": "/assets/images/icone-sports/foot.svg", "alt": "Football" }
+            ]
+        },
+        {
+            "id": "6",
+            "nom": "gym",
+            "description": "Compétitions de gymnastique",
+            "image": "/assets/images/sports/gym.jpg",
+            "calendars": [
+                {
+                    "day": "3",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Gymnastique artistique",
+                    "location": "Gymnase Central"
+                },
+                {
+                    "day": "5",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Gymnastique rythmique",
+                    "location": "Gymnase Central"
+                }
+            ],
+            "historyText": "La gymnastique est une discipline clé des Jeux Olympiques, introduite dès les premiers Jeux modernes en 1896. Les compétitions de gymnastique comprennent la gymnastique artistique et rythmique, mettant en vedette des routines spectaculaires sur divers appareils et au sol.",
+            "images": [
+                { "src": "/assets/images/icone-sports/gym.svg", "alt": "Gymnastique" }
+            ]
+        },
+        {
+            "id": "7",
+            "nom": "tennis",
+            "description": "Compétitions de tennis",
+            "image": "/assets/images/sports/tennis.jpg",
+            "calendars": [
+                {
+                    "day": "9",
+                    "month": "Août",
+                    "time": "12:00",
+                    "category": "Finale Simple Hommes",
+                    "location": "Court Central"
+                },
+                {
+                    "day": "11",
+                    "month": "Août",
+                    "time": "12:00",
+                    "category": "Finale Simple Femmes",
+                    "location": "Court Central"
+                }
+            ],
+            "historyText": "Le tennis a été introduit aux Jeux Olympiques dès les premiers Jeux modernes en 1896, mais a été retiré après 1924. Il a fait son retour en tant que sport olympique officiel en 1988 à Séoul. Les compétitions de tennis aux Jeux Olympiques présentent les meilleurs joueurs et joueuses du monde s'affrontant en simple et en double.",
+            "images": [
+                { "src": "/assets/images/icone-sports/tennis.svg", "alt": "Tennis" }
+            ]
+        },
+        {
+            "id": "8",
+            "nom": "cyclisme",
+            "description": "Compétitions de cyclisme",
+            "image": "/assets/images/sports/cyclisme.jpg",
+            "calendars": [
+                {
+                    "day": "16",
+                    "month": "Août",
+                    "time": "09:00",
+                    "category": "Course sur route",
+                    "location": "Circuit Urbain"
+                },
+                {
+                    "day": "18",
+                    "month": "Août",
+                    "time": "13:00",
+                    "category": "Piste",
+                    "location": "Vélodrome"
+                }
+            ],
+            "historyText": "Le cyclisme est une discipline historique des Jeux Olympiques, introduite dès les premiers Jeux modernes en 1896. Les compétitions de cyclisme comprennent des épreuves sur route, sur piste, ainsi que le BMX et le VTT, mettant en vedette des courses spectaculaires et des démonstrations de vitesse et d'endurance.",
+            "images": [
+                { "src": "/assets/images/icone-sports/cyclisme.svg", "alt": "Cyclisme" }
             ]
         }
-        
     ]
 }
