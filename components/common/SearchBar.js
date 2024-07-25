@@ -39,7 +39,6 @@ export class SearchBar extends Component {
   }
 
   toggleSearchBar(show) {
-    console.log("show", show);
     if (show) {
       this.searchBarResult.setState({ display: true });
     } else {
@@ -48,9 +47,12 @@ export class SearchBar extends Component {
   }
 
   render() {
+    const isFilterContext = this.props.context === "filter";
+    const containerClass = isFilterContext ? "relative w-full mx-auto my-4" : "relative w-1/2 mx-auto my-8";
+
     return {
       tag: "div",
-      props: { class: "relative w-1/2 mx-auto my-8", id: this.props.id },
+      props: { class: containerClass, id: this.props.id },
       children: [
         {
           tag: "div",
