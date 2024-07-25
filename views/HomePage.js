@@ -30,7 +30,7 @@ export class HomePage extends Component {
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
         this.mapElement = new MapSection( {id : "map-section", state :{ data: [] },homePage: this});
         this.footerElement = new Footer();
-        this.sportsSection = new SportSection({ id: "sports-section", sports: this.state.sports });
+        this.sportsSection = new SportSection({ id: "sports-section" });
         this.componentDidMount();
     }
 
@@ -84,6 +84,10 @@ export class HomePage extends Component {
                     iconAnchor: [12, 41],
                     popupAnchor: [1, -34],
                 });
+
+            }
+            
+
 
                 L.marker([latitude, longitude], { icon: customIcon })
                     .addTo(this.map)
