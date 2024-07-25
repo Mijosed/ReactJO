@@ -27,9 +27,6 @@ export class Component {
     if(newNode instanceof Component){
         newNode = newNode.render();
     }
-    if(newNode === undefined) {
-      debugger;
-    }
     if (oldNode.tag !== newNode.tag) {
         return true;
     }

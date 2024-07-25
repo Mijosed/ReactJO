@@ -5,7 +5,7 @@ export class MapSection extends Component {
     constructor(props = {}) {
         super(props);
         this.isMenuOpen = false;
-        this.SearchBar = new SearchBar();
+        this.SearchBar = new SearchBar( { id: "search-bar-map" } );
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
     }
