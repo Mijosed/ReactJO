@@ -1,13 +1,13 @@
 import { Component } from '../../../core/Component.js';
-import { SearchBar, FilterButton, MapSearchMenu, MapFilterMenu, GeolocalisationButton } from '../../Components.js';
+import { HomePage } from '../../../views/HomePage.js';
+import { SearchBar, FilterButton, MapSearchMenu } from '../../Components.js';
 
 export class MapSection extends Component {
     constructor(props = {}) {
         super(props);
         this.isMenuOpen = false;
-        this.isFilterOpen = false;
         this.actualTarget = null;
-        this.SearchBar = new SearchBar({ id: "search-bar-map", context: "map",
+        this.SearchBar = new SearchBar( { id: "search-bar-map", 
             state: {
             query: "",
             items: [
@@ -20,12 +20,10 @@ export class MapSection extends Component {
          } );
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
-        this.MapFilterMenu = new MapFilterMenu();
-        this.GeolocalisationButton = new GeolocalisationButton();
     }
 
     toggleMenu(event) {
-      this.isFilterOpen = false; // Close filter menu if it's open
+        console.log(this.state);
       if(this.actualTarget === event.target) {
         this.isMenuOpen = !this.isMenuOpen;
       }else{
@@ -34,14 +32,12 @@ export class MapSection extends Component {
       }
         
         const menuElement = document.getElementById('map-search-menu');
-        const filterElement = document.getElementById('map-filter-menu');
         const searchElement = document.getElementById('search');
         const toggleButton = document.getElementById('menu-toggle-button');
         const toggleIcon = document.getElementById('toggle-icon');
 
         if (this.isMenuOpen) {
             menuElement.style.display = 'block';
-            filterElement.style.display = 'none';
             setTimeout(() => {
                 const menuWidth = menuElement.offsetWidth;
                 menuElement.classList.remove('-translate-x-full');
@@ -63,49 +59,11 @@ export class MapSection extends Component {
         }
     }
 
-    toggleFilter(event) {
-        this.isMenuOpen = false; // Close search menu if it's open
-        if (this.actualTarget === event.target) {
-            this.isFilterOpen = !this.isFilterOpen;
-        } else {
-            this.isFilterOpen = true;
-            this.actualTarget = event.target;
-        }
-
-        const filterElement = document.getElementById('map-filter-menu');
-        const menuElement = document.getElementById('map-search-menu');
-        const searchElement = document.getElementById('search');
-
-        if (this.isFilterOpen) {
-            filterElement.style.display = 'block';
-            menuElement.style.display = 'none';
-            setTimeout(() => {
-                const filterWidth = filterElement.offsetWidth;
-                filterElement.classList.remove('-translate-x-full');
-                filterElement.classList.add('translate-x-0');
-                filterElement.style.transition = 'transform 0.4s ease-in-out';
-            }, 2);
-            searchElement.style.display = 'none';
-        } else {
-            setTimeout(() => {
-                filterElement.classList.remove('translate-x-0');
-                filterElement.classList.add('-translate-x-full');
-                filterElement.style.transition = 'transform 0.4s ease-in-out';
-                searchElement.style.display = 'flex';
-            }, 2);
-        }
-    }
-
     handleOutsideClick(event) {
         const menuElement = document.getElementById('map-search-menu');
-        const filterElement = document.getElementById('map-filter-menu');
         const toggleButton = document.getElementById('menu-toggle-button');
-        const filterButton = document.getElementById('filter-button');
         if (this.isMenuOpen && !menuElement.contains(event.target) && event.target !== toggleButton) {
             this.toggleMenu(event);
-        }
-        if (this.isFilterOpen && !filterElement.contains(event.target) && event.target !== filterButton) {
-            this.toggleFilter(event);
         }
     }
 
@@ -125,9 +83,9 @@ export class MapSection extends Component {
             children: [
                 {
                     tag: "div",
-                    props: {
-                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out",
-                        style: "left: 0;"
+                    props: { 
+                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out", 
+                        style: "left: 0;" 
                     },
                     children: [
                         {
@@ -155,20 +113,14 @@ export class MapSection extends Component {
                     ]
                 },
                 this.MapSearchMenu.render(),
-                this.MapFilterMenu.render(),
                 {
                     tag: "div",
                     props: { id: "search", class: "absolute flex justify-center z-40 w-full" },
                     children: [
-                        {
-                            tag: "div",
-                            props: { id: "filter-button", onClick: this.toggleFilter.bind(this) },
-                            children: [this.FilterButton.render()]
-                        },
+                        this.FilterButton.render(),
                         this.SearchBar.render(),
                     ]
                 },
-                this.GeolocalisationButton.render(),
                 {
                     tag: "div",
                     props: { id: "map", class: "h-[85vh] z-10", style: "width: 100%;" },
