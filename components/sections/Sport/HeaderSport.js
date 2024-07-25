@@ -28,6 +28,10 @@ export class HeaderSport extends Component {
             children: [
                 {
                     tag: "img",
+                    props: { src: "/assets/images/Logo-colore.png", alt: "Logo", class: "h-22 w-22  absolute left-[80%] top-[5%]" }
+                },
+                {
+                    tag: "img",
                     props: { src: "/assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] logo-mobil-height" }
                 },
                 {

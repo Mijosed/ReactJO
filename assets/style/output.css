@@ -711,6 +711,22 @@ video {
   top: 50%;
 }
 
+.left-\[95\%\] {
+  left: 95%;
+}
+
+.left-\[89\%\] {
+  left: 89%;
+}
+
+.left-\[80\%\] {
+  left: 80%;
+}
+
+.top-\[5\%\] {
+  top: 5%;
+}
+
 .isolate {
   isolation: isolate;
 }
