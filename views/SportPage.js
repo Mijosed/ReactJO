@@ -13,42 +13,66 @@ export class SportPage extends Component {
         const propSchema = {
             type: 'object',
             properties: {
-                title: { type: 'string' }
-            }
+                title: { type: 'string' },
+                sportTitle: { type: 'string' },
+                breadcrumbItems: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            label: { type: 'string' },
+                            href: { type: 'string' }
+                        },
+                        required: ['label', 'href']
+                    }
+                },
+                calendars: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            day: { type: 'string' },
+                            month: { type: 'string' },
+                            time: { type: 'string' },
+                            category: { type: 'string' },
+                            location: { type: 'string' }
+                        },
+                        required: ['day', 'month', 'time', 'category', 'location']
+                    }
+                },
+                historyText: { type: 'string' },
+                images: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            src: { type: 'string' },
+                            alt: { type: 'string' }
+                        },
+                        required: ['src', 'alt']
+                    }
+                }
+            },
+            required: ['title', 'sportTitle', 'breadcrumbItems', 'calendars', 'historyText', 'images']
         };
         validateProps(props, propSchema);
 
         this.headerSport = new HeaderSport({
-            title: "NATATION",
+            title: props.sportTitle,
             subtitle: "",
             city: ""
         });
         this.footer = new Footer();
         this.breadcrumb = new Breadcrumb({
-            items: [
-                { label: "Home", href: "/" },
-                { label: props.title, href: "#" }
-            ]
+            items: props.breadcrumbItems
         });
 
-        this.calendar1 = new Calendar({
-            day: "26",
-            month: "Juillet",
-            time: "10:00",
-            category: "Masculin",
-            location: "Trocadero",
-        });
-        this.calendar2 = new Calendar({
-            day: "27",
-            month: "Août",
-            time: "14:00",
-            category: "Feminin",
-            location: "Complexe sportif Paris La Défense Arena",
-        });
+        this.calendars = props.calendars.map(calendar => new Calendar(calendar));
 
-        this.textHistory = new Text({ text: "La naissance de la natation remonte à la préhistoire, mais il faut attendre le 19e siècle pour que sa pratique devienne compétitive. La Société nationale britannique de natation est créée au début du siècle, et s’occupe d’organiser les premières compétitions. Celles-ci se pratiquent à l’époque en brasse, ou en une nage approchante; elles se sont ensuite enrichies d’une grande variété de disciplines, aujourd’hui pratiquées aux Jeux Olympiques. La natation est une discipline historique des Jeux Olympiques de l’ère moderne. Si les premières courses olympiques se déroulaient en environnement naturel, dès les Jeux de Londres en 1908, les épreuves ont pris place dans une piscine, ce qui a donné lieu à la création de la Fédération Internationale de Natation (FINA). La nage libre et la brasse sont les seules épreuves présentes aux Jeux d’Athènes en 1896, le dos est ensuite ajouté en 1904, puis le papillon apparaît en 1956 aux Jeux de Melbourne." });
+        this.textHistory = new Text({ text: props.historyText });
         this.titleLineSportCalender = new TitleLine({ title: "CALENDRIER OLYMPIQUE" });
         this.titleLineSport = new TitleLine({ title: "HISTOIRE" });
+        this.images = props.images;
     }
 
     render() {
@@ -56,6 +80,7 @@ export class SportPage extends Component {
             tag: "div",
             children: [
                 this.headerSport.render(),
+                this.breadcrumb.render(),
                 this.titleLineSportCalender.render(),
                 {
                     tag: "div",
@@ -64,18 +89,15 @@ export class SportPage extends Component {
                         {
                             tag: "div",
                             props: { class: "flex flex-col", style: "flex: 1;" },
-                            children: [
-                                this.calendar1.render(),
-                                this.calendar2.render(),
-                            ],
+                            children: this.calendars.map(calendar => calendar.render()),
                         },
                         {
                             tag: "div",
                             props: { class: "flex-1 p-4 bg-white-200 flex flex-row items-center hidden-img", style: "flex: 1; flex-wrap: wrap;" },
-                            children: [
-                                { tag: "img", props: { src: "../../assets/images/icon-natation.png", alt: "Image 1", class: "mb-4 object-cover mr-4", width: "200" } },
-                                { tag: "img", props: { src: "../../assets/images/mascot.svg", alt: "Image 2", class: "object-cover", width: "200" } }
-                            ],
+                            children: this.images.map(image => ({
+                                tag: "img",
+                                props: { src: image.src, alt: image.alt, class: "mb-4 object-cover mr-4", width: "200" }
+                            })),
                         },
                     ],
                 },

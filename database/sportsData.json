@@ -1,0 +1,51 @@
+{
+    "sports": [
+        {
+            "id": "1",
+            "nom": "Athlétisme",
+            "description": "Compétitions d'athlétisme",
+            "image": "../assets/images/sports/athle.jpg",
+            "calendars": [
+                {
+                    "day": "26",
+                    "month": "Juillet",
+                    "time": "10:00",
+                    "category": "Masculin",
+                    "location": "Stade Olympique"
+                }
+            ],
+            "historyText": "L'athlétisme est une discipline historique des Jeux Olympiques...",
+            "images": [
+                { "src": "../assets/images/icon-athle.png", "alt": "Athlétisme" }
+            ]
+        },
+        {
+            "id": "2",
+            "nom": "Natation",
+            "description": "Compétitions de natation",
+            "image": "../assets/images/sports/natation.jpg",
+            "calendars": [
+                {
+                    "day": "26",
+                    "month": "Juillet",
+                    "time": "10:00",
+                    "category": "Masculin",
+                    "location": "Trocadero"
+                },
+                {
+                    "day": "27",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Feminin",
+                    "location": "Complexe sportif Paris La Défense Arena"
+                }
+            ],
+            "historyText": "La naissance de la natation remonte à la préhistoire...",
+            "images": [
+                { "src": "../../assets/images/icon-natation.png", "alt": "Natation" },
+                { "src": "../../assets/images/mascot.svg", "alt": "Mascot" }
+            ]
+        }
+        
+    ]
+}
