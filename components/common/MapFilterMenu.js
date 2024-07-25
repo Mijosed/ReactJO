@@ -4,7 +4,14 @@ import { SearchBar, DatePicker, SelectBar } from '../Components.js';
 export class MapFilterMenu extends Component {
     constructor(props = {}) {
         super(props);
-        this.SearchBar = new SearchBar({ id: "search-bar-filter", context: "filter" });
+        this.SearchBar = new SearchBar({ id: "search-bar-filter", context: "filter", state: {
+            query: "",
+            items: [
+                this.state.data,
+            ],
+            filteredItems: [],
+            loading: false,
+        }});
         this.DatePicker = new DatePicker({ id: "date-picker-filter" });
         this.SelectBar = new SelectBar({ id: "select-bar-filter" });
     }

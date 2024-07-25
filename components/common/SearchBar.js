@@ -3,11 +3,13 @@ import { SearchBarResult } from "./SearchBarResult.js";
 
 export class SearchBar extends Component {
   constructor(props = {}) {
+    debugger;
     super(props);
+    this.state = { items: this.props.state.items ?? [], query: this.props.state.query ?? "" };
     this.homePage = this.props.homePage;
     this.searchBarResult = new SearchBarResult({
       id: "search-bar-result-map",
-      state: { items: props.state.items, query: props.state.query, display: false },
+      state: { items: props.state.items ?? [], query: props.state.query ?? "", display: false },
       searchBar : this,
     });
   }
