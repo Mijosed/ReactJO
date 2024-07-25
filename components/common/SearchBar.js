@@ -3,11 +3,13 @@ import { SearchBarResult } from "./SearchBarResult.js";
 
 export class SearchBar extends Component {
   constructor(props = {}) {
+    debugger;
     super(props);
+    this.state = { items: this.props.state.items ?? [], query: this.props.state.query ?? "" };
     this.homePage = this.props.homePage;
     this.searchBarResult = new SearchBarResult({
       id: "search-bar-result-map",
-      state: { items: props.state.items, query: props.state.query, display: false },
+      state: { items: props.state.items ?? [], query: props.state.query ?? "", display: false },
       searchBar : this,
     });
   }
@@ -34,9 +36,12 @@ export class SearchBar extends Component {
   }
 
   render() {
+    const isFilterContext = this.props.context === "filter";
+    const containerClass = isFilterContext ? "relative w-full mx-auto my-4" : "relative w-1/2 mx-auto my-8";
+
     return {
       tag: "div",
-      props: { class: "relative w-1/2 mx-auto my-8", id: this.props.id },
+      props: { class: containerClass, id: this.props.id },
       children: [
         {
           tag: "div",
