@@ -41,7 +41,7 @@ export class HeaderSport extends Component {
             tag: "header",
             props: { class: "relative w-full h-96 bg-cover bg-center background-image", style: `background-image: url('${this.backgroundImage}');` },
             children: [
-                {
+                /*{
                     tag: "button",
                     props: { type: "button", id: "menu", style: "pointer-events: auto; position: relative; z-index: 1000;", onClick: this.toggleMenu },
                     children: [
@@ -50,7 +50,7 @@ export class HeaderSport extends Component {
                             props: { src: "../../assets/images/icon-menu.svg", alt: "menu", class: "h-10 w-10 menu-mobil-height m-4", style: "margin: 10px;" }
                         }
                     ]
-                },
+                },*/
                 {
                     tag: "img",
                     props: { src: "/assets/images/Logo-colore.png", alt: "Logo", class: "h-22 w-22  absolute left-[80%] top-[5%]" }
