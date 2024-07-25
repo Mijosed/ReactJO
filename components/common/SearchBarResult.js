@@ -31,9 +31,13 @@ export class SearchBarResult extends Component {
         
         tag: "div",
         props: { class: "p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer" ,
-          onClick: (event) =>{
-            debugger;
-            this.searchBar;
+          onClick:  async (event) =>{
+            this.searchBar.setState({
+              query: item.nom_site,
+              filteredItems: [],
+              loading: false,
+            });
+            this.searchBar.homePage.componentDidMount([item]);
           }
         },
         children: [{ tag: "span", props: {}, children: [item.nom_site] }],

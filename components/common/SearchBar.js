@@ -21,6 +21,7 @@ export class SearchBar extends Component {
       filteredItems: filteredItems,
       loading: false,
     });
+    
     this.homePage.componentDidMount(filteredItems);
   }
 
@@ -33,7 +34,6 @@ export class SearchBar extends Component {
   }
 
   render() {
-    console.log(this.state);
     return {
       tag: "div",
       props: { class: "relative w-1/2 mx-auto my-8", id: this.props.id },
