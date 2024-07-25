@@ -28,69 +28,87 @@ export class HomePage extends Component {
 
         this.headerHome = new HeaderHome();
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
-        this.mapElement = new MapSection( {id : "map-section"});
+        this.mapElement = new MapSection( {id : "map-section", state :{ data: [] },homePage: this});
         this.footerElement = new Footer();
         this.sportsSection = new SportSection({ id: "sports-section", sports: this.state.sports });
         this.componentDidMount();
     }
 
-    async componentDidMount() {
-        try {
-            const data = await fetchData();
-            const sports = data.sports || [];
-            this.setState({ sports });
-
-            const map = L.map('map', { gestureHandling: true }).setView([48.8566, 2.3522], 12);
-
+    async componentDidMount(dataSearch = []) {
+        let data;
+    
+        if (dataSearch.length > 0) {
+            data = { results: dataSearch };
+        } else {
+            try {
+                data = await fetchData();
+            } catch (error) {
+                this.setState({ error: "Erreur lors de la récupération des données : " + error.message });
+                console.error("Erreur lors de la récupération des données :", error);
+                return;
+            }
+        }
+    
+        // Vérifiez si la carte a déjà été initialisée
+        if (!this.map) {
+            this.map = L.map('map', { gestureHandling: true }).setView([48.8566, 2.3522], 12);
+        
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            const olympicSites = data.results.map(site => ({
-                coords: [site.point_geo.lat, site.point_geo.lon],
-                name: site.nom_site
-            }));
-
-            olympicSites.forEach(site => {
-                const market = L.marker(site.coords).addTo(map)
-                    .bindPopup(site.name)
-                    .openPopup();
-                    market.on('click', (event) => {
-
-                        this.mapElement.toggleMenu(event);
-                        // Display additional information about the site
-                        // You can add more detailed information in the alert or in the popup
-                    });
-            });
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    const { latitude, longitude } = position.coords;
-                    map.setView([latitude, longitude], 12);
-
-                    let customIcon = L.icon({
-                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                    });
-
-                    L.marker([latitude, longitude], { icon: customIcon })
-                        .addTo(map)
-                        .bindPopup('Je suis géolocalisé(e) !')
-                        .openPopup();
-
-                    // Vérifie la proximité du site le plus proche
-                    this.checkProximity([latitude, longitude], olympicSites);
-                });
-            }
-            this.mapElement.setState({ sprot: sports });
-
-        } catch (error) {
-            this.setState({ error: "Erreur lors de la récupération des données : " + error.message });
-            console.error("Erreur lors de la récupération des données :", error);
+            }).addTo(this.map);
         }
+    
+        // Supprimez les marqueurs existants si la carte a déjà été initialisée
+        if (this.markers) {
+            this.markers.forEach(marker => this.map.removeLayer(marker));
+        }
+    
+        this.markers = [];
+    
+        let olympicSites = data.results.map(site => ({
+            coords: [site.point_geo.lat, site.point_geo.lon],
+            name: site.nom_site
+        }));
+    
+        olympicSites.forEach(site => {
+            const marker = L.marker(site.coords).addTo(this.map)
+                .bindPopup(site.name)
+                .openPopup();
+    
+            marker.on('click', (event) => {
+                this.mapElement.toggleMenu(event);
+                // Display additional information about the site
+                // You can add more detailed information in the alert or in the popup
+            });
+    
+            this.markers.push(marker);
+        });
+    
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const { latitude, longitude } = position.coords;
+                this.map.setView([latitude, longitude], 12);
+    
+                let customIcon = L.icon({
+                    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                });
+    
+                L.marker([latitude, longitude], { icon: customIcon })
+                    .addTo(this.map)
+                    .bindPopup('Je suis géolocalisé(e) !')
+                    .openPopup();
+    
+                // Vérifie la proximité du site le plus proche
+                this.checkProximity([latitude, longitude], olympicSites);
+            });
+        }
+    
+        this.mapElement.setState({ data: data.results });
+        this.mapElement.SearchBar.setState({ items: data.results });
     }
 
     checkProximity(userCoords, sites) {

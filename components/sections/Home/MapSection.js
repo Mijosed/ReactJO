@@ -1,4 +1,5 @@
 import { Component } from '../../../core/Component.js';
+import { HomePage } from '../../../views/HomePage.js';
 import { SearchBar, FilterButton, MapSearchMenu } from '../../Components.js';
 
 export class MapSection extends Component {
@@ -10,21 +11,19 @@ export class MapSection extends Component {
             state: {
             query: "",
             items: [
-              { id: 1, name: "Apple" },
-              { id: 2, name: "Banana" },
-              { id: 3, name: "Cherry" },
-              { id: 4, name: "Date" },
-              { id: 5, name: "Fig" },
-              { id: 6, name: "Grape" },
+              this.state.data,
             ],
             filteredItems: [],
             loading: false,
-          }, } );
+          },
+          homePage: this.props.homePage,
+         } );
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
     }
 
     toggleMenu(event) {
+        console.log(this.state);
       if(this.actualTarget === event.target) {
         this.isMenuOpen = !this.isMenuOpen;
       }else{
@@ -77,6 +76,7 @@ export class MapSection extends Component {
     }
 
     render() {
+        console.log(this.state);
         return {
             tag: "div",
             props: { id: this.props.id, class: "relative" },

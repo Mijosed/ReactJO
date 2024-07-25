@@ -3,31 +3,28 @@ import { SearchBarResult } from "./SearchBarResult.js";
 
 export class SearchBar extends Component {
   constructor(props = {}) {
-    props = {
-      ...props,
-      
-    };
     super(props);
-
+    this.homePage = this.props.homePage;
     this.searchBarResult = new SearchBarResult({
       id: "search-bar-result-map",
       state: { items: props.state.items, query: props.state.query, display: false },
+      searchBar : this,
     });
   }
 
   handleInputChange(event) {
     const query = event.target.value;
-    const filteredItems = query ? this.state.items.filter((item) => item.name.toLowerCase().includes(query.toLowerCase())) : [];
+    const filteredItems = query ? this.state.items.filter((item) => item.nom_site.toLowerCase().includes(query.toLowerCase())) : [];
 
     this.searchBarResult.setState({
       query: query,
       filteredItems: filteredItems,
       loading: false,
     });
+    this.homePage.componentDidMount(filteredItems);
   }
 
   toggleSearchBar(show) {
-    console.log("show", show);
     if (show) {
       this.searchBarResult.setState({ display: true });
     } else {
@@ -36,6 +33,7 @@ export class SearchBar extends Component {
   }
 
   render() {
+    console.log(this.state);
     return {
       tag: "div",
       props: { class: "relative w-1/2 mx-auto my-8", id: this.props.id },
