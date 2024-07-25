@@ -52,9 +52,15 @@ export class HomePage extends Component {
             }));
 
             olympicSites.forEach(site => {
-                L.marker(site.coords).addTo(map)
+                const market = L.marker(site.coords).addTo(map)
                     .bindPopup(site.name)
                     .openPopup();
+                    market.on('click', (event) => {
+
+                        this.mapElement.toggleMenu(event);
+                        // Display additional information about the site
+                        // You can add more detailed information in the alert or in the popup
+                    });
             });
 
             if (navigator.geolocation) {
