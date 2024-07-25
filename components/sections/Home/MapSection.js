@@ -5,14 +5,20 @@ export class MapSection extends Component {
     constructor(props = {}) {
         super(props);
         this.isMenuOpen = false;
+        this.actualTarget = null;
         this.SearchBar = new SearchBar( { id: "search-bar-map" } );
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
     }
 
     toggleMenu(event) {
-        event.stopPropagation();
+      if(this.actualTarget === event.target) {
         this.isMenuOpen = !this.isMenuOpen;
+      }else{
+        this.isMenuOpen = true;
+        this.actualTarget = event.target;
+      }
+        
         const menuElement = document.getElementById('map-search-menu');
         const searchElement = document.getElementById('search');
         const toggleButton = document.getElementById('menu-toggle-button');
