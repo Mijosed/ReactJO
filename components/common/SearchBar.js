@@ -5,19 +5,7 @@ export class SearchBar extends Component {
   constructor(props = {}) {
     props = {
       ...props,
-      state: {
-        query: "",
-        items: [
-          { id: 1, name: "Apple" },
-          { id: 2, name: "Banana" },
-          { id: 3, name: "Cherry" },
-          { id: 4, name: "Date" },
-          { id: 5, name: "Fig" },
-          { id: 6, name: "Grape" },
-        ],
-        filteredItems: [],
-        loading: false,
-      },
+      
     };
     super(props);
 
