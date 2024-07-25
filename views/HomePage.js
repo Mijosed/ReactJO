@@ -19,7 +19,7 @@ export class HomePage extends Component {
             }
         };
         validateProps(props, propSchema);
-
+        this.markers = []; 
         this.state = {
             sports: [],
             mapInitialized: true,
@@ -28,70 +28,93 @@ export class HomePage extends Component {
 
         this.headerHome = new HeaderHome();
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
-        this.mapElement = new MapSection( {id : "map-section"});
+        this.mapElement = new MapSection( {id : "map-section", state :{ data: [] },homePage: this});
         this.footerElement = new Footer();
         this.sportsSection = new SportSection({ id: "sports-section" });
         this.componentDidMount();
     }
 
-    async componentDidMount() {
+    async componentDidMount(dataSearch = []) {
+        let data;
+        
         try {
-            const data = await fetchData();
-            const sports = data.sports || [];
-            this.setState({ sports });
-
-            const map = L.map('map', { gestureHandling: true }).setView([48.8566, 2.3522], 12);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-
-            const olympicSites = data.results.map(site => ({
-                coords: [site.point_geo.lat, site.point_geo.lon],
-                name: site.nom_site
-            }));
-
-            olympicSites.forEach(site => {
-                const market = L.marker(site.coords).addTo(map)
-                    .bindPopup(site.name)
-                    .openPopup();
-                    market.on('click', (event) => {
-
-                        this.mapElement.toggleMenu(event);
-                        // Display additional information about the site
-                        // You can add more detailed information in the alert or in the popup
-                    });
-            });
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    const { latitude, longitude } = position.coords;
-                    map.setView([latitude, longitude], 12);
-
-                    let customIcon = L.icon({
-                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                    });
-
-                    L.marker([latitude, longitude], { icon: customIcon })
-                        .addTo(map)
-                        .bindPopup('Je suis géolocalisé(e) !')
-                        .openPopup();
-
-                    // Vérifie la proximité du site le plus proche
-                    this.checkProximity([latitude, longitude], olympicSites);
-                });
-            }
-            this.mapElement.setState({ sport: sports });
-
+            data = dataSearch.length > 0 ? { results: dataSearch } : await fetchData();
         } catch (error) {
             this.setState({ error: "Erreur lors de la récupération des données : " + error.message });
             console.error("Erreur lors de la récupération des données :", error);
+            return;
         }
+
+        // Initialiser la carte si ce n'est pas déjà fait
+        if (!this.map) {
+            this.map = L.map('map', { gestureHandling: true }).setView([48.8566, 2.3522], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(this.map);
+        } else {
+            // Si la carte est déjà initialisée, supprimer les marqueurs existants
+            this.markers.forEach(marker => this.map.removeLayer(marker));
+            this.markers = []; // Réinitialiser les marqueurs
+        }
+
+        const olympicSites = data.results.map(site => ({
+            coords: [site.point_geo.lat, site.point_geo.lon],
+            name: site.nom_site
+        }));
+
+        olympicSites.forEach(site => {
+            const marker = L.marker(site.coords).addTo(this.map).bindPopup(site.name).openPopup();
+
+            marker.on('click', (event) => {
+                this.mapElement.toggleMenu(event);
+            });
+
+            this.markers.push(marker); // Stockage des marqueurs
+        });
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const { latitude, longitude } = position.coords;
+                this.map.setView([latitude, longitude], 12);
+
+                const customIcon = L.icon({
+                    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34],
+                });
+
+            }
+            
+
+
+                L.marker([latitude, longitude], { icon: customIcon })
+                    .addTo(this.map)
+                    .bindPopup('Je suis géolocalisé(e) !')
+                    .openPopup();
+
+                this.checkProximity([latitude, longitude], olympicSites);
+            });
+        }
+
+        if (dataSearch.length === 1) {
+            const singleSite = olympicSites[0];
+            this.map.setView(singleSite.coords, 12);
+            const singleMarker = L.marker(singleSite.coords).addTo(this.map)
+                .bindPopup(singleSite.name).closePopup();
+                
+                singleMarker.on('click', (event) => {
+                    this.mapElement.toggleMenu(event);
+                });
+            this.markers.push(singleMarker);
+        }
+
+        this.mapElement.setState({ data: data.results });
+        this.mapElement.SearchBar.setState({ items: data.results });
     }
+
+
 
     checkProximity(userCoords, sites) {
         let closestSite = null;

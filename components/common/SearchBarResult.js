@@ -3,6 +3,7 @@ import { Component } from "../../core/Component.js";
 export class SearchBarResult extends Component {
   constructor(props = {}) {
     super(props);
+    this.searchBar = this.props.searchBar;
   }
 
   render() {
@@ -27,9 +28,19 @@ export class SearchBarResult extends Component {
       ];
     } else if (filteredItems.length > 0) {
       resultsContent = filteredItems.map((item) => ({
+        
         tag: "div",
-        props: { class: "p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer" },
-        children: [{ tag: "span", props: {}, children: [item.name] }],
+        props: { class: "p-2 border-b border-gray-200 hover:bg-gray-100 cursor-pointer" ,
+          onClick:  async (event) =>{
+            this.searchBar.setState({
+              query: item.nom_site,
+              filteredItems: [],
+              loading: false,
+            });
+            this.searchBar.homePage.componentDidMount([item]);
+          }
+        },
+        children: [{ tag: "span", props: {}, children: [item.nom_site] }],
       }));
     } else {
       resultsContent = [

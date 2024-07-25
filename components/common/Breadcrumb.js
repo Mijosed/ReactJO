@@ -29,7 +29,7 @@ export class Breadcrumb extends Component {
     render() {
         return {
             tag: "nav",
-            props: { class: " flex items-center text-sm text-gray-600 my-4 mx-40" },
+            props: { class: " flex items-center text-sm text-gray-600 my-4 mx-40 mobil-margin" },
             children: this.items.map((item, index) => [
                 {
                     tag: "a",

@@ -795,6 +795,10 @@ video {
   margin: 0.25rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .m-8 {
   margin: 2rem;
 }
@@ -3108,6 +3112,10 @@ footer {
   display: none;
 }
 
+#menu{
+  display: none;
+}
+
 @media (max-width: 768px) {
   .image-mascotte, .hidden-img {
     display: none;
@@ -3138,6 +3146,19 @@ footer {
 
   .desktop-only{
     display: none;
+  }
+
+  .mobil-margin{
+    margin: 25px;
+  }
+
+  .calendar-on-mobil{
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  #menu{
+    display: block;
   }
 }
 
@@ -3264,8 +3285,4 @@ footer {
     }
   }
 }
-
-
-
-
 
