@@ -23,6 +23,7 @@ export class Component {
     return this.createElement(element);
   }
   shouldUpdate(oldNode, newNode, root) {
+    if(!oldNode.tag || !newNode.tag) {debugger};
     let isTrue = false;
     if (typeof oldNode === "string" || oldNode instanceof String) {
       return oldNode !== newNode;

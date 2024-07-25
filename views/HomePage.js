@@ -22,7 +22,7 @@ export class HomePage extends Component {
 
         this.state = {
             sports: [],
-            mapInitialized: false,
+            mapInitialized: true,
             error: null
         };
 
@@ -86,7 +86,6 @@ export class HomePage extends Component {
                 });
             }
 
-            this.setState({ mapInitialized: true });
         } catch (error) {
             this.setState({ error: "Erreur lors de la récupération des données : " + error.message });
             console.error("Erreur lors de la récupération des données :", error);
