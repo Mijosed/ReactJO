@@ -23,11 +23,11 @@ export class HeaderSport extends Component {
 
         return {
             tag: "header",
-            props: { class: "relative w-full h-96 bg-cover bg-center", style: "background-image: url('../../../assets/images/background-sport.png');" },
+            props: { class: "relative w-full h-96 bg-cover bg-center background-image", style: "background-image: url('../../../assets/images/background-sport.png');" },
             children: [
                 {
                     tag: "div",
-                    props: { style:"padding-left:50px; padding-bottom: 25px;",class: "absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-50" },
+                    props: { style:"padding-left:50px; padding-bottom: 25px;", class: "absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-50" },
                     children: [
                         {
                             tag: "h1",

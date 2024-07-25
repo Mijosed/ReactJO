@@ -74,6 +74,9 @@ export class HomePage extends Component {
                         .addTo(map)
                         .bindPopup('Je suis géolocalisé(e) !')
                         .openPopup();
+
+                    // Vérifie la proximité du site le plus proche
+                    this.checkProximity([latitude, longitude], olympicSites);
                 });
             }
 
@@ -81,6 +84,52 @@ export class HomePage extends Component {
         } catch (error) {
             this.setState({ error: "Erreur lors de la récupération des données : " + error.message });
             console.error("Erreur lors de la récupération des données :", error);
+        }
+    }
+
+    checkProximity(userCoords, sites) {
+        let closestSite = null;
+        let minDistance = Infinity;
+
+        sites.forEach(site => {
+            const distance = this.getDistance(userCoords, site.coords);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestSite = site;
+            }
+        });
+
+        if (closestSite && minDistance < 50) { 
+            this.sendNotification(closestSite.name, minDistance);
+        }
+    }
+
+    getDistance(coord1, coord2) {
+        const R = 6371; 
+        const dLat = (coord2[0] - coord1[0]) * Math.PI / 180;
+        const dLon = (coord2[1] - coord1[1]) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(coord1[0] * Math.PI / 180) * Math.cos(coord2[0] * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c; 
+    }
+
+    sendNotification(siteName, distance) {
+        const roundedDistance = Math.round(distance * 100) / 100; 
+        const message = `Le site de compétition le plus proche est ${siteName}, situé à ${roundedDistance} km.`;
+        if (Notification.permission === 'granted') {
+            new Notification('Site de compétition à proximité', {
+                body: message,
+            });
+        } else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('Site de compétition à proximité', {
+                        body: message,
+                    });
+                }
+            });
         }
     }
 

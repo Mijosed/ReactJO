@@ -24,30 +24,44 @@ export class Component {
       return this.createElement(element);
   }
   shouldUpdate(oldNode, newNode, root) {
-    if(newNode instanceof Component){
+    if(typeof oldNode === 'string' || oldNode instanceof String){ 
+      return oldNode !== newNode;
+    }else{
+      if(newNode instanceof Component){
         newNode = newNode.render();
-    }
-    if (oldNode.tag !== newNode.tag) {
-        return true;
-    }
-    if (JSON.stringify(oldNode.props) !== JSON.stringify(newNode.props)) {
-        return true;
-    }
-    if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
-      if (oldNode.children.length !== newNode.children.length) {
-        return true;
-    } else {
-        for (let i = 0; i < oldNode.children.length; i++) {
-          let oldChild = oldNode.children[i];
-          let newChild = newNode.children[i];
-          if (this.shouldUpdate(oldChild,newChild,root)) {
-            let objet = this.elementToObject(root);
-            this.findElementByPropsAndReplace(root, objet, oldNode.children[i],newChild);
-            break;
+      }
+      if(newNode === null){
+        debugger;
+      }
+      try {
+        if (oldNode?.tag !== newNode?.tag) {
+          return true;
+      }
+      } catch (error) {
+        debugger;
+      }
+      if (oldNode.tag !== newNode?.tag) {
+          return true;
+      }
+      if (JSON.stringify(oldNode.props) !== JSON.stringify(newNode.props)) {
+          return true;
+      }
+      if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
+        if (oldNode.children.length !== newNode.children.length) {
+          return true;
+      } else {
+          for (let i = 0; i < oldNode.children.length; i++) {
+            let oldChild = oldNode.children[i];
+            let newChild = newNode.children[i];
+            if (this.shouldUpdate(oldChild,newChild,root)) {
+              let objet = this.elementToObject(root);
+              this.findElementByPropsAndReplace(root, objet, oldNode.children[i],newChild);
+            }
           }
         }
       }
     }
+    
     return false;
   }
   elementToObject(element) {

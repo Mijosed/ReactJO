@@ -23,7 +23,7 @@ export class HeaderLocation extends Component {
         
         return {
             tag: "header",
-            props: { class: "relative w-full h-96 bg-cover bg-center", style: "background-image: url('../../../assets/images/background-lieu.png');" },
+            props: { class: "relative w-full h-96 bg-cover bg-center background-image", style: "background-image: url('../../../assets/images/background-lieu.png');" },
             children: [
                 {
                     tag: "div",
