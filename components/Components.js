@@ -6,6 +6,7 @@ export { SportComponent } from './sections/Sport/SportComponent.js';
 export { Footer } from './common/Footer.js';
 export { Card } from './common/Card.js';
 export { Calendar } from './common/Calendar.js';
+export { MenuBurger } from './common/MenuBurger.js';
 export { SearchBar } from './common/SearchBar.js';
 export { FilterButton } from './common/FilterButton.js';
 export { HomeTitle } from './sections/Home/HomeTitle.js';
