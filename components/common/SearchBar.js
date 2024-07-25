@@ -3,39 +3,26 @@ import { SearchBarResult } from "./SearchBarResult.js";
 
 export class SearchBar extends Component {
   constructor(props = {}) {
-    props = {
-      ...props,
-      state: {
-        query: "",
-        items: [
-          { id: 1, name: "Apple" },
-          { id: 2, name: "Banana" },
-          { id: 3, name: "Cherry" },
-          { id: 4, name: "Date" },
-          { id: 5, name: "Fig" },
-          { id: 6, name: "Grape" },
-        ],
-        filteredItems: [],
-        loading: false,
-      },
-    };
     super(props);
-
+    this.homePage = this.props.homePage;
     this.searchBarResult = new SearchBarResult({
       id: "search-bar-result-map",
       state: { items: props.state.items, query: props.state.query, display: false },
+      searchBar : this,
     });
   }
 
   handleInputChange(event) {
     const query = event.target.value;
-    const filteredItems = query ? this.state.items.filter((item) => item.name.toLowerCase().includes(query.toLowerCase())) : [];
+    const filteredItems = query ? this.state.items.filter((item) => item.nom_site.toLowerCase().includes(query.toLowerCase())) : [];
 
     this.searchBarResult.setState({
       query: query,
       filteredItems: filteredItems,
       loading: false,
     });
+    
+    this.homePage.componentDidMount(filteredItems);
   }
 
   toggleSearchBar(show) {

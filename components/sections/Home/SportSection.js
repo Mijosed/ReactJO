@@ -11,13 +11,13 @@ export class SportSection extends Component {
     constructor(props = {}) {
         super(props);
         this.state = {
-            sports: [],
-            loading: true,
+            sports: props.sports || [],
+            loading: !props.sports,
             error: null,
             currentPage: 1,
-            itemsPerPage: 8
+            itemsPerPage: 8,
         };
-
+        this.id = props.id || "sports-section";
         this.titleElementSports = new HomeTitle({ text: "Les différents sports présents lors des JO", couleur: "black", id: "sports", textColor: "white" });
         this.pagination = new Pagination({
             id: "sports-pagination",
@@ -29,7 +29,9 @@ export class SportSection extends Component {
             onPageChange: this.handlePageChange.bind(this)
         });
 
-        this.loadSportsData();
+        if (!props.sports) {
+            this.loadSportsData();
+        }
     }
 
     async loadSportsData() {
@@ -46,6 +48,7 @@ export class SportSection extends Component {
     }
 
     navigateToSport(sport) {
+        debugger;
         window.history.pushState({}, '', `/sports/${sport.nom.toLowerCase()}`);
         const event = new PopStateEvent('popstate');
         window.dispatchEvent(event);
@@ -57,7 +60,7 @@ export class SportSection extends Component {
         if (loading) {
             return {
                 tag: "div",
-                props: { id: "sports-section" },
+                props: { id: this.id },
                 children: [{ tag: "p", props: {}, children: ["Loading..."] }]
             };
         }
@@ -65,7 +68,7 @@ export class SportSection extends Component {
         if (error) {
             return {
                 tag: "div",
-                props: { id: "sports-section" },
+                props: { id: this.id },
                 children: [{ tag: "p", props: {}, children: [error] }]
             };
         }
@@ -76,7 +79,7 @@ export class SportSection extends Component {
 
         return {
             tag: "div",
-            props: { id: "sports-section" },
+            props: { id: this.id },
             children: [
                 this.titleElementSports.render(),
                 {
@@ -98,7 +101,7 @@ export class SportSection extends Component {
                         validateProps(sport, propSchema);
                         const card = new Card({
                             ...sport,
-                            onClick: () => this.navigateToSport(sport)
+                            lien:`/sports/${sport.nom.toLowerCase()}`
                         });
                         return card.render();
                     })

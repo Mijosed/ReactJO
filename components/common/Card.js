@@ -1,5 +1,5 @@
-import { Component } from '../../core/Component.js';
-import { validateProps } from '../../utils/typeCheck.js';
+import { Component } from '../../../core/Component.js';
+import { validateProps } from '../../../utils/typeCheck.js';
 
 export class Card extends Component {
     constructor(props = {}) {
@@ -11,7 +11,7 @@ export class Card extends Component {
                 nom: { type: 'string' },
                 description: { type: 'string' },
                 image: { type: 'string' },
-                onClick: { type: 'function' }
+                lien: { type: 'string' },
             },
             required: ['id', 'nom', 'description', 'image', 'onClick']
         };
@@ -55,10 +55,10 @@ export class Card extends Component {
                             children: [this.props.description]
                         },
                         {
-                            tag: "button",
+                            tag: "a",
                             props: {
                                 class: "text-blue-500 hover:text-blue-700 text-sm",
-                                onclick: this.props.onClick
+                                href: this.props.lien
                             },
                             children: ["En savoir plus"]
                         }

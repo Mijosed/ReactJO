@@ -23,7 +23,6 @@ export class Component {
     return this.createElement(element);
   }
   shouldUpdate(oldNode, newNode, root) {
-    if(!oldNode.tag || !newNode.tag) {debugger};
     let isTrue = false;
     if (typeof oldNode === "string" || oldNode instanceof String) {
       return oldNode !== newNode;
@@ -39,6 +38,11 @@ export class Component {
         isTrue = true;
       }
     }
+    if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
+      if (oldNode.children.length !== newNode.children.length) {
+        isTrue = true;
+      }
+    } 
     if (isTrue) {
       let objet = this.elementToObject(root);
       this.findElementByPropsAndReplace(root, objet, oldNode, newNode);

@@ -3,7 +3,9 @@ import { Component } from '../../../core/Component.js';
 export class MapSearchMenu extends Component {
     constructor(props = {}) {
         super(props);
+        
     }
+
 
     render() {
         return {

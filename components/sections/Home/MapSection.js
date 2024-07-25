@@ -7,7 +7,17 @@ export class MapSection extends Component {
         this.isMenuOpen = false;
         this.isFilterOpen = false;
         this.actualTarget = null;
-        this.SearchBar = new SearchBar({ id: "search-bar-map", context: "map" });
+        this.SearchBar = new SearchBar({ id: "search-bar-map", context: "map",
+            state: {
+            query: "",
+            items: [
+              this.state.data,
+            ],
+            filteredItems: [],
+            loading: false,
+          },
+          homePage: this.props.homePage,
+         } );
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
         this.MapFilterMenu = new MapFilterMenu();
@@ -15,14 +25,14 @@ export class MapSection extends Component {
     }
 
     toggleMenu(event) {
-        this.isFilterOpen = false; // Close filter menu if it's open
-        if (this.actualTarget === event.target) {
-            this.isMenuOpen = !this.isMenuOpen;
-        } else {
-            this.isMenuOpen = true;
-            this.actualTarget = event.target;
-        }
-
+      this.isFilterOpen = false; // Close filter menu if it's open
+      if(this.actualTarget === event.target) {
+        this.isMenuOpen = !this.isMenuOpen;
+      }else{
+        this.isMenuOpen = true;
+        this.actualTarget = event.target;
+      }
+        
         const menuElement = document.getElementById('map-search-menu');
         const filterElement = document.getElementById('map-filter-menu');
         const searchElement = document.getElementById('search');
@@ -108,9 +118,10 @@ export class MapSection extends Component {
     }
 
     render() {
+        console.log(this.state);
         return {
             tag: "div",
-            props: { id: "map-section", class: "relative" },
+            props: { id: this.props.id, class: "relative" },
             children: [
                 {
                     tag: "div",

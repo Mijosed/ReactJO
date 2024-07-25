@@ -16,7 +16,7 @@ export class Text extends Component {
     render() {
         return {
             tag: "p",
-            props: { class: "font-olympicSans simple-text marge-top marge-bloc mx-40 mb-5" },
+            props: { class: "font-olympicSans simple-text marge-top marge-bloc mx-40 mb-5 mobil-margin" },
             children: [this.text]
         };
     }

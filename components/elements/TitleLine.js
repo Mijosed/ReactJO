@@ -17,7 +17,7 @@ export class TitleLine extends Component {
     render() {
         return {
             tag: "div",
-            props: { id: this.title, class: "mx-40 my-5" },
+            props: { id: this.title, class: "mx-40 my-5 mobil-margin" },
             children: [
                 this.titleElement.render(),
                 {
