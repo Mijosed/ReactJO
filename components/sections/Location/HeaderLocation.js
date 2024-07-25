@@ -30,6 +30,10 @@ export class HeaderLocation extends Component {
                     props: { style:"padding-left:50px; padding-bottom: 25px;",class: "absolute inset-0 flex flex-col items-start justify-end bg-black bg-opacity-50" },
                     children: [
                         {
+                            tag: "img",
+                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] logo-mobil-height" }
+                        },
+                        {
                             tag: "h1",
                             props: { class: "text-9xl font-bold text-white" },
                             children: [this.title]
