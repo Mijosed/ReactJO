@@ -83,14 +83,14 @@ export class MapSection extends Component {
             children: [
                 {
                     tag: "div",
-                    props: {  class: "h-[85vh] ", style: "width: 100%;", style:"z-index: 10;" },
+                    props: {  class: "h-[85vh] ", id: this.props.id , style: "width: 100%;", style:"z-index: 10;" },
                     children: [
                         {
                             tag: "div",
                             props: { 
                                 class: "absolute top-1/2 transform -translate-y-1/2 z-9 transition-all duration-150 ease-in-out", 
                                 style: "left: 0;",
-                                id: this.props.id,
+                                
                             },
                             children: [
                                 {
