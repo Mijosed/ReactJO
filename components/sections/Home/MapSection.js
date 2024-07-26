@@ -120,7 +120,7 @@ export class MapSection extends Component {
                         this.MapSearchMenu.render(),
                         {
                             tag: "div",
-                            props: { id: "search", class: "absolute flex justify-center z-40 w-full" },
+                            props: { id: "search", class: "absolute flex justify-center w-full", style:"z-index: 450;" },
                             children: [
                                 this.FilterButton.render(),
                                 this.SearchBar.render(),
