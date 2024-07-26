@@ -8,15 +8,15 @@ import { fetchSportsData } from './api/fetchSportsData.js';
 import { fetchLocationData } from './api/fetchLocationData.js';
 
 const routes = {
-    "/": () => {
-        console.log("Route: /");
-        return new HomePage({ title: "Home Page" }).render();
-    },
+
+    "/": () => new HomePage({ title: "Home Page", id:"root" }).render(),
+
     "/sports": async () => {
         console.log("Route: /sports");
         const data = await fetchSportsData();
-        console.log("Sports data:", data);
-        return new SportSection({ sports: data.sports }).render();
+
+        return new SportSection({ sports: data.sports, id:"root" }).render();
+
     },
     "/sports/:name": async (params) => {
         const sportName = decodeURIComponent(params.name.toLowerCase());
@@ -33,9 +33,11 @@ const routes = {
                     image: sportInfo.image,
                     calendars: sportInfo.calendars,
                     historyText: sportInfo.historyText,
-                    images: sportInfo.images
+                    images: sportInfo.images,
+                    id : "root"
                 }).render();
             } else {
+
                 console.log("Sport not found");
                 return new NotFoundPage({ title: "404 Page" }).render();
             }
@@ -73,6 +75,16 @@ const routes = {
         console.log("Route: /404");
         return new NotFoundPage({ title: "404 Page" }).render();
     },
+
+                return new NotFoundPage({ title: "404 Page", id:"root" }).render();
+            }
+        } catch (error) {
+            return new NotFoundPage({ title: "404 Page",id:"root" }).render();
+        }
+    },
+    
+
+
 };
 
 export default routes;

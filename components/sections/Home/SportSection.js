@@ -9,6 +9,7 @@ import { validateProps } from '../../../utils/typeCheck.js';
 
 export class SportSection extends Component {
     constructor(props = {}) {
+
         super(props);
         this.state = {
             sports: props.sports || [],
@@ -38,8 +39,10 @@ export class SportSection extends Component {
         try {
             const data = await fetchSportsData();
             this.setState({ sports: data.sports, loading: false });
+            this.pagination.setState({ totalItems: data.sports.length });
         } catch (error) {
             this.setState({ error: error.message, loading: false });
+
         }
     }
 
@@ -48,7 +51,6 @@ export class SportSection extends Component {
     }
 
     navigateToSport(sport) {
-        debugger;
         window.history.pushState({}, '', `/sports/${sport.nom.toLowerCase()}`);
         const event = new PopStateEvent('popstate');
         window.dispatchEvent(event);
@@ -76,7 +78,6 @@ export class SportSection extends Component {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const sportsToDisplay = sports.slice(startIndex, endIndex);
-
         return {
             tag: "div",
             props: { id: this.id },
@@ -93,17 +94,32 @@ export class SportSection extends Component {
                                 nom: { type: 'string' },
                                 description: { type: 'string' },
                                 image: { type: 'string' },
-                                calendars: { type: 'array' },
-                                historyText: { type: 'string' },
-                                images: { type: 'array' }
-                            }
+                                lien: { type: 'string' },
+                                gradientColor: { type: 'string' },
+                                onClick: { type: 'function' }
+                            },
+                            required: ['id', 'nom', 'description', 'image', 'onClick']
                         };
-                        validateProps(sport, propSchema);
-                        const card = new Card({
+
+                        const cardProps = {
                             ...sport,
-                            lien:`/sports/${sport.nom.toLowerCase()}`
-                        });
-                        return card.render();
+                            lien: `/sports/${sport.nom.toLowerCase()}`,
+                            gradientColor: "blue",
+                            onClick: () => this.navigateToSport(sport)
+                        };
+
+                        try {
+                            validateProps(cardProps, propSchema);
+                            const card = new Card(cardProps);
+                            return card.render();
+                        } catch (error) {
+                            console.error('Invalid props provided:', error);
+                            return {
+                                tag: "div",
+                                props: { class: "error-message" },
+                                children: [error.message]
+                            };
+                        }
                     })
                 },
                 this.pagination.render()

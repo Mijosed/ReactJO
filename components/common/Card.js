@@ -12,6 +12,8 @@ export class Card extends Component {
                 description: { type: 'string' },
                 image: { type: 'string' },
                 lien: { type: 'string' },
+                gradientColor: { type: 'string' },
+                onClick: { type: 'function' },
             },
             required: ['id', 'nom', 'description', 'image', 'onClick']
         };
@@ -21,6 +23,8 @@ export class Card extends Component {
     }
 
     render() {
+        const gradientClass = this.props.gradientColor === "blue" ? "bg-gradient-to-b-custom-blue" : "bg-gradient-to-b-custom-red";
+
         return {
             tag: "div",
             props: { class: "rounded-lg shadow-lg overflow-hidden", onclick: this.props.onClick },
@@ -40,7 +44,14 @@ export class Card extends Component {
                         },
                         {
                             tag: "div",
-                            props: { class: "absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2" },
+                            props: { 
+                                class: "absolute inset-0 " + gradientClass
+                            },
+                            children: []
+                        },
+                        {
+                            tag: "div",
+                            props: { class: "absolute bottom-0 left-0 text-white text-3xl p-2" },
                             children: [this.props.nom]
                         }
                     ]
