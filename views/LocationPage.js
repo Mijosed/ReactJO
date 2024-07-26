@@ -18,15 +18,14 @@ export class LocationPage extends Component {
             properties: {
                 title: { type: 'string' },
                 city: { type: 'string' },
-
                 subtitle: { type: 'string' },
                 description: { type: 'string' },
                 image: { type: 'string' },
                 sports: { type: 'array' },
-                spots: { type: 'array' }
+                spots: { type: 'array' },
+                id: { type: 'string' }
             },
-            required: ['title', 'city', 'subtitle', 'description', 'image', 'sports', 'spots']
-
+            required: ['title', 'city', 'subtitle', 'description', 'image', 'sports', 'spots', 'id']
         };
 
         validateProps(props, propSchema);
@@ -55,7 +54,6 @@ export class LocationPage extends Component {
                 { label: this.state.title, href: "#" }
             ]
         });
-
         this.textPresLieu = new Text({ text: this.state.description });
         this.titleLineSport = new TitleLine({ title: "SPORTS" });
         this.imageGrid = new ImageGrid({
@@ -71,7 +69,6 @@ export class LocationPage extends Component {
             description: spot.description,
             image: spot.image
         }));
-
     }
 
     render() {

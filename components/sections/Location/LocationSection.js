@@ -7,14 +7,14 @@ export class LocationSection extends Component {
     constructor(props = {}) {
         super(props);
         this.state = {
-            locations: [],
-            loading: true,
+            locations: props.locations || [],
+            loading: !props.locations,
             error: null,
             currentPage: 1,
             itemsPerPage: 8,
         };
-        this.id = props.id || "locations-section";
-        this.titleElementLocations = new HomeTitle({ text: "Les différents lieux de compétition", couleur: "black", id: "locations", textColor: "white" });
+        this.id = props.id || "location-section";
+        this.titleElementLocations = new HomeTitle({ text: "Les différents lieux", couleur: "black", id: "locations", textColor: "white" });
         this.pagination = new Pagination({
             id: "locations-pagination",
             state: {
@@ -25,17 +25,16 @@ export class LocationSection extends Component {
             onPageChange: this.handlePageChange.bind(this)
         });
 
-        this.loadLocationData();
+        if (!props.locations) {
+            this.loadLocationData();
+        }
     }
 
     async loadLocationData() {
         try {
-            console.log("Fetching location data...");
             const data = await fetchLocationData();
-            console.log("Fetched data:", data);
             this.setState({ locations: data.locations, loading: false });
         } catch (error) {
-            console.log("Error loading location data:", error);
             this.setState({ error: error.message, loading: false });
         }
     }
@@ -45,9 +44,9 @@ export class LocationSection extends Component {
     }
 
     navigateToLocation(location) {
-        console.log(`Navigating to location: ${location.name}`);
         window.history.pushState({}, '', `/locations/${location.name.toLowerCase()}`);
-        window.dispatchEvent(new Event('popstate'));
+        const event = new PopStateEvent('popstate');
+        window.dispatchEvent(event);
     }
 
     render() {
@@ -85,29 +84,39 @@ export class LocationSection extends Component {
                         const propSchema = {
                             type: 'object',
                             properties: {
-                                name: { type: 'string' },
-                                title: { type: 'string' },
+                                id: { type: 'string' },
+                                nom: { type: 'string' },
                                 description: { type: 'string' },
                                 image: { type: 'string' },
-                                subtitle: { type: 'string' },
-                                city: { type: 'string' }
+                                lien: { type: 'string' },
+                                gradientColor: { type: 'string' },
+                                onClick: { type: 'function' }
                             },
-                            required: ['name', 'title', 'description', 'image', 'subtitle', 'city']
+                            required: ['id', 'nom', 'description', 'image', 'onClick']
                         };
-                        try {
-                            validateProps(location, propSchema);
-                        } catch (error) {
-                            console.log("Invalid props for location:", location, error);
-                        }
-                        const card = new Card({
+
+                        const cardProps = {
                             id: location.name,
                             nom: location.title,
                             description: location.description,
                             image: location.image,
                             lien: `/locations/${location.name.toLowerCase()}`,
+                            gradientColor: "blue",
                             onClick: () => this.navigateToLocation(location)
-                        });
-                        return card.render();
+                        };
+
+                        try {
+                            validateProps(cardProps, propSchema);
+                            const card = new Card(cardProps);
+                            return card.render();
+                        } catch (error) {
+                            console.error('Invalid props provided:', error);
+                            return {
+                                tag: "div",
+                                props: { class: "error-message" },
+                                children: [error.message]
+                            };
+                        }
                     })
                 },
                 this.pagination.render()

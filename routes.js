@@ -8,16 +8,14 @@ import { fetchSportsData } from './api/fetchSportsData.js';
 import { fetchLocationData } from './api/fetchLocationData.js';
 
 const routes = {
-
-    "/": () => new HomePage({ title: "Home Page", id:"root" }).render(),
+    "/": () => new HomePage({ title: "Home Page", id: "root" }).render(),
 
     "/sports": async () => {
         console.log("Route: /sports");
         const data = await fetchSportsData();
-
-        return new SportSection({ sports: data.sports, id:"root" }).render();
-
+        return new SportSection({ sports: data.sports, id: "root" }).render();
     },
+
     "/sports/:name": async (params) => {
         const sportName = decodeURIComponent(params.name.toLowerCase());
         console.log(`Route: /sports/${sportName}`);
@@ -34,24 +32,25 @@ const routes = {
                     calendars: sportInfo.calendars,
                     historyText: sportInfo.historyText,
                     images: sportInfo.images,
-                    id : "root"
+                    id: "root"
                 }).render();
             } else {
-
                 console.log("Sport not found");
-                return new NotFoundPage({ title: "404 Page" }).render();
+                return new NotFoundPage({ title: "404 Page", id: "root" }).render();
             }
         } catch (error) {
             console.log("Error fetching sports data:", error);
-            return new NotFoundPage({ title: "404 Page" }).render();
+            return new NotFoundPage({ title: "404 Page", id: "root" }).render();
         }
     },
+
     "/locations": async () => {
         console.log("Route: /locations");
         const data = await fetchLocationData();
         console.log("Locations data:", data);
-        return new LocationSection({ locations: data.locations }).render();
+        return new LocationSection({ locations: data.locations, id: "root" }).render();
     },
+
     "/locations/:name": async (params) => {
         const locationName = decodeURIComponent(params.name.toLowerCase());
         console.log(`Route: /locations/${locationName}`);
@@ -61,30 +60,21 @@ const routes = {
             const locationInfo = data.locations.find(location => location.name.toLowerCase() === locationName);
             if (locationInfo) {
                 console.log("Location info:", locationInfo);
-                return new LocationPage(locationInfo).render();
+                return new LocationPage({ ...locationInfo, id: "root" }).render();
             } else {
                 console.log("Location not found");
-                return new NotFoundPage({ title: "404 Page" }).render();
+                return new NotFoundPage({ title: "404 Page", id: "root" }).render();
             }
         } catch (error) {
             console.log("Error fetching locations data:", error);
-            return new NotFoundPage({ title: "404 Page" }).render();
+            return new NotFoundPage({ title: "404 Page", id: "root" }).render();
         }
     },
+
     "/404": () => {
         console.log("Route: /404");
-        return new NotFoundPage({ title: "404 Page" }).render();
-    },
-
-                return new NotFoundPage({ title: "404 Page", id:"root" }).render();
-            }
-        } catch (error) {
-            return new NotFoundPage({ title: "404 Page",id:"root" }).render();
-        }
-    },
-    
-
-
+        return new NotFoundPage({ title: "404 Page", id: "root" }).render();
+    }
 };
 
 export default routes;
