@@ -4,8 +4,7 @@ import { Place } from './Place.js';
 export class MapSearchMenu extends Component {
     constructor(props = {}) {
         super(props);
-        
-        this.place = new Place({id: "place", state: {items:this.props.state.items}});
+        this.place = new Place({id: "place", state: {items:this.state.items}});
     }
 
 

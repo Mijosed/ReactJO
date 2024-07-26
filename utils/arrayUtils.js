@@ -1,5 +1,4 @@
 export function arraysEqual(arr1, arr2) {
-    debugger;
     if (arr1.length !== arr2.length) {
         return false;
     }

@@ -47,6 +47,7 @@ export class HomePage extends Component {
             return;
         }
         this.mapElement.SearchBar.setState({ items: data.results });
+        this.mapElement.MapSearchMenu.place.setState({ items: data.results });
         if(!this.map)
         {
             this.initializeMap();
