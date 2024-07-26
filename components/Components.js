@@ -19,3 +19,8 @@ export { Text } from './elements/Text.js';
 export { TitleLine } from './elements/TitleLine.js';
 export { ImageGrid } from './common/ImageGrid.js';
 export { MapSearchMenu } from './common/MapSearchMenu.js';  
+export { DatePicker } from './common/DatePicker.js';
+export { GeolocalisationButton } from './common/GeolocalisationButton.js';
+export { MapFilterMenu } from './common/MapFilterMenu.js';
+export { SelectBar } from './common/SelectBar.js';
+

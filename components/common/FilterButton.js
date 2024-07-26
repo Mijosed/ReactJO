@@ -8,7 +8,7 @@ export class FilterButton extends Component {
     render() {
         return {
             tag: "div",
-            props: { class: "flex items-center bg-white text-black rounded-full shadow-lg m-8 p-2 w-max left-50" },
+            props: { class: "flex items-center bg-white text-black rounded-full shadow-lg m-8 p-2 w-max left-50 cursor-pointer" },
             children: [
                 {
                     tag: "span",
