@@ -4,40 +4,40 @@ import { SearchBarResult } from "./SearchBarResult.js";
 export class SearchBar extends Component {
   constructor(props = {}) {
     super(props);
-    this.homePage = this.props.homePage;
+    this.homePage = this.props.homePage ?? null;
+    this.sportsSection = this.props.sportsSection ?? null;
     this.searchBarResult = new SearchBarResult({
       id: "search-bar-result-map",
       state: { items: props.state.items, query: props.state.query, display: false },
-      searchBar : this,
+      searchBar: this,
     });
   }
 
   handleInputChange(event) {
     const query = event.target.value;
-  
-    if(this.props.isSearchMap){
+
+    if (this.props.isSearchMap) {
       const filteredItemsMap = query ? this.state.items.filter((item) => item.nom_site.toLowerCase().includes(query.toLowerCase())) : [];
       this.searchBarResult.setState({
         query: query,
         filteredItems: filteredItemsMap,
         loading: false,
       });
-    this.homePage.componentDidMount(filteredItemsMap);
-
-    }else{
-      if(query === ""){
-        this.homePage.sportsSection.loadSportsData();
+      this.homePage.componentDidMount(filteredItemsMap);
+    } else {
+      if (query === "") {
+        this.sportsSection.loadSportsData();
       }
       const filteredItemsSport = query ? this.state.items.filter((item) => item.nom.toLowerCase().includes(query.toLowerCase())) : [];
-      this.homePage.sportsSection.pagination.setState({ totalItems: filteredItemsSport.length });
-      this.homePage.sportsSection.setState({sports:filteredItemsSport});
+      this.sportsSection.pagination.setState({ totalItems: filteredItemsSport.length });
+      this.sportsSection.setState({ sports: filteredItemsSport });
     }
   }
 
   toggleSearchBar(show) {
     if (show) {
       this.searchBarResult.setState({ display: true });
-      this
+      this;
     } else {
       this.searchBarResult.setState({ display: false });
     }
@@ -60,7 +60,9 @@ export class SearchBar extends Component {
                 class: "flex-grow p-2 bg-transparent outline-none rounded-full font-olympicSans",
                 value: this.state.query,
                 onInput: (event) => this.handleInputChange(event),
-                onFocus: () => { this.props.isSearchMap === true ? this.toggleSearchBar(true) :""},
+                onFocus: () => {
+                  this.props.isSearchMap === true ? this.toggleSearchBar(true) : "";
+                },
                 onBlur: () => setTimeout(() => this.toggleSearchBar(false), 200),
               },
               children: [],

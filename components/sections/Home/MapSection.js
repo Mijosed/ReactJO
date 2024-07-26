@@ -14,7 +14,8 @@ export class MapSection extends Component {
                 filteredItems: [],
                 loading: false,
             },
-            homePage: this.props.homePage,
+            homePage: this.props.homePage ?? null,
+            
             isSearchMap: true
         });
         this.FilterButton = new FilterButton();
