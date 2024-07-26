@@ -21,7 +21,7 @@ export class MapSection extends Component {
             homePage: this.props.homePage,
         });
         this.FilterButton = new FilterButton();
-        this.MapSearchMenu = new MapSearchMenu();
+        this.MapSearchMenu = new MapSearchMenu( {id: "map-search-menu", state: { items: this.state.data }});
     }
 
     toggleMenu(event) {

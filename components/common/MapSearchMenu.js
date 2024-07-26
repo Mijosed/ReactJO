@@ -1,9 +1,10 @@
 import { Component } from '../../../core/Component.js';
+import { ListePlace } from './ListPlace.js';
 
 export class MapSearchMenu extends Component {
     constructor(props = {}) {
         super(props);
-        
+        this.ListePlace = new ListePlace({id: "list-place", state: {items: this.state.items}});
     }
 
 
@@ -11,7 +12,7 @@ export class MapSearchMenu extends Component {
         return {
             tag: "div",
             props: {
-                id: "map-search-menu",
+                id: this.props.id,
                 class: "absolute left-0 top-1/2 transform -translate-y-1/2 h-5/6 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out transform -translate-x-full rounded-tr-lg rounded-br-lg bottom-mobil",
                 style: "display: none; width: 30%;",
             },
@@ -61,6 +62,7 @@ export class MapSearchMenu extends Component {
                     props: { class: "p-4" },
                     children: [
                         // Add menu items here
+                        ListePlace.render(),
                     ]
                 }
             ]
