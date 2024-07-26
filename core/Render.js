@@ -23,7 +23,8 @@ export class Render {
       if (children && Array.isArray(children)) {
         for (const child of children) {
           if (child === null || child === undefined) {
-            debugger;
+            console.log("Invalid child component:", child);
+            
           }
           elem.appendChild(Render.createElement(child));
         }
@@ -44,8 +45,9 @@ export class Render {
     if (typeof component === "object" && component.render) {
       return Render.createElement(component.render());
     }
-    if(component === null || component === undefined) {
-      debugger;
+    if (component === null || component === undefined) {
+      console.log("Invalid component:", component);
+      
     }
 
     console.error("Invalid component passed to createElement:", component);
@@ -53,6 +55,7 @@ export class Render {
   }
 
   static render(component, root) {
+    console.log("Rendering component:", component);
     root.innerHTML = "";
     root.appendChild(Render.createElement(component));
   }

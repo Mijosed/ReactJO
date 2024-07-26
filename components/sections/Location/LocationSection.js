@@ -30,12 +30,12 @@ export class LocationSection extends Component {
 
     async loadLocationData() {
         try {
-            console.log('Fetching location data...');
+            console.log("Fetching location data...");
             const data = await fetchLocationData();
-            console.log('Fetched data:', data);
+            console.log("Fetched data:", data);
             this.setState({ locations: data.locations, loading: false });
         } catch (error) {
-            console.error('Error loading location data:', error);
+            console.log("Error loading location data:", error);
             this.setState({ error: error.message, loading: false });
         }
     }
@@ -45,9 +45,9 @@ export class LocationSection extends Component {
     }
 
     navigateToLocation(location) {
+        console.log(`Navigating to location: ${location.name}`);
         window.history.pushState({}, '', `/locations/${location.name.toLowerCase()}`);
-        const event = new PopStateEvent('popstate');
-        window.dispatchEvent(event);
+        window.dispatchEvent(new Event('popstate'));
     }
 
     render() {
@@ -89,12 +89,16 @@ export class LocationSection extends Component {
                                 title: { type: 'string' },
                                 description: { type: 'string' },
                                 image: { type: 'string' },
-                                subtitle: { type: 'string' }, // Ajoutez subtitle si nécessaire
-                                city: { type: 'string' } // Ajoutez city si nécessaire
+                                subtitle: { type: 'string' },
+                                city: { type: 'string' }
                             },
                             required: ['name', 'title', 'description', 'image', 'subtitle', 'city']
                         };
-                        validateProps(location, propSchema);
+                        try {
+                            validateProps(location, propSchema);
+                        } catch (error) {
+                            console.log("Invalid props for location:", location, error);
+                        }
                         const card = new Card({
                             id: location.name,
                             nom: location.title,

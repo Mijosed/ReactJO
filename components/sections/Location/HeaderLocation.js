@@ -10,9 +10,14 @@ export class HeaderLocation extends Component {
                 title: { type: 'string' },
                 subtitle: { type: 'string' },
                 city: { type: 'string' }
-            }
+            },
+            required: ['title', 'subtitle', 'city']
         };
-        validateProps(props, propSchema);
+        try {
+            validateProps(props, propSchema);
+        } catch (error) {
+            console.log("Invalid props for HeaderLocation:", props, error);
+        }
 
         this.title = props.title;
         this.subtitle = props.subtitle;
@@ -20,7 +25,7 @@ export class HeaderLocation extends Component {
     }
 
     render() {
-        
+        console.log("Rendering HeaderLocation with title:", this.title);
         return {
             tag: "header",
             props: { class: "relative w-full h-96 bg-cover bg-center background-image", style: "background-image: url('../../../assets/images/background-lieu.png');" },
@@ -31,7 +36,9 @@ export class HeaderLocation extends Component {
                     children: [
                         {
                             tag: "img",
-                            props: { src: "../../assets/images/icon-menu.svg", alt: "menu", class: "h-10 w-10 menu-mobil-height m-4", style: "margin: 10px;" }
+                            props: { src: "../../assets/images/icon-menu.svg", alt: "menu", class: "h-10 w-10 menu-mobil-height m-4", style: "margin: 10px;" },
+                            children: []
+
                         }
                     ]
                 },
@@ -41,7 +48,8 @@ export class HeaderLocation extends Component {
                     children: [
                         {
                             tag: "img",
-                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] logo-mobil-height" }
+                            props: { src: "../../assets/images/Logo.svg", alt: "Logo", class: "h-22 w-22 mb-[6%] logo-mobil-height" },
+                            children: []
                         },
                         {
                             tag: "h1",
@@ -60,7 +68,7 @@ export class HeaderLocation extends Component {
                                 {
                                     tag: "img",
                                     props: {
-                                        src: "../assets/icons/position.svg", // Path to the position icon
+                                        src: "../assets/icons/position.svg",
                                         alt: "Position Icon",
                                         class: "w-6 h-6 mr-2"
                                     },
