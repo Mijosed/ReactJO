@@ -1,20 +1,19 @@
 import { Component } from '../../../core/Component.js';
 import { Place } from './Place.js';
- 
+
 export class MapSearchMenu extends Component {
     constructor(props = {}) {
         super(props);
-        this.place = new Place({id: "place", state: {items:this.state.items}});
+        this.place = new Place({ id: "place", state: { items: props.items || [] } });
     }
-
 
     render() {
         return {
             tag: "div",
             props: {
                 id: "map-search-menu",
-                class: "absolute left-0 top-1/2 transform -translate-y-1/2 h-5/6 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out transform -translate-x-full rounded-tr-lg rounded-br-lg bottom-mobil",
-                style: "display: none; width: 30%;",
+                class: "absolute left-0 top-1/2 transform -translate-y-1/2 h-5/6 bg-white shadow-lg z-50 transition-transform duration-300 ease-in-out transform -translate-x-full rounded-tr-lg rounded-br-lg bottom-mobil overflow-y-auto",
+                style: "width: 30%;",
             },
             children: [
                 {
@@ -35,8 +34,8 @@ export class MapSearchMenu extends Component {
                                     menuElement.classList.add('-translate-x-full');
                                     setTimeout(() => {
                                         menuElement.classList.remove('translate-x-0');
-                                        menuElement.style.transition = 'transform 0.4s ease-in-out';  // Add transition for the menu
-                                        toggleButton.style.transform = 'translateX(0)';  // Return the button to its original position
+                                        menuElement.style.transition = 'transform 0.4s ease-in-out';
+                                        toggleButton.style.transform = 'translateX(0)';
                                         toggleIcon.style.transform = 'rotate(0deg)';
                                         const searchElement = document.getElementById('search');
                                         searchElement.style.display = 'flex';
@@ -61,7 +60,6 @@ export class MapSearchMenu extends Component {
                     tag: "div",
                     props: { class: "p-4" },
                     children: [
-                        // Add menu items here
                         this.place.render()
                     ]
                 }

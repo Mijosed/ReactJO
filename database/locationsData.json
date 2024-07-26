@@ -5,12 +5,15 @@
       "title": "ARENA PARIS SUD",
       "city": "Paris",
       "subtitle": "Site de compétition",
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-10",
+      "point_geo": { "lon": 2.2840069, "lat": 48.832968 },
       "description": "L'Arena Paris Sud fait partie de Paris Expo, un centre d'expositions et de conférences situé dans le sud de Paris. Elle accueillera plusieurs épreuves sportives durant les Jeux Olympiques de 2024, et sera l'un des pôles majeurs des Jeux de Paris 2024.",
-      "image": "/assets/images/background-lieu.png",
+      "image": "/assets/images/lieux/arena-paris-sud.jpg",
       "sports": [
-        { "nom": "Athlétisme", "description": "Compétitions d'athlétisme", "src": "/assets/images/icon-athletisme.png", "alt": "athle" },
-        { "nom": "Basket", "description": "Compétitions de basket", "src": "/assets/images/icon-basket.png", "alt": "basket" },
-        { "nom": "Natation", "description": "Compétitions de natation", "src": "/assets/images/icon-natation.png", "alt": "natation" }
+        { "nom": "Athlétisme", "description": "Compétitions d'athlétisme", "src": "/assets/images/icone-sports/athle.svg", "alt": "athle" },
+        { "nom": "Basket", "description": "Compétitions de basket", "src": "/assets/images/icone-sports/basket.svg", "alt": "basket" },
+        { "nom": "Natation", "description": "Compétitions de natation", "src": "/assets/images/icone-sports/natation.svg", "alt": "natation" }
       ],
       "spots": [
         {
@@ -32,12 +35,15 @@
       "title": "STADE DE FRANCE",
       "city": "Saint-Denis",
       "subtitle": "Stade national",
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-10",
+      "point_geo": { "lon": 2.360127, "lat": 48.924475 },
       "description": "Le Stade de France est le plus grand stade de France, situé à Saint-Denis, au nord de Paris. Il accueillera les cérémonies d'ouverture et de clôture des Jeux Olympiques de 2024, ainsi que plusieurs compétitions sportives majeures.",
-      "image": "/assets/images/stade-de-france.jpg",
+      "image": "/assets/images/lieux/stade-de-france.jpg",
       "sports": [
-        { "nom": "Football", "description": "Compétitions de football", "src": "/assets/images/icon-football.png", "alt": "football" },
-        { "nom": "Athlétisme", "description": "Compétitions d'athlétisme", "src": "/assets/images/icon-athletisme.png", "alt": "athle" },
-        { "nom": "Rugby", "description": "Compétitions de rugby", "src": "/assets/images/icon-rugby.png", "alt": "rugby" }
+        { "nom": "Football", "description": "Compétitions de football", "src": "/assets/images/icone-sports/football.svg", "alt": "football" },
+        { "nom": "Athlétisme", "description": "Compétitions d'athlétisme", "src": "/assets/images/icone-sports/athle.svg", "alt": "athle" },
+        { "nom": "Rugby", "description": "Compétitions de rugby", "src": "/assets/images/icone-sports/rugby.svg", "alt": "rugby" }
       ],
       "spots": [
         {
@@ -51,6 +57,420 @@
           "nom": "TRIBUNE OUEST",
           "description": "La tribune ouest est réputée pour son ambiance et son dynamisme...",
           "image": "/assets/images/tribune-ouest.jpg"
+        }
+      ]
+    },
+    {
+      "name": "parcDesPrinces",
+      "title": "PARC DES PRINCES",
+      "city": "Paris",
+      "subtitle": "Stade de football",
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-10",
+      "point_geo": { "lon": 2.253611, "lat": 48.841389 },
+      "description": "Le Parc des Princes est le stade du Paris Saint-Germain, situé dans l'ouest de Paris. Il accueillera plusieurs compétitions de football durant les Jeux Olympiques de 2024, et sera l'un des lieux emblématiques des Jeux de Paris 2024.",
+      "image": "/assets/images/lieux/parc-des-princes.jpg",
+      "sports": [
+        { "nom": "Football", "description": "Compétitions de football", "src": "/assets/images/icone-sports/football.svg", "alt": "football" },
+        { "nom": "Rugby", "description": "Compétitions de rugby", "src": "/assets/images/icone-sports/rugby.svg", "alt": "rugby" },
+        { "nom": "Athlétisme", "description": "Compétitions d'athlétisme", "src": "/assets/images/icone-sports/athle.svg", "alt": "athle" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "TRIBUNE AUTEUIL",
+          "description": "La tribune Auteuil est réputée pour son ambiance et son dynamisme...",
+          "image": "/assets/images/tribune-auteuil.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "TRIBUNE BOULOGNE",
+          "description": "La tribune Boulogne offre une vue imprenable sur le terrain...",
+          "image": "/assets/images/tribune-boulogne.jpg"
+        }
+      ]
+    },
+    {
+      "name": "centreAquatique",
+      "title": "CENTRE AQUATIQUE",
+      "city": "Paris",
+      "subtitle": "Complexe de natation",
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-10",
+      "point_geo": { "lon": 2.253611, "lat": 48.841389 },
+      "description": "Le Centre Aquatique est un complexe de natation situé à Paris. Il accueillera les compétitions de natation artistique, de plongeon et de water-polo durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/centre-aquatique.jpg",
+      "sports": [
+        { "nom": "Natation artistique", "description": "Compétitions de natation artistique", "src": "/assets/images/icone-sports/natation_artistique.svg", "alt": "natation_artistique" },
+        { "nom": "Plongeon", "description": "Compétitions de plongeon", "src": "/assets/images/icone-sports/plongeon.svg", "alt": "plongeon" },
+        { "nom": "Water-polo", "description": "Compétitions de water-polo", "src": "/assets/images/icone-sports/water_polo.svg", "alt": "water_polo" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "PISCINE PRINCIPALE",
+          "description": "Description de la piscine principale...",
+          "image": "/assets/images/piscine_principale.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "ZONE DE PLONGEON",
+          "description": "Description de la zone de plongeon...",
+          "image": "/assets/images/zone_plongeon.jpg"
+        }
+      ]
+    },
+    {
+      "name": "centreNationalTirChateauroux",
+      "title": "CENTRE NATIONAL DE TIR DE CHÂTEAUROUX",
+      "city": "Châteauroux",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-05",
+      "point_geo": { "lon": 1.7225, "lat": 46.806944 },
+      "description": "Le Centre National de Tir de Châteauroux est dédié aux compétitions de tir et accueillera les épreuves de tir durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/centre-tir-chateauroux.jpg",
+      "sports": [
+        { "nom": "Tir", "description": "Compétitions de tir", "src": "/assets/images/icone-sports/tir.svg", "alt": "tir" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "STAND DE TIR",
+          "description": "Description du stand de tir...",
+          "image": "/assets/images/stand_tir.jpg"
+        }
+      ]
+    },
+    {
+      "name": "parisLaDefenseArena",
+      "title": "PARIS LA DÉFENSE ARENA",
+      "city": "Nanterre",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-11",
+      "point_geo": { "lon": 2.224722, "lat": 48.891667 },
+      "description": "Paris La Défense Arena est une salle multifonctionnelle située à Nanterre, près de Paris. Elle accueillera les compétitions de natation et de water-polo durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/paris-la-defense-arena.jpg",
+      "sports": [
+        { "nom": "Natation", "description": "Compétitions de natation", "src": "/assets/images/icone-sports/natation.svg", "alt": "natation" },
+        { "nom": "Water-polo", "description": "Compétitions de water-polo", "src": "/assets/images/icone-sports/water_polo.svg", "alt": "water_polo" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "BASSIN PRINCIPAL",
+          "description": "Description du bassin principal...",
+          "image": "/assets/images/bassin_principal.jpg"
+        }
+      ]
+    },
+    {
+      "name": "collineElancourt",
+      "title": "COLLINE D'ELANCOURT",
+      "city": "Élancourt",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-07-28",
+      "end_date": "2024-07-29",
+      "point_geo": { "lon": 1.959722, "lat": 48.770833 },
+      "description": "La Colline d'Élancourt est un site de compétition de VTT situé à Élancourt. Elle accueillera les épreuves de cyclisme VTT durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/colline-elancourt.jpg",
+      "sports": [
+        { "nom": "Cyclisme VTT", "description": "Compétitions de cyclisme VTT", "src": "/assets/images/icone-sports/vtt.svg", "alt": "vtt" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "PARCOURS DE VTT",
+          "description": "Description du parcours de VTT...",
+          "image": "/assets/images/parcours_vtt.jpg"
+        }
+      ]
+    },
+    {
+      "name": "laConcorde1",
+      "title": "LA CONCORDE 1",
+      "city": "Paris",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-07-30",
+      "end_date": "2024-08-10",
+      "point_geo": { "lon": 2.321944, "lat": 48.865833 },
+      "description": "La place de la Concorde à Paris sera un site de compétition urbain pour les Jeux Olympiques de 2024. Elle accueillera des épreuves de basketball 3x3 et de breaking.",
+      "image": "/assets/images/lieux/concorde.jpg",
+      "sports": [
+        { "nom": "Basketball 3x3", "description": "Compétitions de basketball 3x3", "src": "/assets/images/icone-sports/basketball-3x3.svg", "alt": "basketball 3x3" },
+        { "nom": "Breaking", "description": "Compétitions de breaking", "src": "/assets/images/icone-sports/breaking.svg", "alt": "breaking" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "BASKETBALL 3x3 COURT",
+          "description": "Description du terrain de basketball 3x3...",
+          "image": "/assets/images/basketball_3x3_court.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "BREAKING STAGE",
+          "description": "Description de la scène de breaking...",
+          "image": "/assets/images/breaking_stage.jpg"
+        }
+      ]
+    },
+    {
+      "name": "laConcorde2",
+      "title": "LA CONCORDE 2",
+      "city": "Paris",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-07-30",
+      "end_date": "2024-07-31",
+      "point_geo": { "lon": 2.321944, "lat": 48.865833 },
+      "description": "La place de la Concorde à Paris sera un site de compétition urbain pour les Jeux Olympiques de 2024. Elle accueillera des épreuves de BMX freestyle.",
+      "image": "/assets/images/lieux/concorde.jpg",
+      "sports": [
+        { "nom": "BMX freestyle", "description": "Compétitions de BMX freestyle", "src": "/assets/images/icone-sports/bmx-freestyle.svg", "alt": "bmx freestyle" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "BMX FREESTYLE PARK",
+          "description": "Description du parc de BMX freestyle...",
+          "image": "/assets/images/bmx_freestyle_park.jpg"
+        }
+      ]
+    },
+    {
+      "name": "laConcorde3",
+      "title": "LA CONCORDE 3",
+      "city": "Paris",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-07-27",
+      "end_date": "2024-07-28",
+      "point_geo": { "lon": 2.321944, "lat": 48.865833 },
+      "description": "La place de la Concorde à Paris sera un site de compétition urbain pour les Jeux Olympiques de 2024. Elle accueillera des épreuves de skateboard.",
+      "image": "/assets/images/lieux/concorde.jpg",
+      "sports": [
+        { "nom": "Skateboard", "description": "Compétitions de skateboard", "src": "/assets/images/icone-sports/skateboard.svg", "alt": "skateboard" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "SKATEBOARD PARK",
+          "description": "Description du parc de skateboard...",
+          "image": "/assets/images/skateboard_park.jpg"
+        }
+      ]
+    },
+    {
+      "name": "laConcorde4",
+      "title": "LA CONCORDE 4",
+      "city": "Paris",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-08-06",
+      "end_date": "2024-08-07",
+      "point_geo": { "lon": 2.321944, "lat": 48.865833 },
+      "description": "La place de la Concorde à Paris sera un site de compétition urbain pour les Jeux Olympiques de 2024. Elle accueillera des épreuves de skateboard.",
+      "image": "/assets/images/lieux/concorde.jpg",
+      "sports": [
+        { "nom": "Skateboard", "description": "Compétitions de skateboard", "src": "/assets/images/icone-sports/skateboard.svg", "alt": "skateboard" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "SKATEBOARD PARK",
+          "description": "Description du parc de skateboard...",
+          "image": "/assets/images/skateboard_park.jpg"
+        }
+      ]
+    },
+    {
+      "name": "stadeDeLyon",
+      "title": "STADE DE LYON",
+      "city": "Lyon",
+      "subtitle": "Stade de football",
+      "start_date": "2024-07-24",
+      "end_date": "2024-08-09",
+      "point_geo": { "lon": 5.081111, "lat": 45.765278 },
+      "description": "Le Stade de Lyon, aussi connu sous le nom de Groupama Stadium, accueillera plusieurs compétitions de football durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/stade-de-lyon.jpg",
+      "sports": [
+        { "nom": "Football", "description": "Compétitions de football", "src": "/assets/images/icon-football.png", "alt": "football" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "TRIBUNE NORD",
+          "description": "Description de la tribune nord...",
+          "image": "/assets/images/tribune_nord.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "TRIBUNE SUD",
+          "description": "Description de la tribune sud...",
+          "image": "/assets/images/tribune_sud.jpg"
+        }
+      ]
+    },
+    {
+      "name": "stadeDeMarseille",
+      "title": "STADE DE MARSEILLE",
+      "city": "Marseille",
+      "subtitle": "Stade de football",
+      "start_date": "2024-07-24",
+      "end_date": "2024-08-06",
+      "point_geo": { "lon": 5.36978, "lat": 43.2698 },
+      "description": "Le Stade Vélodrome de Marseille accueillera plusieurs compétitions de football durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/stade-de-marseille.jpg",
+      "sports": [
+        { "nom": "Football", "description": "Compétitions de football", "src": "/assets/images/icon-football.png", "alt": "football" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "TRIBUNE JEAN-BOUIN",
+          "description": "Description de la tribune Jean-Bouin...",
+          "image": "/assets/images/tribune_jean_bouin.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "TRIBUNE GANAY",
+          "description": "Description de la tribune Ganay...",
+          "image": "/assets/images/tribune_ganay.jpg"
+        }
+      ]
+    },
+    {
+      "name": "trocadero",
+      "title": "TROCADERO",
+      "city": "Paris",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-08-01",
+      "end_date": "2024-08-07",
+      "point_geo": { "lon": 2.288611, "lat": 48.862222 },
+      "description": "Le Trocadéro à Paris sera un site de compétition pour les épreuves de marche athlétique et de cyclisme sur route durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/trocadero.jpg",
+      "sports": [
+        { "nom": "Marche athlétique", "description": "Compétitions de marche athlétique", "src": "/assets/images/icone-sports/marche_athletique.svg", "alt": "marche athlétique" },
+        { "nom": "Cyclisme sur route", "description": "Compétitions de cyclisme sur route", "src": "/assets/images/icone-sports/cyclisme_route.svg", "alt": "cyclisme sur route" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "ZONE DE DÉPART",
+          "description": "Description de la zone de départ...",
+          "image": "/assets/images/zone_depart.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "ZONE D'ARRIVÉE",
+          "description": "Description de la zone d'arrivée...",
+          "image": "/assets/images/zone_arrivee.jpg"
+        }
+      ]
+    },
+    {
+      "name": "velodromeSaintQuentin",
+      "title": "VÉLODROME NATIONAL DE SAINT-QUENTIN-EN-YVELINES",
+      "city": "Montigny-le-Bretonneux",
+      "subtitle": "Site de compétition",
+      "start_date": "2024-08-05",
+      "end_date": "2024-08-11",
+      "point_geo": { "lon": 2.045833, "lat": 48.771944 },
+      "description": "Le Vélodrome National de Saint-Quentin-en-Yvelines est un site de compétition pour le cyclisme sur piste. Il accueillera les épreuves de cyclisme sur piste durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/velodrome-saint-quentin.jpg",
+      "sports": [
+        { "nom": "Cyclisme sur piste", "description": "Compétitions de cyclisme sur piste", "src": "/assets/images/icone-sports/cyclisme_piste.svg", "alt": "cyclisme_piste" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "PISTE PRINCIPALE",
+          "description": "Description de la piste principale...",
+          "image": "/assets/images/piste_principale.jpg"
+        }
+      ]
+    },
+    {
+      "name": "stadeGeoffroyGuichard",
+      "title": "STADE GEOFFROY-GUICHARD",
+      "city": "Saint-Étienne",
+      "subtitle": "Stade de football",
+      "start_date": "2024-07-24",
+      "end_date": "2024-07-31",
+      "point_geo": { "lon": 4.390833, "lat": 45.471389 },
+      "description": "Le Stade Geoffroy-Guichard, situé à Saint-Étienne, accueillera plusieurs compétitions de football durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/stade-geoffroy-guichard.jpg",
+      "sports": [
+        { "nom": "Football", "description": "Compétitions de football", "src": "/assets/images/icon-football.png", "alt": "football" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "TRIBUNE SUD",
+          "description": "Description de la tribune sud...",
+          "image": "/assets/images/tribune_sud.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "TRIBUNE NORD",
+          "description": "Description de la tribune nord...",
+          "image": "/assets/images/tribune_nord.jpg"
+        }
+      ]
+    },
+    {
+      "name": "stadePierreMauroy",
+      "title": "STADE PIERRE MAUROY",
+      "city": "Lille",
+      "subtitle": "Stade de football",
+      "start_date": "2024-07-27",
+      "end_date": "2024-08-11",
+      "point_geo": { "lon": 3.134722, "lat": 50.629444 },
+      "description": "Le Stade Pierre Mauroy, situé à Lille, accueillera plusieurs compétitions de football durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/stade-pierre-mauroy.jpg",
+      "sports": [
+        { "nom": "Basketball", "description": "Compétitions de basketball", "src": "/assets/images/icon-basketball.png", "alt": "basketball" },
+        { "nom": "Handball", "description": "Compétitions de handball", "src": "/assets/images/icon-handball.png", "alt": "handball" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "TRIBUNE EST",
+          "description": "Description de la tribune est...",
+          "image": "/assets/images/tribune_est.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "TRIBUNE OUEST",
+          "description": "Description de la tribune ouest...",
+          "image": "/assets/images/tribune_ouest.jpg"
+        }
+      ]
+    },
+    {
+      "name": "stadeDeNice",
+      "title": "STADE DE NICE",
+      "city": "Nice",
+      "subtitle": "Stade de football",
+      "start_date": "2024-07-24",
+      "end_date": "2024-07-31",
+      "point_geo": { "lon": 7.202778, "lat": 43.703056 },
+      "description": "Le Stade de Nice, aussi connu sous le nom de l'Allianz Riviera, accueillera plusieurs compétitions de football durant les Jeux Olympiques de 2024.",
+      "image": "/assets/images/lieux/stade-de-nice.jpg",
+      "sports": [
+        { "nom": "Football", "description": "Compétitions de football", "src": "/assets/images/icon-football.png", "alt": "football" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "TRIBUNE SUD",
+          "description": "Description de la tribune sud...",
+          "image": "/assets/images/tribune_sud.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "TRIBUNE NORD",
+          "description": "Description de la tribune nord...",
+          "image": "/assets/images/tribune_nord.jpg"
         }
       ]
     }

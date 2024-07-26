@@ -1,31 +1,36 @@
 import { Component } from '../../core/Component.js';
+import { Thumbnail } from './Thumbnail.js'; // Assurez-vous que le chemin est correct
 
 export class Place extends Component {
     constructor(props = {}) {
-    super(props);
-       this.state = {items: props.state.items || []};
+        super(props);
+        this.state = { items: props.state.items || [] };
     }
 
-   
     render() {
+        
         return {
             tag: "div",
-            props: { class: "flex justify-center m-4", id: this.props.id },
+            props: { class: "overflow-y-auto h-full", id: this.props.id },
             children: [
                 {
                     tag: "ul",
                     props: {
-                        class: "w-10 h-10 flex-col items-center justify-center border border-blue-500 text-blue-500 rounded-full mx-1",
+                        class: "w-full",
                     },
-                    children: [this.state.items?.map((item) => ({
+                    children: this.state.items.map(item => ({
                         tag: "li",
-                        props: {
-                            
-                        },
-                        children: [item.nom_site]
-                    })),]
-                },
-                
+                        props: { class: "list-none mb-4" },
+                        children: [
+                            new Thumbnail({
+                                id: item.code_site,
+                                title: item.nom_site,
+                                image: item.image, 
+                                onClick: () => console.log(`Clicked on ${item.nom_site}`)
+                            }).render()
+                        ]
+                    }))
+                }
             ]
         };
     }

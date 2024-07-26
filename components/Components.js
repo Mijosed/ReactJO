@@ -23,4 +23,4 @@ export { DatePicker } from './common/DatePicker.js';
 export { GeolocalisationButton } from './common/GeolocalisationButton.js';
 export { MapFilterMenu } from './common/MapFilterMenu.js';
 export { SelectBar } from './common/SelectBar.js';
-
+export {Thumbnail} from './common/Thumbnail.js';        

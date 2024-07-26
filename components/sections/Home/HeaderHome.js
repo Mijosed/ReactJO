@@ -27,9 +27,20 @@ export class HeaderHome extends Component {
                             children: ["Explorer les Sites des JO"]
                         },
                         {
-                            tag: "button",
-                            props: { class: "bg-[#00A651] text-white font-olympic text-[16px]  py-2 px-4 rounded-full mb-[5%] w-[344px] h-[48px]", onClick: () => window.location.href = '/#sports' },
-                            children: ["Ou Découvrir les Disciplines"]
+                            tag: "div",
+                            props: { class: "flex space-x-4 mb-[5%]" }, 
+                            children: [
+                                {
+                                    tag: "button",
+                                    props: { class: "bg-[#00A651] text-white font-olympic text-[16px] py-2 px-4 rounded-full w-[196px] h-[48px]", onClick: () => window.location.href = '/locations' },
+                                    children: ["Sites Olympiques"]
+                                },
+                                {
+                                    tag: "button",
+                                    props: { class: "bg-[#007BFF] text-white font-olympic text-[16px] py-2 px-4 rounded-full w-[196px] h-[48px]", onClick: () => window.location.href = '/sports' },
+                                    children: ["Sports Olympiques"]
+                                }
+                            ]
                         },
                         {
                             tag: "p",
