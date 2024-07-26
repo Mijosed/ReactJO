@@ -1,9 +1,11 @@
 import { Component } from '../../../core/Component.js';
-
+import { Place } from './Place.js';
+ 
 export class MapSearchMenu extends Component {
     constructor(props = {}) {
         super(props);
         
+        this.place = new Place({id: "place", state: {items:this.props.state.items}});
     }
 
 
@@ -61,6 +63,7 @@ export class MapSearchMenu extends Component {
                     props: { class: "p-4" },
                     children: [
                         // Add menu items here
+                        this.place.render()
                     ]
                 }
             ]

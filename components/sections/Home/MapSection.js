@@ -18,7 +18,9 @@ export class MapSection extends Component {
             isSearchMap: true
         });
         this.FilterButton = new FilterButton();
-        this.MapSearchMenu = new MapSearchMenu();
+        this.MapSearchMenu = new MapSearchMenu( { id: "map-search-menu", homePage: this.props.homePage, state : {
+            items: this.state.data,
+        }} );
         this.MapFilterMenu = new MapFilterMenu();
         this.GeolocalisationButton = new GeolocalisationButton();
     }
