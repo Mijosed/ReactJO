@@ -79,11 +79,11 @@ export class MapSection extends Component {
         console.log(this.state);
         return {
             tag: "div",
-            props: {  class: "relative" },
+            props: {  class: "relative",id: "map", },
             children: [
                 {
                     tag: "div",
-                    props: { id: "map", class: "h-[85vh] z-10", style: "width: 100%;" },
+                    props: {  class: "h-[85vh] ", style: "width: 100%;", style:"z-index: 10;" },
                     children: [
                         {
                             tag: "div",
@@ -114,18 +114,18 @@ export class MapSection extends Component {
                                             children: []
                                         }
                                     ]
-                                }
+                                },this.MapSearchMenu.render(),
+                                {
+                                    tag: "div",
+                                    props: { id: "search", class: "absolute flex justify-center w-full", style:"z-index: 450;" },
+                                    children: [
+                                        this.FilterButton.render(),
+                                        this.SearchBar.render(),
+                                    ]
+                                },
                             ]
                         },
-                        this.MapSearchMenu.render(),
-                        {
-                            tag: "div",
-                            props: { id: "search", class: "absolute flex justify-center w-full", style:"z-index: 450;" },
-                            children: [
-                                this.FilterButton.render(),
-                                this.SearchBar.render(),
-                            ]
-                        },
+                        
                     ]
                 }
             ]
