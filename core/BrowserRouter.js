@@ -24,16 +24,21 @@ export function BrowserRouter(rootElement, routes) {
 
     async function manageRoute() {
         const { route, params } = parseUrl();
+        console.log("Current route:", route);
+        console.log("Route params:", params);
         let pageFunction = routes[route];
 
         if (!pageFunction) {
+            console.log("Route not found, redirecting to /404");
             pageFunction = routes['/404'];
         }
 
         try {
             const component = await pageFunction(params);
+            console.log("Rendering component:", component);
             Render.render(component, rootElement);
         } catch (error) {
+            console.log("Error managing route:", error);
             ErrorHandler.handle(error);
         }
     }

@@ -51,7 +51,7 @@ export class Card extends Component {
                         },
                         {
                             tag: "div",
-                            props: { class: "absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2" },
+                            props: { class: "absolute bottom-0 left-0 text-white text-3xl p-2" },
                             children: [this.props.nom]
                         }
                     ]
