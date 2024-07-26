@@ -210,29 +210,316 @@
         },
         {
             "id": "9",
-            "nom": "cyclisme",
-            "description": "Compétitions de cyclisme",
-            "image": "/assets/images/sports/cyclisme.jpg",
+            "nom": "volley",
+            "description": "Compétitions de volleyball",
+            "image": "/assets/images/sports/volley.jpg",
             "calendars": [
+                {
+                    "day": "8",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Finale Masculin",
+                    "location": "Arena Stade"
+                },
+                {
+                    "day": "10",
+                    "month": "Août",
+                    "time": "16:00",
+                    "category": "Finale Féminin",
+                    "location": "Arena Stade"
+                }
+            ],
+            "historyText": "Le volleyball a été inventé en 1895 par William G. Morgan aux États-Unis. Il a été introduit aux Jeux Olympiques en 1964 à Tokyo. Le volleyball est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/volley.svg", "alt": "Volleyball" }
+            ]
+        },
+        {
+            "id": "10",
+            "nom": "escrime",
+            "description": "Compétitions d'escrime",
+            "image": "/assets/images/sports/escrime.jpg",
+            "calendars": [
+                {
+                    "day": "4",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Fleuret Masculin",
+                    "location": "Salle d'Armes"
+                },
+                {
+                    "day": "6",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Epée Féminin",
+                    "location": "Salle d'Armes"
+                }
+            ],
+            "historyText": "L'escrime est un sport de combat avec une longue histoire remontant à l'Antiquité. Les compétitions d'escrime ont été introduites aux Jeux Olympiques modernes en 1896 à Athènes. Depuis lors, l'escrime a été une discipline régulière aux Jeux, mettant en vedette des escrimeurs de classe mondiale de diverses armes.",
+            "images": [
+                { "src": "/assets/images/icone-sports/escrime.svg", "alt": "Escrime" }
+            ]
+        },
+        {
+            "id": "11",
+            "nom": "judo",
+            "description": "Compétitions de judo",
+            "image": "/assets/images/sports/judo.jpg",
+            "calendars": [
+                {
+                    "day": "11",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Masculin",
+                    "location": "Dojo Olympique"
+                },
+                {
+                    "day": "13",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Feminin",
+                    "location": "Dojo Olympique"
+                }
+            ],
+            "historyText": "Le judo a été inventé en 1882 par Jigoro Kano au Japon. Il a été introduit aux Jeux Olympiques en 1964 à Tokyo. Le judo est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/judo.svg", "alt": "Judo" }
+            ]
+        },
+        {
+            "id": "12",
+            "nom": "tir",
+            "description": "Compétitions de tir",
+            "image": "/assets/images/sports/tir.jpg",
+            "calendars": [
+                {
+                    "day": "7",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Pistolet 10m",
+                    "location": "Stand de Tir"
+                },
+                {
+                    "day": "9",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Carabine 50m",
+                    "location": "Stand de Tir"
+                }
+            ],
+            "historyText": "Le tir est un sport de précision avec une longue histoire remontant à l'Antiquité. Les compétitions de tir ont été introduites aux Jeux Olympiques modernes en 1896 à Athènes. Depuis lors, le tir a été une discipline régulière aux Jeux, mettant en vedette des tireurs de classe mondiale de diverses armes.",
+            "images": [
+                { "src": "/assets/images/icone-sports/tir.svg", "alt": "Tir" }
+            ]
+        },
+        {
+            "id": "13",
+            "nom": "voile",
+            "description": "Compétitions de voile",
+            "image": "/assets/images/sports/voile.jpg",
+            "calendars": [
+                {
+                    "day": "14",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Laser Standard",
+                    "location": "Port de Plaisance"
+                },
                 {
                     "day": "16",
                     "month": "Août",
-                    "time": "09:00",
-                    "category": "Course sur route",
-                    "location": "Circuit Urbain"
+                    "time": "14:00",
+                    "category": "Planche à voile",
+                    "location": "Port de Plaisance"
+                }
+            ],
+            "historyText": "La voile est un sport nautique avec une longue histoire remontant à l'Antiquité. Les compétitions de voile ont été introduites aux Jeux Olympiques modernes en 1900 à Paris. Depuis lors, la voile a été une discipline régulière aux Jeux, mettant en vedette des marins de classe mondiale de diverses classes de bateaux.",
+            "images": [
+                { "src": "/assets/images/icone-sports/voile.svg", "alt": "Voile" }
+            ]
+        },
+        {
+            "id": "14",
+            "nom": "golf",
+            "description": "Compétitions de golf",
+            "image": "/assets/images/sports/golf.jpg",
+            "calendars": [
+                {
+                    "day": "12",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Simple Hommes",
+                    "location": "Golf National"
                 },
+                {
+                    "day": "14",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Simple Femmes",
+                    "location": "Golf National"
+                }
+            ],
+            "historyText": "Le golf est un sport de précision avec une longue histoire remontant au 15e siècle en Écosse. Il a été introduit aux Jeux Olympiques en 1900 à Paris, mais a été retiré après 1904. Il a fait son retour en tant que sport olympique officiel en 2016 à Rio de Janeiro. Les compétitions de golf aux Jeux Olympiques présentent les meilleurs golfeurs et golfeuses du monde s'affrontant en simple.",
+            "images": [
+                { "src": "/assets/images/icone-sports/golf.svg", "alt": "Golf" }
+            ]
+        },
+        {
+            "id": "15",
+            "nom": "rugby",
+            "description": "Compétitions de rugby",
+            "image": "/assets/images/sports/rugby.jpg",
+            "calendars": [
+                {
+                    "day": "17",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Finale Masculin",
+                    "location": "Stade National"
+                },
+                {
+                    "day": "19",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Finale Féminin",
+                    "location": "Stade National"
+                }
+            ],
+            "historyText": "Le rugby a été inventé en 1823 par William Webb Ellis en Angleterre. Il a été introduit aux Jeux Olympiques en 1900 à Paris. Le rugby est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/rugby.svg", "alt": "Rugby" }
+            ]
+        },
+        {
+            "id": "16",
+            "nom": "taekwondo",
+            "description": "Compétitions de taekwondo",
+            "image": "/assets/images/sports/taekwondo.jpg",
+            "calendars": [
+                {
+                    "day": "15",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Masculin",
+                    "location": "Dojo Olympique"
+                },
+                {
+                    "day": "17",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Feminin",
+                    "location": "Dojo Olympique"
+                }
+            ],
+            "historyText": "Le taekwondo est un art martial avec une longue histoire remontant au 20e siècle en Corée. Il a été introduit aux Jeux Olympiques en 2000 à Sydney. Le taekwondo est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/taekwondo.svg", "alt": "Taekwondo" }
+            ]
+        },
+        {
+            "id": "17",
+            "nom": "triathlon",
+            "description": "Compétitions de triathlon",
+            "image": "/assets/images/sports/triathlon.jpg",
+            "calendars": [
                 {
                     "day": "18",
                     "month": "Août",
-                    "time": "13:00",
-                    "category": "Piste",
-                    "location": "Vélodrome"
+                    "time": "10:00",
+                    "category": "Masculin",
+                    "location": "Plage de Paris"
+                },
+                {
+                    "day": "20",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Feminin",
+                    "location": "Plage de Paris"
                 }
             ],
-            "historyText": "Le cyclisme est une discipline historique des Jeux Olympiques, introduite dès les premiers Jeux modernes en 1896. Les compétitions de cyclisme comprennent des épreuves sur route, sur piste, ainsi que le BMX et le VTT, mettant en vedette des courses spectaculaires et des démonstrations de vitesse et d'endurance.",
+            "historyText": "Le triathlon est un sport d'endurance avec une longue histoire remontant au 20e siècle en France. Il a été introduit aux Jeux Olympiques en 2000 à Sydney. Le triathlon est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
             "images": [
-                { "src": "/assets/images/icone-sports/cyclisme.svg", "alt": "Cyclisme" }
+                { "src": "/assets/images/icone-sports/triathlon.svg", "alt": "Triathlon" }
+            ]
+        },
+        {
+            "id": "18",
+            "nom": "badminton",
+            "description": "Compétitions de badminton",
+            "image": "/assets/images/sports/badminton.jpg",
+            "calendars": [
+                {
+                    "day": "6",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Simple Hommes",
+                    "location": "Gymnase Central"
+                },
+                {
+                    "day": "8",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Simple Femmes",
+                    "location": "Gymnase Central"
+                }
+            ],
+            "historyText": "Le badminton est un sport de raquette avec une longue histoire remontant au 19e siècle en Inde. Il a été introduit aux Jeux Olympiques en 1992 à Barcelone. Le badminton est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/badminton.svg", "alt": "Badminton" }
+            ]
+        },
+        {
+            "id": "19",
+            "nom": "handball",
+            "description": "Compétitions de handball",
+            "image": "/assets/images/sports/handball.jpg",
+            "calendars": [
+                {
+                    "day": "19",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Finale Masculin",
+                    "location": "Arena Stade"
+                },
+                {
+                    "day": "21",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Finale Féminin",
+                    "location": "Arena Stade"
+                }
+            ],
+            "historyText": "Le handball a été inventé en 1906 par Holger Nielsen au Danemark. Il a été introduit aux Jeux Olympiques en 1936 à Berlin. Le handball est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/handball.svg", "alt": "Handball" }
+            ]
+        },
+        {
+            "id": "20",
+            "nom": "tennis-table",
+            "description": "Compétitions de tennis de table",
+            "image": "/assets/images/sports/tennis-table.jpg",
+            "calendars": [
+                {
+                    "day": "23",
+                    "month": "Août",
+                    "time": "10:00",
+                    "category": "Simple Hommes",
+                    "location": "Salle de Tennis de Table"
+                },
+                {
+                    "day": "25",
+                    "month": "Août",
+                    "time": "14:00",
+                    "category": "Simple Femmes",
+                    "location": "Salle de Tennis de Table"
+                }
+            ],
+            "historyText": "Le tennis de table est un sport de raquette avec une longue histoire remontant au 19e siècle en Angleterre. Il a été introduit aux Jeux Olympiques en 1988 à Séoul. Le tennis de table est maintenant un sport populaire dans le monde entier, avec des ligues professionnelles dans de nombreux pays et une présence forte aux Jeux Olympiques.",
+            "images": [
+                { "src": "/assets/images/icone-sports/tennis-table.svg", "alt": "Tennis de table" }
             ]
         }
     ]
+
 }

@@ -94,17 +94,32 @@ export class SportSection extends Component {
                                 nom: { type: 'string' },
                                 description: { type: 'string' },
                                 image: { type: 'string' },
-                                calendars: { type: 'array' },
-                                historyText: { type: 'string' },
-                                images: { type: 'array' }
-                            }
+                                lien: { type: 'string' },
+                                gradientColor: { type: 'string' },
+                                onClick: { type: 'function' }
+                            },
+                            required: ['id', 'nom', 'description', 'image', 'onClick']
                         };
-                        validateProps(sport, propSchema);
-                        const card = new Card({
+
+                        const cardProps = {
                             ...sport,
-                            lien:`/sports/${sport.nom.toLowerCase()}`
-                        });
-                        return card.render();
+                            lien: `/sports/${sport.nom.toLowerCase()}`,
+                            gradientColor: "blue",
+                            onClick: () => this.navigateToSport(sport)
+                        };
+
+                        try {
+                            validateProps(cardProps, propSchema);
+                            const card = new Card(cardProps);
+                            return card.render();
+                        } catch (error) {
+                            console.error('Invalid props provided:', error);
+                            return {
+                                tag: "div",
+                                props: { class: "error-message" },
+                                children: [error.message]
+                            };
+                        }
                     })
                 },
                 this.pagination.render()
