@@ -7,30 +7,31 @@ export class MapSection extends Component {
         super(props);
         this.isMenuOpen = false;
         this.actualTarget = null;
-        this.SearchBar = new SearchBar( { id: "search-bar-map", 
+        this.state = {
+            data: props.data || []
+        };
+        this.SearchBar = new SearchBar({
+            id: "search-bar-map",
             state: {
-            query: "",
-            items: [
-              this.state.data,
-            ],
-            filteredItems: [],
-            loading: false,
-          },
-          homePage: this.props.homePage,
-         } );
+                query: "",
+                items: this.state.data,
+                filteredItems: [],
+                loading: false,
+            },
+            homePage: this.props.homePage,
+        });
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
     }
 
     toggleMenu(event) {
-        console.log(this.state);
-      if(this.actualTarget === event.target) {
-        this.isMenuOpen = !this.isMenuOpen;
-      }else{
-        this.isMenuOpen = true;
-        this.actualTarget = event.target;
-      }
-        
+        if (this.actualTarget === event.target) {
+            this.isMenuOpen = !this.isMenuOpen;
+        } else {
+            this.isMenuOpen = true;
+            this.actualTarget = event.target;
+        }
+
         const menuElement = document.getElementById('map-search-menu');
         const searchElement = document.getElementById('search');
         const toggleButton = document.getElementById('menu-toggle-button');
@@ -76,16 +77,15 @@ export class MapSection extends Component {
     }
 
     render() {
-        console.log(this.state);
         return {
             tag: "div",
             props: { id: this.props.id, class: "relative" },
             children: [
                 {
                     tag: "div",
-                    props: { 
-                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out", 
-                        style: "left: 0;" 
+                    props: {
+                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out",
+                        style: "left: 0;"
                     },
                     children: [
                         {
