@@ -20,7 +20,7 @@ export class Pagination extends Component {
         const totalPages = Math.ceil(this.state.totalItems / this.state.itemsPerPage);
         return {
             tag: "div",
-            props: { class: "flex justify-center mt-4", id: this.props.id },
+            props: { class: "flex justify-center m-4", id: this.props.id },
             children: [
                 {
                     tag: "button",
