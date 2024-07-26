@@ -22,7 +22,7 @@ export class SearchBar extends Component {
         filteredItems: filteredItemsMap,
         loading: false,
       });
-    this.homePage.componentDidMount(filteredItems);
+    this.homePage.componentDidMount(filteredItemsMap);
 
     }else{
       if(query === ""){
