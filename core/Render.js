@@ -22,6 +22,12 @@ export class Render {
 
       if (children && Array.isArray(children)) {
         for (const child of children) {
+
+          if (child === null || child === undefined) {
+            console.log("Invalid child component:", child);
+            
+          }
+
           elem.appendChild(Render.createElement(child));
         }
       } else if (children) {
@@ -42,11 +48,18 @@ export class Render {
       return Render.createElement(component.render());
     }
 
+    if (component === null || component === undefined) {
+      console.log("Invalid component:", component);
+      
+    }
+
+
     console.error("Invalid component passed to createElement:", component);
     throw new Error(`Invalid component passed to createElement: ${component}`);
   }
 
   static render(component, root) {
+
     root.replaceWith(Render.createElement(component));
   }
 }

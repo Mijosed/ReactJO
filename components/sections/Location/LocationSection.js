@@ -1,52 +1,41 @@
-import { fetchSportsData } from '../../../api/fetchSportsData.js';
+import { fetchLocationData } from '../../../api/fetchLocationData.js';
 import { Component } from '../../../core/Component.js';
-import {
-    Card,
-    HomeTitle,
-    Pagination
-} from '../../Components.js';
+import { Card, HomeTitle, Pagination } from '../../Components.js';
 import { validateProps } from '../../../utils/typeCheck.js';
-import { SearchBar } from '../../common/SearchBar.js';
 
-export class SportSection extends Component {
+export class LocationSection extends Component {
     constructor(props = {}) {
-
         super(props);
         this.state = {
-            sports: props.sports || [],
-            loading: !props.sports,
+            locations: props.locations || [],
+            loading: !props.locations,
             error: null,
             currentPage: 1,
             itemsPerPage: 8,
         };
-        this.homePage = this.props.homePage;
-        this.id = props.id || "sports-section";
-        this.titleElementSports = new HomeTitle({ text: "Les différents sports présents lors des JO", couleur: "black", id: "sports", textColor: "white" });
-        this.searchbar = new SearchBar({id: "search-bar-sport",homePage: this.homePage, state: {query: this.state.query ?? "", items: this.state.sports, isSearchMap: false, }});
+        this.id = props.id || "location-section";
+        this.titleElementLocations = new HomeTitle({ text: "Les différents lieux", couleur: "black", id: "locations", textColor: "white" });
         this.pagination = new Pagination({
-            id: "sports-pagination",
+            id: "locations-pagination",
             state: {
-                totalItems: this.state.sports.length,
+                totalItems: this.state.locations.length,
                 itemsPerPage: this.state.itemsPerPage,
                 currentPage: this.state.currentPage,
             },
             onPageChange: this.handlePageChange.bind(this)
         });
 
-        if (!props.sports) {
-            this.loadSportsData();
+        if (!props.locations) {
+            this.loadLocationData();
         }
     }
 
-    async loadSportsData() {
+    async loadLocationData() {
         try {
-            const data = await fetchSportsData();
-            this.setState({ sports: data.sports, loading: false });
-            this.searchbar.setState({ items: data.sports });
-            this.pagination.setState({ totalItems: data.sports.length });
+            const data = await fetchLocationData();
+            this.setState({ locations: data.locations, loading: false });
         } catch (error) {
             this.setState({ error: error.message, loading: false });
-
         }
     }
 
@@ -54,14 +43,14 @@ export class SportSection extends Component {
         this.setState({ currentPage: pageNumber });
     }
 
-    navigateToSport(sport) {
-        window.history.pushState({}, '', `/sports/${sport.nom.toLowerCase()}`);
+    navigateToLocation(location) {
+        window.history.pushState({}, '', `/locations/${location.name.toLowerCase()}`);
         const event = new PopStateEvent('popstate');
         window.dispatchEvent(event);
     }
 
     render() {
-        const { sports, loading, error, currentPage, itemsPerPage } = this.state;
+        const { locations, loading, error, currentPage, itemsPerPage } = this.state;
 
         if (loading) {
             return {
@@ -81,18 +70,17 @@ export class SportSection extends Component {
 
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-        const sportsToDisplay = sports.slice(startIndex, endIndex);
+        const locationsToDisplay = locations.slice(startIndex, endIndex);
+
         return {
             tag: "div",
             props: { id: this.id },
             children: [
-
-                this.titleElementSports.render(),
-                this.searchbar.render(),
+                this.titleElementLocations.render(),
                 {
                     tag: "div",
-                    props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "sports" },
-                    children: sportsToDisplay.map(sport => {
+                    props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "locations" },
+                    children: locationsToDisplay.map(location => {
                         const propSchema = {
                             type: 'object',
                             properties: {
@@ -108,10 +96,13 @@ export class SportSection extends Component {
                         };
 
                         const cardProps = {
-                            ...sport,
-                            lien: `/sports/${sport.nom.toLowerCase()}`,
+                            id: location.name,
+                            nom: location.title,
+                            description: location.description,
+                            image: location.image,
+                            lien: `/locations/${location.name.toLowerCase()}`,
                             gradientColor: "blue",
-                            onClick: () => this.navigateToSport(sport)
+                            onClick: () => this.navigateToLocation(location)
                         };
 
                         try {

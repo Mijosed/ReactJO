@@ -574,12 +574,30 @@ video {
   bottom: 0px;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.bottom-8 {
+  bottom: 2rem;
+}
+
+.end-1 {
+  inset-inline-end: 0.25rem;
+}
+
+>>>>>>> develop
+>>>>>>> develop
 .left-0 {
   left: 0px;
 }
 
 .left-\[80\%\] {
   left: 80%;
+}
+
+.right-8 {
+  right: 2rem;
 }
 
 .top-1\/2 {
@@ -602,6 +620,60 @@ video {
   z-index: 50;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.float-start {
+  float: inline-start;
+}
+
+.float-end {
+  float: inline-end;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-none {
+  float: none;
+}
+
+.clear-start {
+  clear: inline-start;
+}
+
+.clear-end {
+  clear: inline-end;
+}
+
+.clear-left {
+  clear: left;
+}
+
+.clear-right {
+  clear: right;
+}
+
+.clear-both {
+  clear: both;
+}
+
+.clear-none {
+  clear: none;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+>>>>>>> develop
+>>>>>>> develop
 .m-4 {
   margin: 1rem;
 }
@@ -698,8 +770,8 @@ video {
   margin-top: 5rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
+.mt-\[10\%\] {
+  margin-top: 10%;
 }
 
 .block {
@@ -722,6 +794,20 @@ video {
   height: 2.5rem;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+.h-14 {
+  height: 3.5rem;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+>>>>>>> develop
+>>>>>>> develop
 .h-4 {
   height: 1rem;
 }
@@ -784,6 +870,10 @@ video {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-14 {
+  width: 3.5rem;
 }
 
 .w-4 {
@@ -1065,6 +1155,11 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-9xl {
