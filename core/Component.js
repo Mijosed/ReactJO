@@ -24,43 +24,53 @@ export class Component {
   }
   shouldUpdate(oldNode, newNode, root) {
     let isTrue = false;
-    if (typeof oldNode === "string" || oldNode instanceof String) {
-      return oldNode !== newNode;
-    } else {
-      if (newNode instanceof Component) {
-        newNode = newNode.render();
-      }
+    console.log(oldNode, newNode);
 
-      if (oldNode.tag !== newNode?.tag) {
-        isTrue = true;
-      }
-      if (JSON.stringify(oldNode.props) !== JSON.stringify(newNode.props)) {
-        isTrue = true;
-      }
-    }
-    if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
-      if (oldNode.children.length !== newNode.children.length) {
-        isTrue = true;
-      }
-    } 
-    if (isTrue) {
-      let objet = this.elementToObject(root);
-      this.findElementByPropsAndReplace(root, objet, oldNode, newNode);
-    } else {
-      if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
-        if (oldNode.children.length !== newNode.children.length) {
-          isTrue = true;
-        } else {
-          for (let i = 0; i < oldNode.children.length; i++) {
-            let oldChild = oldNode.children[i];
-            let newChild = newNode.children[i];
-            return this.shouldUpdate(oldChild, newChild, root);
-          }
+    if (typeof oldNode === "string" || oldNode instanceof String) {
+        if (oldNode !== newNode) {
+            let objet = this.elementToObject(root);
+            this.findElementByPropsAndReplace(root, objet, oldNode, newNode);
+            isTrue = true;
         }
-      }
+    } else {
+        if (newNode instanceof Component) {
+            newNode = newNode.render();
+        }
+
+        if (oldNode.tag !== newNode?.tag) {
+            isTrue = true;
+        }
+
+        if (JSON.stringify(oldNode.props) !== JSON.stringify(newNode.props)) {
+            isTrue = true;
+        }
+
+        if (Array.isArray(oldNode.children) && Array.isArray(newNode.children)) {
+            if (oldNode.children.length !== newNode.children.length) {
+                isTrue = true;
+            } else {
+                for (let i = 0; i < oldNode.children.length; i++) {
+                    let oldChild = oldNode.children[i];
+                    let newChild = newNode.children[i];
+                    if (this.shouldUpdate(oldChild, newChild, root)) {
+                        isTrue = true;
+                    }
+                }
+            }
+        } else if (oldNode.children || newNode.children) {
+            // Si l'un des nœuds a des enfants et l'autre n'en a pas
+            isTrue = true;
+        }
+
+        if (isTrue) {
+            let objet = this.elementToObject(root);
+            this.findElementByPropsAndReplace(root, objet, oldNode, newNode);
+        }
     }
+
     return isTrue;
-  }
+}
+
   elementToObject(element) {
     if (!element) return null;
 

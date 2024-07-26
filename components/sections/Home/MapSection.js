@@ -79,52 +79,54 @@ export class MapSection extends Component {
         console.log(this.state);
         return {
             tag: "div",
-            props: { id: this.props.id, class: "relative" },
+            props: {  class: "relative" },
             children: [
                 {
                     tag: "div",
-                    props: { 
-                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out", 
-                        style: "left: 0;" 
-                    },
+                    props: { id: "map", class: "h-[85vh] z-10", style: "width: 100%;" },
                     children: [
                         {
-                            tag: "button",
-                            props: {
-                                id: "menu-toggle-button",
-                                class: "bg-white text-black rounded-r-xl py-6 shadow-lg",
-                                onClick: this.toggleMenu.bind(this),
-                                style: "transition: transform 0.4s ease-in-out;",
+                            tag: "div",
+                            props: { 
+                                class: "absolute top-1/2 transform -translate-y-1/2 z-9 transition-all duration-150 ease-in-out", 
+                                style: "left: 0;",
+                                id: this.props.id,
                             },
                             children: [
                                 {
-                                    tag: "img",
+                                    tag: "button",
                                     props: {
-                                        id: "toggle-icon",
-                                        src: "../assets/icons/triangle.svg",
-                                        alt: "Toggle Menu",
-                                        class: "w-6 h-6",
-                                        style: "transition: transform 0.4s ease-in-out;"
+                                        id: "menu-toggle-button",
+                                        class: "bg-white text-black rounded-r-xl py-6 shadow-lg",
+                                        onClick: this.toggleMenu.bind(this),
+                                        style: "transition: transform 0.4s ease-in-out;",
                                     },
-                                    children: []
+                                    children: [
+                                        {
+                                            tag: "img",
+                                            props: {
+                                                id: "toggle-icon",
+                                                src: "../assets/icons/triangle.svg",
+                                                alt: "Toggle Menu",
+                                                class: "w-6 h-6",
+                                                style: "transition: transform 0.4s ease-in-out;"
+                                            },
+                                            children: []
+                                        }
+                                    ]
                                 }
                             ]
-                        }
+                        },
+                        this.MapSearchMenu.render(),
+                        {
+                            tag: "div",
+                            props: { id: "search", class: "absolute flex justify-center z-40 w-full" },
+                            children: [
+                                this.FilterButton.render(),
+                                this.SearchBar.render(),
+                            ]
+                        },
                     ]
-                },
-                this.MapSearchMenu.render(),
-                {
-                    tag: "div",
-                    props: { id: "search", class: "absolute flex justify-center z-40 w-full" },
-                    children: [
-                        this.FilterButton.render(),
-                        this.SearchBar.render(),
-                    ]
-                },
-                {
-                    tag: "div",
-                    props: { id: "map", class: "h-[85vh] z-10", style: "width: 100%;" },
-                    children: []
                 }
             ]
         };

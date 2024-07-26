@@ -11,6 +11,7 @@ import { fetchData } from '../api/fetchData.js';
 
 export class HomePage extends Component {
     constructor(props) {
+
         super(props);
         const propSchema = {
             type: 'object',
@@ -44,6 +45,8 @@ export class HomePage extends Component {
             console.error("Erreur lors de la récupération des données :", error);
             return;
         }
+        this.mapElement.setState({ data: data.results });
+        this.mapElement.SearchBar.setState({ items: data.results });
 
         // Initialiser la carte si ce n'est pas déjà fait
         if (!this.map) {
@@ -109,9 +112,7 @@ export class HomePage extends Component {
                 });
             this.markers.push(singleMarker);
         }
-
-        this.mapElement.setState({ data: data.results });
-        this.mapElement.SearchBar.setState({ items: data.results });
+        
     }
 
 

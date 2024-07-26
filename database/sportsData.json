@@ -207,6 +207,32 @@
             "images": [
                 { "src": "/assets/images/icone-sports/cyclisme.svg", "alt": "Cyclisme" }
             ]
+        },
+        {
+            "id": "9",
+            "nom": "cyclisme",
+            "description": "Compétitions de cyclisme",
+            "image": "/assets/images/sports/cyclisme.jpg",
+            "calendars": [
+                {
+                    "day": "16",
+                    "month": "Août",
+                    "time": "09:00",
+                    "category": "Course sur route",
+                    "location": "Circuit Urbain"
+                },
+                {
+                    "day": "18",
+                    "month": "Août",
+                    "time": "13:00",
+                    "category": "Piste",
+                    "location": "Vélodrome"
+                }
+            ],
+            "historyText": "Le cyclisme est une discipline historique des Jeux Olympiques, introduite dès les premiers Jeux modernes en 1896. Les compétitions de cyclisme comprennent des épreuves sur route, sur piste, ainsi que le BMX et le VTT, mettant en vedette des courses spectaculaires et des démonstrations de vitesse et d'endurance.",
+            "images": [
+                { "src": "/assets/images/icone-sports/cyclisme.svg", "alt": "Cyclisme" }
+            ]
         }
     ]
 }
