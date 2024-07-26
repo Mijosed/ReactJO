@@ -14,7 +14,6 @@ export class Component {
   update() {
     const root = document.getElementById(this.props.id || "root");
     if(root === null) {
-      debugger;
         return;
 
     }

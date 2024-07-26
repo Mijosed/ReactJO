@@ -9,6 +9,7 @@ import {
 import { validateProps } from '../utils/typeCheck.js';
 import { fetchData } from '../api/fetchData.js';
 import { arraysEqual } from '../utils/arrayUtils.js';
+import { fetchLieux } from '../api/fetchLieux.js';
 
 export class HomePage extends Component {
     constructor(props) {
@@ -40,13 +41,14 @@ export class HomePage extends Component {
         let data;
 
         try {
-            data = dataSearch.length > 0 ? { results: dataSearch } : await fetchData();
+            data = dataSearch.length > 0 ? { results: dataSearch } : await fetchLieux();
         } catch (error) {
             this.setState({ error: "Erreur lors de la récupération des données : " + error.message });
             console.error("Erreur lors de la récupération des données:", error);
             return;
         }
         this.mapElement.SearchBar.setState({ items: data.results });
+        this.mapElement.MapSearchMenu.place.setState({ items: data.results });
         if(!this.map)
         {
             this.initializeMap();

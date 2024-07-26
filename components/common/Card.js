@@ -62,7 +62,7 @@ export class Card extends Component {
                     children: [
                         {
                             tag: "p",
-                            props: { class: "text-gray-700 text-base" },
+                            props: { class: "text-gray-700 text-base font-olympicSans" },
                             children: [this.props.description]
                         },
                         {
