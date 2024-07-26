@@ -707,20 +707,12 @@ video {
   left: 0px;
 }
 
-.top-1\/2 {
-  top: 50%;
-}
-
-.left-\[95\%\] {
-  left: 95%;
-}
-
-.left-\[89\%\] {
-  left: 89%;
-}
-
 .left-\[80\%\] {
   left: 80%;
+}
+
+.top-1\/2 {
+  top: 50%;
 }
 
 .top-\[5\%\] {
@@ -879,6 +871,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -893,10 +889,6 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mr-4 {
-  margin-right: 1rem;
 }
 
 .box-border {
@@ -3285,4 +3277,5 @@ footer {
     }
   }
 }
+
 

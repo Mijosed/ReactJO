@@ -3,7 +3,9 @@ import { SportPage } from "./views/SportPage.js";
 import { LocationPage } from "./views/LocationPage.js";
 import { NotFoundPage } from "./views/NotFoundPage.js";
 import { SportSection } from "./components/sections/Home/SportSection.js";
+import { LocationSection } from "./components/sections/Location/LocationSection.js";
 import { fetchSportsData } from './api/fetchSportsData.js';
+import { fetchLocationData } from './api/fetchLocationData.js';
 
 const routes = {
     "/": () => new HomePage({ title: "Home Page" }).render(),
@@ -32,10 +34,33 @@ const routes = {
             return new NotFoundPage({ title: "404 Page" }).render();
         }
     },
-    "/locations": () => new LocationPage({ title: "ARENA PARIS SUD", city: "Paris", subtitle: "Site de compétition" }).render(),
+    "/locations": async () => {
+        const data = await fetchLocationData();
+        return new LocationSection({ locations: data.locations }).render();
+    },
+    "/locations/:name": async (params) => {
+        const locationName = decodeURIComponent(params.name.toLowerCase());
+        try {
+            const data = await fetchLocationData();
+            const locationInfo = data.locations.find(location => location.name.toLowerCase() === locationName);
+            if (locationInfo) {
+                return new LocationPage({
+                    name: locationInfo.name,
+                    title: locationInfo.title,
+                    city: locationInfo.city,
+                    subtitle: locationInfo.subtitle,
+                    description: locationInfo.description,
+                    sports: locationInfo.sports,
+                    spots: locationInfo.spots
+                }).render();
+            } else {
+                return new NotFoundPage({ title: "404 Page" }).render();
+            }
+        } catch (error) {
+            return new NotFoundPage({ title: "404 Page" }).render();
+        }
+    },
     "/404": () => new NotFoundPage({ title: "404 Page" }).render(),
-    
-
 };
 
 export default routes;

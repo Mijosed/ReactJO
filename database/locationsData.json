@@ -1,0 +1,58 @@
+{
+  "locations": [
+    {
+      "name": "arena-paris-sud",
+      "title": "ARENA PARIS SUD",
+      "city": "Paris",
+      "subtitle": "Site de compétition",
+      "description": "L'Arena Paris Sud fait partie de Paris Expo, un centre d'expositions et de conférences situé dans le sud de Paris. Elle accueillera plusieurs épreuves sportives durant les Jeux Olympiques de 2024, et sera l'un des pôles majeurs des Jeux de Paris 2024.",
+      "image": "/assets/images/background-lieu.png",
+      "sports": [
+        { "src": "/assets/images/icon-athletisme.png", "alt": "athle" },
+        { "src": "/assets/images/icon-basket.png", "alt": "basket" },
+        { "src": "/assets/images/icon-natation.png", "alt": "natation" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "GRADIN A",
+          "description": "Description du Gradin A...",
+          "image": "/assets/images/gradin.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "BAR NORD",
+          "description": "Description du Bar Nord...",
+          "image": "/assets/images/bar.jpg"
+        }
+      ]
+    },
+    {
+      "name": "stade-de-france",
+      "title": "STADE DE FRANCE",
+      "city": "Saint-Denis",
+      "subtitle": "Stade national",
+      "description": "Le Stade de France est le plus grand stade de France, situé à Saint-Denis, au nord de Paris. Il accueillera les cérémonies d'ouverture et de clôture des Jeux Olympiques de 2024, ainsi que plusieurs compétitions sportives majeures.",
+      "image": "../assets/images/stade-de-france.jpg",
+      "sports": [
+        { "src": "../assets/images/icon-football.png", "alt": "football" },
+        { "src": "../assets/images/icon-athletisme.png", "alt": "athle" },
+        { "src": "../assets/images/icon-rugby.png", "alt": "rugby" }
+      ],
+      "spots": [
+        {
+          "id": "1",
+          "nom": "TRIBUNE EST",
+          "description": "La tribune est offre une vue imprenable sur le terrain...",
+          "image": "../assets/images/tribune-est.jpg"
+        },
+        {
+          "id": "2",
+          "nom": "TRIBUNE OUEST",
+          "description": "La tribune ouest est réputée pour son ambiance et son dynamisme...",
+          "image": "../assets/images/tribune-ouest.jpg"
+        }
+      ]
+    }
+  ]
+}
