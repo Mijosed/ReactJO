@@ -47,7 +47,6 @@ export class Render {
   }
 
   static render(component, root) {
-    root.innerHTML = "";
-    root.appendChild(Render.createElement(component));
+    root.replaceWith(Render.createElement(component));
   }
 }

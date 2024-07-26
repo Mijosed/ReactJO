@@ -13,6 +13,11 @@ export class Component {
 
   update() {
     const root = document.getElementById(this.props.id || "root");
+    if(root === null) {
+      debugger;
+        return;
+
+    }
     let rootToObjet = this.elementToObject(root);
 
     this.shouldUpdate(rootToObjet, this.render(), root);
