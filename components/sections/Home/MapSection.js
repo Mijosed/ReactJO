@@ -79,54 +79,52 @@ export class MapSection extends Component {
         console.log(this.state);
         return {
             tag: "div",
-            props: {  class: "relative",id: "map", },
+            props: { id: this.props.id, class: "relative" },
             children: [
                 {
                     tag: "div",
-                    props: {  class: "h-[85vh] ", id: this.props.id , style: "width: 100%;", style:"z-index: 10;" },
+                    props: { 
+                        class: "absolute top-1/2 transform -translate-y-1/2 z-50 transition-all duration-150 ease-in-out", 
+                        style: "left: 0;" 
+                    },
                     children: [
                         {
-                            tag: "div",
-                            props: { 
-                                class: "absolute top-1/2 transform -translate-y-1/2 z-9 transition-all duration-150 ease-in-out", 
-                                style: "left: 0;",
-                                
+                            tag: "button",
+                            props: {
+                                id: "menu-toggle-button",
+                                class: "bg-white text-black rounded-r-xl py-6 shadow-lg",
+                                onClick: this.toggleMenu.bind(this),
+                                style: "transition: transform 0.4s ease-in-out;",
                             },
                             children: [
                                 {
-                                    tag: "button",
+                                    tag: "img",
                                     props: {
-                                        id: "menu-toggle-button",
-                                        class: "bg-white text-black rounded-r-xl py-6 shadow-lg",
-                                        onClick: this.toggleMenu.bind(this),
-                                        style: "transition: transform 0.4s ease-in-out;",
+                                        id: "toggle-icon",
+                                        src: "../assets/icons/triangle.svg",
+                                        alt: "Toggle Menu",
+                                        class: "w-6 h-6",
+                                        style: "transition: transform 0.4s ease-in-out;"
                                     },
-                                    children: [
-                                        {
-                                            tag: "img",
-                                            props: {
-                                                id: "toggle-icon",
-                                                src: "../assets/icons/triangle.svg",
-                                                alt: "Toggle Menu",
-                                                class: "w-6 h-6",
-                                                style: "transition: transform 0.4s ease-in-out;"
-                                            },
-                                            children: []
-                                        }
-                                    ]
-                                },this.MapSearchMenu.render(),
-                                {
-                                    tag: "div",
-                                    props: { id: "search", class: "absolute flex justify-center w-full", style:"z-index: 450;" },
-                                    children: [
-                                        this.FilterButton.render(),
-                                        this.SearchBar.render(),
-                                    ]
-                                },
+                                    children: []
+                                }
                             ]
-                        },
-                        
+                        }
                     ]
+                },
+                this.MapSearchMenu.render(),
+                {
+                    tag: "div",
+                    props: { id: "search", class: "absolute flex justify-center z-40 w-full" },
+                    children: [
+                        this.FilterButton.render(),
+                        this.SearchBar.render(),
+                    ]
+                },
+                {
+                    tag: "div",
+                    props: { id: "map", class: "h-[85vh] z-10", style: "width: 100%;" },
+                    children: []
                 }
             ]
         };
