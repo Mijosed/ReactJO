@@ -31,7 +31,7 @@ export class HomePage extends Component {
         this.titleElementSites = new HomeTitle({ text: "Explorer les sites", couleur: "white", id: "sites", textColor: "black" });
         this.mapElement = new MapSection({ id: "map-section", data: this.state.data, homePage: this });
         this.footerElement = new Footer();
-        this.sportsSection = new SportSection({ id: "sports-section" });
+        this.sportsSection = new SportSection({ id: "sports-section",homePage: this });
 
         this.componentDidMount();
     }
