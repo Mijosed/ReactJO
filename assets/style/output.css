@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
-! tailwindcss v3.4.7 | MIT License | https://tailwindcss.com
-=======
 ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
->>>>>>> develop
 */
 
 /*
@@ -558,8 +554,6 @@ video {
   --tw-contain-style:  ;
 }
 
-<<<<<<< HEAD
-=======
 .\!container {
   width: 100% !important;
 }
@@ -665,13 +659,10 @@ video {
   visibility: collapse;
 }
 
->>>>>>> develop
 .static {
   position: static;
 }
 
-<<<<<<< HEAD
-=======
 .\!fixed {
   position: fixed !important;
 }
@@ -680,24 +671,18 @@ video {
   position: fixed;
 }
 
->>>>>>> develop
 .absolute {
   position: absolute;
 }
 
-<<<<<<< HEAD
-=======
 .\!relative {
   position: relative !important;
 }
 
->>>>>>> develop
 .relative {
   position: relative;
 }
 
-<<<<<<< HEAD
-=======
 .sticky {
   position: sticky;
 }
@@ -706,7 +691,6 @@ video {
   inset: -0.25rem;
 }
 
->>>>>>> develop
 .inset-0 {
   inset: 0px;
 }
@@ -715,8 +699,6 @@ video {
   bottom: 0px;
 }
 
-<<<<<<< HEAD
-=======
 .bottom-8 {
   bottom: 2rem;
 }
@@ -725,7 +707,6 @@ video {
   inset-inline-end: 0.25rem;
 }
 
->>>>>>> develop
 .left-0 {
   left: 0px;
 }
@@ -746,8 +727,6 @@ video {
   top: 5%;
 }
 
-<<<<<<< HEAD
-=======
 .isolate {
   isolation: isolate;
 }
@@ -756,7 +735,6 @@ video {
   isolation: auto;
 }
 
->>>>>>> develop
 .z-10 {
   z-index: 10;
 }
@@ -769,8 +747,6 @@ video {
   z-index: 50;
 }
 
-<<<<<<< HEAD
-=======
 .float-start {
   float: inline-start;
 }
@@ -819,7 +795,6 @@ video {
   margin: 0.25rem;
 }
 
->>>>>>> develop
 .m-4 {
   margin: 1rem;
 }
@@ -912,13 +887,10 @@ video {
   margin-top: 0.25rem;
 }
 
-<<<<<<< HEAD
-=======
 .mt-2 {
   margin-top: 0.5rem;
 }
 
->>>>>>> develop
 .mt-20 {
   margin-top: 5rem;
 }
@@ -927,8 +899,6 @@ video {
   margin-top: 10%;
 }
 
-<<<<<<< HEAD
-=======
 .box-border {
   box-sizing: border-box;
 }
@@ -948,13 +918,10 @@ video {
   display: block !important;
 }
 
->>>>>>> develop
 .block {
   display: block;
 }
 
-<<<<<<< HEAD
-=======
 .inline-block {
   display: inline-block;
 }
@@ -963,13 +930,10 @@ video {
   display: inline;
 }
 
->>>>>>> develop
 .flex {
   display: flex;
 }
 
-<<<<<<< HEAD
-=======
 .inline-flex {
   display: inline-flex;
 }
@@ -1022,13 +986,10 @@ video {
   display: flow-root;
 }
 
->>>>>>> develop
 .grid {
   display: grid;
 }
 
-<<<<<<< HEAD
-=======
 .inline-grid {
   display: inline-grid;
 }
@@ -1049,24 +1010,18 @@ video {
   display: none !important;
 }
 
->>>>>>> develop
 .hidden {
   display: none;
 }
 
-<<<<<<< HEAD
-=======
 .h-1 {
   height: 0.25rem;
 }
 
->>>>>>> develop
 .h-10 {
   height: 2.5rem;
 }
 
-<<<<<<< HEAD
-=======
 .h-14 {
   height: 3.5rem;
 }
@@ -1075,7 +1030,6 @@ video {
   height: 0.5rem;
 }
 
->>>>>>> develop
 .h-4 {
   height: 1rem;
 }
@@ -1172,8 +1126,6 @@ video {
   width: 392px;
 }
 
-<<<<<<< HEAD
-=======
 .w-\[this-is\\\\\] {
   width: this-is\\;
 }
@@ -1186,7 +1138,6 @@ video {
   width: weird-and-invalid;
 }
 
->>>>>>> develop
 .w-full {
   width: 100%;
 }
@@ -1204,8 +1155,6 @@ video {
   flex: 1 1 0%;
 }
 
-<<<<<<< HEAD
-=======
 .flex-shrink {
   flex-shrink: 1;
 }
@@ -1214,13 +1163,10 @@ video {
   flex-shrink: 1;
 }
 
->>>>>>> develop
 .flex-grow {
   flex-grow: 1;
 }
 
-<<<<<<< HEAD
-=======
 .grow {
   flex-grow: 1;
 }
@@ -1249,7 +1195,6 @@ video {
   border-collapse: separate;
 }
 
->>>>>>> develop
 .-translate-x-full {
   --tw-translate-x: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1265,19 +1210,14 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-<<<<<<< HEAD
-=======
 .\!transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 }
 
->>>>>>> develop
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-<<<<<<< HEAD
-=======
 .transform-cpu {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -1290,13 +1230,10 @@ video {
   transform: none;
 }
 
->>>>>>> develop
 .cursor-pointer {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
 .touch-auto {
   touch-action: auto;
 }
@@ -1571,7 +1508,6 @@ video {
   grid-auto-flow: column dense;
 }
 
->>>>>>> develop
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1584,30 +1520,22 @@ video {
   flex-direction: row;
 }
 
-<<<<<<< HEAD
-=======
 .flex-row-reverse {
   flex-direction: row-reverse;
 }
 
->>>>>>> develop
 .flex-col {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-=======
 .flex-col-reverse {
   flex-direction: column-reverse;
 }
 
->>>>>>> develop
 .flex-wrap {
   flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
-=======
 .flex-wrap-reverse {
   flex-wrap: wrap-reverse;
 }
@@ -1704,24 +1632,18 @@ video {
   align-content: stretch;
 }
 
->>>>>>> develop
 .items-start {
   align-items: flex-start;
 }
 
-<<<<<<< HEAD
-=======
 .items-end {
   align-items: flex-end;
 }
 
->>>>>>> develop
 .items-center {
   align-items: center;
 }
 
-<<<<<<< HEAD
-=======
 .items-baseline {
   align-items: baseline;
 }
@@ -1738,7 +1660,6 @@ video {
   justify-content: flex-start;
 }
 
->>>>>>> develop
 .justify-end {
   justify-content: flex-end;
 }
@@ -1751,8 +1672,6 @@ video {
   justify-content: space-between;
 }
 
-<<<<<<< HEAD
-=======
 .justify-around {
   justify-content: space-around;
 }
@@ -1781,7 +1700,6 @@ video {
   justify-items: stretch;
 }
 
->>>>>>> develop
 .gap-4 {
   gap: 1rem;
 }
@@ -1790,8 +1708,6 @@ video {
   gap: 2rem;
 }
 
-<<<<<<< HEAD
-=======
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1914,13 +1830,10 @@ video {
   overflow: auto;
 }
 
->>>>>>> develop
 .overflow-hidden {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-=======
 .overflow-clip {
   overflow: clip;
 }
@@ -1937,13 +1850,10 @@ video {
   overflow-x: auto;
 }
 
->>>>>>> develop
 .overflow-y-auto {
   overflow-y: auto;
 }
 
-<<<<<<< HEAD
-=======
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -2114,7 +2024,6 @@ video {
   border-radius: 0.25rem;
 }
 
->>>>>>> develop
 .rounded-full {
   border-radius: 9999px;
 }
@@ -2123,21 +2032,16 @@ video {
   border-radius: 0.5rem;
 }
 
-<<<<<<< HEAD
-=======
 .rounded-b {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
 
->>>>>>> develop
 .rounded-b-lg {
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
 
-<<<<<<< HEAD
-=======
 .rounded-e {
   border-start-end-radius: 0.25rem;
   border-end-end-radius: 0.25rem;
@@ -2148,27 +2052,21 @@ video {
   border-bottom-left-radius: 0.25rem;
 }
 
->>>>>>> develop
 .rounded-l-\[10px\] {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
-<<<<<<< HEAD
-=======
 .rounded-r {
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
 
->>>>>>> develop
 .rounded-r-xl {
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
 }
 
-<<<<<<< HEAD
-=======
 .rounded-s {
   border-start-start-radius: 0.25rem;
   border-end-start-radius: 0.25rem;
@@ -2187,13 +2085,10 @@ video {
   border-bottom-right-radius: 0.25rem;
 }
 
->>>>>>> develop
 .rounded-br-lg {
   border-bottom-right-radius: 0.5rem;
 }
 
-<<<<<<< HEAD
-=======
 .rounded-ee {
   border-end-end-radius: 0.25rem;
 }
@@ -2218,7 +2113,6 @@ video {
   border-top-right-radius: 0.25rem;
 }
 
->>>>>>> develop
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
@@ -2231,8 +2125,6 @@ video {
   border-width: 2px;
 }
 
-<<<<<<< HEAD
-=======
 .border-x {
   border-left-width: 1px;
   border-right-width: 1px;
@@ -2243,13 +2135,10 @@ video {
   border-bottom-width: 1px;
 }
 
->>>>>>> develop
 .border-b {
   border-bottom-width: 1px;
 }
 
-<<<<<<< HEAD
-=======
 .border-e {
   border-inline-end-width: 1px;
 }
@@ -2294,7 +2183,6 @@ video {
   border-style: none;
 }
 
->>>>>>> develop
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -2325,14 +2213,11 @@ video {
   background-color: rgb(255 177 20 / var(--tw-bg-opacity));
 }
 
-<<<<<<< HEAD
-=======
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
->>>>>>> develop
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -2356,8 +2241,6 @@ video {
   --tw-bg-opacity: 0.5;
 }
 
-<<<<<<< HEAD
-=======
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2378,13 +2261,10 @@ video {
           box-decoration-break: clone;
 }
 
->>>>>>> develop
 .bg-cover {
   background-size: cover;
 }
 
-<<<<<<< HEAD
-=======
 .bg-fixed {
   background-attachment: fixed;
 }
@@ -2414,13 +2294,10 @@ video {
           background-clip: text;
 }
 
->>>>>>> develop
 .bg-center {
   background-position: center;
 }
 
-<<<<<<< HEAD
-=======
 .bg-repeat {
   background-repeat: repeat;
 }
@@ -2462,14 +2339,11 @@ video {
      object-fit: contain;
 }
 
->>>>>>> develop
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-<<<<<<< HEAD
-=======
 .object-fill {
   -o-object-fit: fill;
      object-fit: fill;
@@ -2497,7 +2371,6 @@ video {
   padding: 4rem;
 }
 
->>>>>>> develop
 .p-2 {
   padding: 0.5rem;
 }
@@ -2506,24 +2379,18 @@ video {
   padding: 0.625rem;
 }
 
-<<<<<<< HEAD
-=======
 .p-3 {
   padding: 0.75rem;
 }
 
->>>>>>> develop
 .p-4 {
   padding: 1rem;
 }
 
-<<<<<<< HEAD
-=======
 .p-8 {
   padding: 2rem;
 }
 
->>>>>>> develop
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2539,19 +2406,14 @@ video {
   padding-bottom: 1.5rem;
 }
 
-<<<<<<< HEAD
-=======
 .text-left {
   text-align: left;
 }
 
->>>>>>> develop
 .text-center {
   text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 .text-right {
   text-align: right;
 }
@@ -2600,7 +2462,6 @@ video {
   vertical-align: super;
 }
 
->>>>>>> develop
 .font-olympic {
   font-family: "OlympicHeadline", sans-serif;
 }
@@ -2664,8 +2525,6 @@ video {
   font-weight: 700;
 }
 
-<<<<<<< HEAD
-=======
 .uppercase {
   text-transform: uppercase;
 }
@@ -2738,7 +2597,6 @@ video {
   color: rgb(51 102 153 / .35);
 }
 
->>>>>>> develop
 .text-\[\#9E9E9E\] {
   --tw-text-opacity: 1;
   color: rgb(158 158 158 / var(--tw-text-opacity));
@@ -2784,8 +2642,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-<<<<<<< HEAD
-=======
 .underline {
   text-decoration-line: underline;
 }
@@ -2974,7 +2830,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
 }
 
->>>>>>> develop
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -3004,8 +2859,6 @@ video {
   outline-offset: 2px;
 }
 
-<<<<<<< HEAD
-=======
 .outline {
   outline-style: solid;
 }
@@ -3061,13 +2914,10 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
 
->>>>>>> develop
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-<<<<<<< HEAD
-=======
 .filter-none {
   filter: none;
 }
@@ -3106,7 +2956,6 @@ video {
           backdrop-filter: none;
 }
 
->>>>>>> develop
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -3139,19 +2988,14 @@ video {
   transition-duration: 300ms;
 }
 
-<<<<<<< HEAD
-=======
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
->>>>>>> develop
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-<<<<<<< HEAD
-=======
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
@@ -3206,7 +3050,6 @@ video {
   forced-color-adjust: none;
 }
 
->>>>>>> develop
 @font-face {
   font-family: 'OlympicHeadline';
 
@@ -3349,8 +3192,6 @@ footer {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(240, 40, 45, 0.6) 100%);
 }
 
-<<<<<<< HEAD
-=======
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -3387,19 +3228,15 @@ footer {
   }
 }
 
->>>>>>> develop
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-<<<<<<< HEAD
-=======
 .hover\:font-bold:hover {
   font-weight: 700;
 }
 
->>>>>>> develop
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
@@ -3409,8 +3246,6 @@ footer {
   text-decoration-line: underline;
 }
 
-<<<<<<< HEAD
-=======
 .before\:hover\:text-center:hover::before {
   content: var(--tw-content);
   text-align: center;
@@ -3429,7 +3264,6 @@ footer {
   text-align: center;
 }
 
->>>>>>> develop
 @media (min-width: 640px) {
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3439,13 +3273,10 @@ footer {
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
-<<<<<<< HEAD
-=======
 
   .sm\:underline {
     text-decoration-line: underline;
   }
->>>>>>> develop
 }
 
 @media (min-width: 768px) {
@@ -3458,8 +3289,6 @@ footer {
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-<<<<<<< HEAD
-=======
 }
 
 @media (prefers-color-scheme: dark) {
@@ -3468,7 +3297,6 @@ footer {
       paint-order: markers;
     }
   }
->>>>>>> develop
 }
 
 
