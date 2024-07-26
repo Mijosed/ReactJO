@@ -6,6 +6,7 @@ import {
     Pagination
 } from '../../Components.js';
 import { validateProps } from '../../../utils/typeCheck.js';
+import { SearchBar } from '../../common/SearchBar.js';
 
 export class SportSection extends Component {
     constructor(props = {}) {
@@ -18,8 +19,10 @@ export class SportSection extends Component {
             currentPage: 1,
             itemsPerPage: 8,
         };
+        this.homePage = this.props.homePage;
         this.id = props.id || "sports-section";
         this.titleElementSports = new HomeTitle({ text: "Les différents sports présents lors des JO", couleur: "black", id: "sports", textColor: "white" });
+        this.searchbar = new SearchBar({id: "search-bar-sport",homePage: this.homePage, state: {query: this.state.query ?? "", items: this.state.sports, isSearchMap: false, }});
         this.pagination = new Pagination({
             id: "sports-pagination",
             state: {
@@ -39,6 +42,7 @@ export class SportSection extends Component {
         try {
             const data = await fetchSportsData();
             this.setState({ sports: data.sports, loading: false });
+            this.searchbar.setState({ items: data.sports });
             this.pagination.setState({ totalItems: data.sports.length });
         } catch (error) {
             this.setState({ error: error.message, loading: false });
@@ -82,7 +86,9 @@ export class SportSection extends Component {
             tag: "div",
             props: { id: this.id },
             children: [
+
                 this.titleElementSports.render(),
+                this.searchbar.render(),
                 {
                     tag: "div",
                     props: { class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 mx-20", id: "sports" },

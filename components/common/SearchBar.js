@@ -14,14 +14,24 @@ export class SearchBar extends Component {
 
   handleInputChange(event) {
     const query = event.target.value;
-    const filteredItems = query ? this.state.items.filter((item) => item.nom_site.toLowerCase().includes(query.toLowerCase())) : [];
-
-    this.searchBarResult.setState({
-      query: query,
-      filteredItems: filteredItems,
-      loading: false,
-    });
+  
+    if(this.props.isSearchMap){
+      const filteredItemsMap = query ? this.state.items.filter((item) => item.nom_site.toLowerCase().includes(query.toLowerCase())) : [];
+      this.searchBarResult.setState({
+        query: query,
+        filteredItems: filteredItemsMap,
+        loading: false,
+      });
     this.homePage.componentDidMount(filteredItems);
+
+    }else{
+      if(query === ""){
+        this.homePage.sportsSection.loadSportsData();
+      }
+      const filteredItemsSport = query ? this.state.items.filter((item) => item.nom.toLowerCase().includes(query.toLowerCase())) : [];
+      this.homePage.sportsSection.pagination.setState({ totalItems: filteredItemsSport.length });
+      this.homePage.sportsSection.setState({sports:filteredItemsSport});
+    }
   }
 
   toggleSearchBar(show) {
@@ -50,7 +60,7 @@ export class SearchBar extends Component {
                 class: "flex-grow p-2 bg-transparent outline-none rounded-full font-olympicSans",
                 value: this.state.query,
                 onInput: (event) => this.handleInputChange(event),
-                onFocus: () => this.toggleSearchBar(true),
+                onFocus: () => { this.props.isSearchMap === true ? this.toggleSearchBar(true) :""},
                 onBlur: () => setTimeout(() => this.toggleSearchBar(false), 200),
               },
               children: [],

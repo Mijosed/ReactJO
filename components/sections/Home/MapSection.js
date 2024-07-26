@@ -19,6 +19,7 @@ export class MapSection extends Component {
                 loading: false,
             },
             homePage: this.props.homePage,
+            isSearchMap: true
         });
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
