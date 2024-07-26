@@ -9,15 +9,13 @@ export class MapSection extends Component {
         this.actualTarget = null;
         this.SearchBar = new SearchBar({ id: "search-bar-map", context: "map",
             state: {
-            query: "",
-            items: [
-              this.state.data,
-            ],
-            filteredItems: [],
-            loading: false,
-          },
-          homePage: this.props.homePage,
-         } );
+                query: "",
+                items: this.state.data,
+                filteredItems: [],
+                loading: false,
+            },
+            homePage: this.props.homePage,
+        });
         this.FilterButton = new FilterButton();
         this.MapSearchMenu = new MapSearchMenu();
         this.MapFilterMenu = new MapFilterMenu();
@@ -118,7 +116,6 @@ export class MapSection extends Component {
     }
 
     render() {
-        console.log(this.state);
         return {
             tag: "div",
             props: { id: this.props.id, class: "relative" },

@@ -9,6 +9,7 @@ import { validateProps } from '../../../utils/typeCheck.js';
 
 export class SportSection extends Component {
     constructor(props = {}) {
+
         super(props);
         this.state = {
             sports: props.sports || [],
@@ -38,8 +39,10 @@ export class SportSection extends Component {
         try {
             const data = await fetchSportsData();
             this.setState({ sports: data.sports, loading: false });
+            this.pagination.setState({ totalItems: data.sports.length });
         } catch (error) {
             this.setState({ error: error.message, loading: false });
+
         }
     }
 
@@ -75,7 +78,6 @@ export class SportSection extends Component {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const sportsToDisplay = sports.slice(startIndex, endIndex);
-
         return {
             tag: "div",
             props: { id: this.id },

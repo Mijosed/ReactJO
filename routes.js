@@ -6,10 +6,10 @@ import { SportSection } from "./components/sections/Home/SportSection.js";
 import { fetchSportsData } from './api/fetchSportsData.js';
 
 const routes = {
-    "/": () => new HomePage({ title: "Home Page" }).render(),
+    "/": () => new HomePage({ title: "Home Page", id:"root" }).render(),
     "/sports": async () => {
         const data = await fetchSportsData();
-        return new SportSection({ sports: data.sports }).render();
+        return new SportSection({ sports: data.sports, id:"root" }).render();
     },
     "/sports/:name": async (params) => {
         const sportName = decodeURIComponent(params.name.toLowerCase());
@@ -23,17 +23,18 @@ const routes = {
                     image: sportInfo.image,
                     calendars: sportInfo.calendars,
                     historyText: sportInfo.historyText,
-                    images: sportInfo.images
+                    images: sportInfo.images,
+                    id : "root"
                 }).render();
             } else {
-                return new NotFoundPage({ title: "404 Page" }).render();
+                return new NotFoundPage({ title: "404 Page", id:"root" }).render();
             }
         } catch (error) {
-            return new NotFoundPage({ title: "404 Page" }).render();
+            return new NotFoundPage({ title: "404 Page",id:"root" }).render();
         }
     },
-    "/locations": () => new LocationPage({ title: "ARENA PARIS SUD", city: "Paris", subtitle: "Site de compétition" }).render(),
-    "/404": () => new NotFoundPage({ title: "404 Page" }).render(),
+    "/locations": () => new LocationPage({ title: "ARENA PARIS SUD", city: "Paris", subtitle: "Site de compétition",id:"root" }).render(),
+    "/404": () => new NotFoundPage({ title: "404 Page",id:"root" }).render(),
     
 
 };

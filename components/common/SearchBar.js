@@ -21,13 +21,13 @@ export class SearchBar extends Component {
       filteredItems: filteredItems,
       loading: false,
     });
-    
     this.homePage.componentDidMount(filteredItems);
   }
 
   toggleSearchBar(show) {
     if (show) {
       this.searchBarResult.setState({ display: true });
+      this
     } else {
       this.searchBarResult.setState({ display: false });
     }
